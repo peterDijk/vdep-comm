@@ -13,13 +13,8 @@ const IndexPage = () => (
       keywords={[`gatsby`, `application`, `react`]}
       description="omschrijving"
     />
-    <h1>VDEP</h1>
-    <h2>Welcome to your new Gatsby site.</h2>
-    <code>Now go build something great.</code>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
+    <h1>Communicatie over Grenzen</h1>
+    <h2>subtitle</h2>
   </Layout>
 );
 
