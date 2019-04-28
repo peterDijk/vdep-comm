@@ -24,7 +24,7 @@ module.exports = {
         background_color: `#00AEED`,
         theme_color: `#7CC04E`,
         display: `minimal-ui`,
-        icon: `src/images/vdep-vignet.jpg`, // This path is relative to the root of the site.
+        icon: `src/images/VDEP_Vignet_Logo.png`, // This path is relative to the root of the site.
       },
     },
     {

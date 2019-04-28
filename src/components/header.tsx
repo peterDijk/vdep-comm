@@ -2,9 +2,23 @@ import { Link, graphql, StaticQuery, useStaticQuery } from "gatsby";
 import React from "react";
 
 import { LanguageState } from "../lib/LanguageStateProvider";
+import { translate as t } from "../lib/i18n";
 
 import { COLOR } from "../styles/constants";
-import { Header as StyledHeader, Hero, NavBar } from "../styles/Main";
+import Image from "./image";
+import {
+  Header as StyledHeader,
+  Hero,
+  NavBar,
+  Logo,
+  LogoBox,
+  Menu,
+  MenuItem,
+  NavBarRight,
+  LangBox,
+  LangOption,
+} from "../styles/Main";
+import { Button } from "../styles/buttons";
 
 const Header = () => {
   const { drupal } = useStaticQuery(graphql`
@@ -45,7 +59,36 @@ const Header = () => {
         console.log(header);
         return (
           <StyledHeader>
-            <NavBar />
+            <NavBar>
+              <LogoBox>
+                <Logo>
+                  <Image fileName={"VDEP_Vignet_Logo.png"} />
+                </Logo>
+              </LogoBox>
+              <Menu>
+                <MenuItem>{t("ABOUTUS", language)}</MenuItem>
+                <MenuItem>{t("OURSEMINARS", language)}</MenuItem>
+                <MenuItem>{t("FAQs", language)}</MenuItem>
+              </Menu>
+              <NavBarRight>
+                <LangBox>
+                  <LangOption
+                    isActive={language === "en"}
+                    onClick={() => setLanguage("en")}
+                  >
+                    EN
+                  </LangOption>
+                  /
+                  <LangOption
+                    isActive={language === "nl"}
+                    onClick={() => setLanguage("nl")}
+                  >
+                    NL
+                  </LangOption>
+                </LangBox>
+                <Button>{t("MAKEINQ", language)}</Button>
+              </NavBarRight>
+            </NavBar>
             <Hero heroImgUrl={header.fieldHeroImage.url} />
           </StyledHeader>
         );
