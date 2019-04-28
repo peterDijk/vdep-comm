@@ -1,13 +1,8 @@
 import { createGlobalStyle } from "./styled-components";
-import WebFont from "webfontloader";
-
-import { COLOR, STYLES } from "./constants";
-
-WebFont.load({
-  google: { families: ["Roboto", "Roboto Slab", "sans-serif"] },
-});
 
 export const Global = createGlobalStyle`
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 *,
 *::after,
 *::before {
