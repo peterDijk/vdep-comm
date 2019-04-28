@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "./styled-components";
+import { COLOR } from "./constants";
 
 export const Global = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
@@ -19,5 +20,11 @@ html {
 
 body {
   box-sizing: border-box;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+  color: ${COLOR.VDEP_SECONDARY_BLUE}
 }
 `;
