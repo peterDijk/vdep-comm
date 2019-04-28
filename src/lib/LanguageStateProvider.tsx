@@ -32,7 +32,6 @@ export class LanguageStateProvider extends React.Component<{}, State> {
   };
 
   render() {
-    console.log({ language: this.state.language });
     return (
       <Provider
         value={{

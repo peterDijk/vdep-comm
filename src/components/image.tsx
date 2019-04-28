@@ -45,7 +45,6 @@ const Image = props => (
       }
 
       const imageSizes = image.node.childImageSharp.sizes;
-      console.log(imageSizes);
       return <Img alt={props.alt} sizes={imageSizes} />;
     }}
   />
