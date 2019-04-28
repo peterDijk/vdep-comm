@@ -2,6 +2,8 @@ import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
 
+import { LanguageState } from "../lib/LanguageStateProvider";
+
 import { COLOR } from "../styles/constants";
 
 const Header = ({ siteTitle }) => (
@@ -29,7 +31,18 @@ const Header = ({ siteTitle }) => (
           {siteTitle}
         </Link>
       </h1>
+      <LanguageState>
+        {({ availableLanguages, language, setLanguage }) => (
+          <div>
+            <span onClick={() => setLanguage("nl")}>NL</span>
+            &nbsp;/&nbsp;
+            <span onClick={() => setLanguage("en")}>EN</span>
+          </div>
+        )}
+      </LanguageState>
     </div>
+    <Link to="/">index</Link>
+    <Link to="/page-2">page-2</Link>
   </header>
 );
 
