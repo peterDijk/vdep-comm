@@ -24,7 +24,7 @@ module.exports = {
         background_color: `#00AEED`,
         theme_color: `#7CC04E`,
         display: `minimal-ui`,
-        icon: `src/images/vdep-vignet.jpg`, // This path is relative to the root of the site.
+        icon: `src/images/VDEP_Vignet_Logo.png`, // This path is relative to the root of the site.
       },
     },
     {
@@ -40,17 +40,6 @@ module.exports = {
         //   // Learn about environment variables: https://gatsby.dev/env-vars
         //   Authorization: `bearer ${process.env.GITHUB_TOKEN}`,
         // },
-      },
-    },
-    {
-      resolve: `gatsby-source-graphql`,
-      options: {
-        // This type will contain remote schema Query type
-        typeName: `WPGraphQL`,
-        // This is field under which it's accessible
-        fieldName: `wpgraphql`,
-        // Url to query from
-        url: `https://demo.wpgraphql.com/graphql`,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

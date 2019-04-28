@@ -1,20 +1,23 @@
 const BLACK = "#000";
 const WHITE = "#fff";
+const WHITE_RGB = "255,255,255";
 const RICHBLACK = "#002233";
 const RICHBLACK_RBG = "0,34,51";
-const VDEP_BLUE = "#00AEED";
-const VDEP_SECONDARY_BLUE = "0183B7";
+const VDEP_BLUE = "#00ADF1";
+const VDEP_SECONDARY_BLUE = "#0084B5";
 const VDEP_GREEN = "7CC04E";
 
 export const COLOR = {
   BLACK,
   WHITE,
+  WHITE_RGB,
   RICHBLACK,
   RICHBLACK_RBG,
   VDEP_BLUE,
   VDEP_SECONDARY_BLUE,
   VDEP_GREEN,
   RICHBLACK_80: `rgba(${RICHBLACK_RBG},.8)`,
+  WHITE_15: `rgba(${WHITE_RGB}, .15)`,
 };
 
 export const STYLES = {
