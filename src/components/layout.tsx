@@ -11,8 +11,8 @@ import { StaticQuery, graphql } from "gatsby";
 
 import { Provider } from "../lib/Providers";
 
-import Header from "./Header";
-import "./layout.css";
+import Header from "./header";
+import { Global } from "../styles";
 
 import { StyledContainer } from "../styles/Main";
 
@@ -29,20 +29,23 @@ const Layout = ({ children }) => (
         }
       `}
       render={data => (
-        <StyledContainer>
-          <Header siteTitle={data.site.siteMetadata.title} />
-          <div
-            style={{
-              margin: `0 auto`,
-              maxWidth: 960,
-              padding: `0px 1.0875rem 1.45rem`,
-              paddingTop: 0,
-            }}
-          >
-            <main>{children}</main>
-            <footer />
-          </div>
-        </StyledContainer>
+        <React.Fragment>
+          <Global />
+          <StyledContainer>
+            <Header />
+            {/* <div
+              style={{
+                margin: `0 auto`,
+                maxWidth: 960,
+                padding: `0px 1.0875rem 1.45rem`,
+                paddingTop: 0,
+              }}
+            >
+              <main>{children}</main>
+              <footer />
+            </div> */}
+          </StyledContainer>
+        </React.Fragment>
       )}
     />
   </Provider>

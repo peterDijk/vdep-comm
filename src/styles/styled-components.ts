@@ -6,10 +6,10 @@ const {
   default: styled,
   css,
   // @ts-ignore
-  // injectGlobal,
+  createGlobalStyle,
   keyframes,
   ThemeProvider,
 } = styledComponents;
 
-export { css, keyframes, ThemeProvider };
+export { css, keyframes, ThemeProvider, createGlobalStyle };
 export default styled;

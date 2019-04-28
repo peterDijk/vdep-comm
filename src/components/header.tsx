@@ -1,57 +1,57 @@
-import { Link } from "gatsby";
-import PropTypes from "prop-types";
+import { Link, graphql, StaticQuery, useStaticQuery } from "gatsby";
 import React from "react";
 
 import { LanguageState } from "../lib/LanguageStateProvider";
 
 import { COLOR } from "../styles/constants";
+import { Header as StyledHeader, Hero, NavBar } from "../styles/Main";
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: COLOR.VDEP_BLUE,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
+const Header = () => {
+  const { drupal } = useStaticQuery(graphql`
+    query {
+      drupal {
+        nodeQuery(
+          filter: { conditions: [{ field: "type", value: "header" }] }
+        ) {
+          entities {
+            entityTranslations {
+              ... on DRUPAL_NodeHeader {
+                uuid
+                langcode {
+                  value
+                }
+                title
+                fieldCogMessage
+                fieldCogSubMessage
+                fieldHeroImage {
+                  alt
+                  url
+                  height
+                  width
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+  return (
+    <LanguageState>
+      {({ language, setLanguage }) => {
+        const header = drupal.nodeQuery.entities[0].entityTranslations.find(
+          lang => lang.langcode.value === language
+        );
+        console.log(header);
+        return (
+          <StyledHeader>
+            <NavBar />
+            <Hero heroImgUrl={header.fieldHeroImage.url} />
+          </StyledHeader>
+        );
       }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: COLOR.WHITE,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-      <LanguageState>
-        {({ availableLanguages, language, setLanguage }) => (
-          <div>
-            <span onClick={() => setLanguage("nl")}>NL</span>
-            &nbsp;/&nbsp;
-            <span onClick={() => setLanguage("en")}>EN</span>
-          </div>
-        )}
-      </LanguageState>
-    </div>
-    <Link to="/">index</Link>
-    <Link to="/page-2">page-2</Link>
-  </header>
-);
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-};
-
-Header.defaultProps = {
-  siteTitle: ``,
+    </LanguageState>
+  );
 };
 
 export default Header;

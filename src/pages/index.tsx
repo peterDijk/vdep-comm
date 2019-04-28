@@ -14,17 +14,18 @@ const IndexPage = ({ data }) => {
           const article = data.drupal.nodeQuery.entities[0].entityTranslations.find(
             lang => lang.langcode.value === language
           );
-          return (
-            <React.Fragment>
-              <SEO
-                title="Home"
-                keywords={[`gatsby`, `application`, `react`]}
-                description="omschrijving"
-              />
-              <h1>{article.title}</h1>
-              <h2>{article.body.value}</h2>
-            </React.Fragment>
-          );
+          return null;
+          // return (
+          //   <React.Fragment>
+          //     <SEO
+          //       title="Home"
+          //       keywords={[`gatsby`, `application`, `react`]}
+          //       description="omschrijving"
+          //     />
+          //     <h1>{article.title}</h1>
+          //     <h2>{article.body.value}</h2>
+          //   </React.Fragment>
+          // );
         }}
       </LanguageState>
     </Layout>
