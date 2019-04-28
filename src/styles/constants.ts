@@ -18,6 +18,7 @@ export const COLOR = {
   VDEP_GREEN,
   RICHBLACK_80: `rgba(${RICHBLACK_RBG},.8)`,
   WHITE_15: `rgba(${WHITE_RGB}, .15)`,
+  RICKBLACK_15: `rgba(${RICHBLACK_RBG}, .15)`,
 };
 
 export const STYLES = {

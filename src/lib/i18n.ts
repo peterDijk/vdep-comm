@@ -1,4 +1,16 @@
 const translations = {
+  COMMUNICATION: {
+    nl: "Communicatie",
+    en: "Communication",
+  },
+  ACCROSS: {
+    nl: "over",
+    en: "accross",
+  },
+  BORDERS: {
+    nl: "grenzen",
+    en: "borders",
+  },
   ABOUTUS: {
     nl: "Over ons",
     en: "About us",

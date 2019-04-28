@@ -17,6 +17,13 @@ import {
   NavBarRight,
   LangBox,
   LangOption,
+  SiteTitleContainer,
+  LogoContainer,
+  CoG,
+  LogoTextOne,
+  LogoTextTwo,
+  LogoTextThree,
+  SitePayoff,
 } from "../styles/Main";
 import { Button } from "../styles/buttons";
 
@@ -61,9 +68,11 @@ const Header = () => {
           <StyledHeader>
             <NavBar>
               <LogoBox>
-                <Logo>
-                  <Image fileName={"VDEP_Vignet_Logo.png"} />
-                </Logo>
+                <Link to="/">
+                  <Logo>
+                    <Image fileName={"VDEP_Vignet_Logo.png"} />
+                  </Logo>
+                </Link>
               </LogoBox>
               <Menu>
                 <MenuItem>{t("ABOUTUS", language)}</MenuItem>
@@ -89,7 +98,24 @@ const Header = () => {
                 <Button>{t("MAKEINQ", language)}</Button>
               </NavBarRight>
             </NavBar>
-            <Hero heroImgUrl={header.fieldHeroImage.url} />
+            <Hero heroImgUrl={header.fieldHeroImage.url}>
+              <SiteTitleContainer>
+                <LogoContainer>
+                  <CoG>
+                    <Image fileName={"190425_CoG_Logo_WO-title.png"} />
+                  </CoG>
+                  <h1>
+                    <LogoTextOne>{t("COMMUNICATION", language)}</LogoTextOne>
+                    <LogoTextTwo>{t("ACCROSS", language)}</LogoTextTwo>
+                    <LogoTextThree>{t("BORDERS", language)}</LogoTextThree>
+                  </h1>
+                </LogoContainer>
+                <SitePayoff>
+                  <h2>{header.fieldCogMessage}</h2>
+                  <h3>{header.fieldCogSubMessage}</h3>
+                </SitePayoff>
+              </SiteTitleContainer>
+            </Hero>
           </StyledHeader>
         );
       }}
