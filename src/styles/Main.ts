@@ -11,7 +11,7 @@ export const StyledContainer = styled.div`
 `;
 
 export const NavBar = styled.div`
-  height: 8.5rem;
+  height: 6rem;
   width: 100%;
   display: flex;
   position: fixed;
@@ -22,7 +22,7 @@ export const NavBar = styled.div`
   align-items: center;
 
   font-family: "Roboto Slab", "sans-serif";
-  font-size: 2rem;
+  font-size: 1.5rem;
 `;
 
 export const NavBarRight = styled.div`
@@ -52,7 +52,7 @@ export const LogoBox = styled.div`
 `;
 
 export const Logo = styled.div`
-  width: 6rem;
+  width: 4.5rem;
 `;
 
 export const Menu = styled.div`
@@ -102,15 +102,15 @@ export const SitePayoff = styled.div`
   top: 3rem;
   font-family: "Roboto", "sans-serif";
   color: ${COLOR.WHITE};
-  width: 90%;
+  width: 100%;
 
   h2 {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: bold;
     margin: 2rem 0;
   }
   h3 {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: normal;
     margin: 2rem 0;
   }
@@ -122,7 +122,7 @@ export const LogoContainer = styled.div`
   h1 {
     font-family: "Roboto Slab", "sans-serif";
     color: ${COLOR.WHITE};
-    font-size: 0.04rem;
+    font-size: 0.037rem;
     text-align: center;
     position: relative;
     top: 0.5rem;
@@ -133,7 +133,7 @@ export const LogoContainer = styled.div`
 `;
 
 export const CoG = styled.div`
-  width: 20rem;
+  width: 18rem;
 `;
 
 export const LogoTextOne = styled.div`
