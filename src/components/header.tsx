@@ -8,14 +8,6 @@ import Image from "./image";
 import {
   Header as StyledHeader,
   Hero,
-  NavBar,
-  Logo,
-  LogoBox,
-  Menu,
-  MenuItem,
-  NavBarRight,
-  LangBox,
-  LangOption,
   SiteTitleContainer,
   LogoContainer,
   CoG,
@@ -24,7 +16,6 @@ import {
   LogoTextThree,
   SitePayoff,
 } from "../styles/Main";
-import { Button } from "../styles/buttons";
 
 const Header = ({ language }) => {
   const { drupal } = useStaticQuery(graphql`
@@ -59,35 +50,8 @@ const Header = ({ language }) => {
   const header = drupal.nodeQuery.entities[0].entityTranslations.find(
     lang => lang.langcode.value === language
   );
-  console.log(header);
   return header ? (
     <StyledHeader>
-      <NavBar>
-        <LogoBox>
-          <Link to="/">
-            <Logo>
-              <Image fileName={"VDEP_Vignet_Logo.png"} />
-            </Logo>
-          </Link>
-        </LogoBox>
-        <Menu>
-          <MenuItem>{t("ABOUTUS", language)}</MenuItem>
-          <MenuItem>{t("OURSEMINARS", language)}</MenuItem>
-          <MenuItem>{t("FAQs", language)}</MenuItem>
-        </Menu>
-        <NavBarRight>
-          <LangBox>
-            <Link to="/en">
-              <LangOption isActive={language === "en"}>EN</LangOption>
-            </Link>
-            /
-            <Link to="/">
-              <LangOption isActive={language === "nl"}>NL</LangOption>
-            </Link>
-          </LangBox>
-          <Button>{t("MAKEINQ", language)}</Button>
-        </NavBarRight>
-      </NavBar>
       <Hero heroImgUrl={header.fieldHeroImage.url}>
         <SiteTitleContainer>
           <LogoContainer>

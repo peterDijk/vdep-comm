@@ -27,6 +27,10 @@ const translations = {
     nl: "Doe een aanvraag",
     en: "Make an Inquiry",
   },
+  UPCOMINGSEMINARS: {
+    nl: "Bekijk Aankomende Seminars",
+    en: "View Upcoming Seminars",
+  },
 };
 
 export const translate = (string, language) => {
