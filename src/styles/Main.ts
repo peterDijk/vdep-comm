@@ -67,9 +67,13 @@ export const MenuItem = styled.div`
   margin: 0 3rem;
 `;
 
+export const AboveTheFold = styled.div`
+  height: 100vh;
+`;
+
 export const Header = styled.div`
   width: 100%;
-  height: 70vh;
+  height: 60%;
   position: relative;
 `;
 
@@ -79,7 +83,6 @@ type HeroProps = {
 
 export const Hero = styled.div<HeroProps>`
   background-image: url(${props => props.heroImgUrl});
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   background-size: cover;
   background-position: top;
   height: 100%;
