@@ -13,6 +13,7 @@ import { Router, Link, Location } from "@reach/router";
 import { Provider } from "../lib/Providers";
 
 import Header from "./header";
+import { NavBar } from "./NavBar";
 import { Global } from "../styles";
 
 import { StyledContainer } from "../styles/Main";
@@ -40,7 +41,7 @@ const Layout = props => {
                 <React.Fragment>
                   <Global />
                   <StyledContainer>
-                    <Header language={lang} />
+                    <NavBar language={lang} />
                     <div>
                       <main>{children}</main>
                       <footer />
