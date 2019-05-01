@@ -5,7 +5,7 @@ import Header from "../components/header";
 import { UpcomingEvents } from "../components/UpcomingEvents";
 import SEO from "../components/seo";
 import { filterEvents } from "../lib/filterEvents";
-import { AboveTheFold } from "../styles/Main";
+import { AboveTheFold, StoryTelling, BrowserWindow } from "../styles/Main";
 
 const IndexPage = ({ data }) => {
   const language = "nl";
@@ -36,6 +36,9 @@ const IndexPage = ({ data }) => {
         </React.Fragment>
         <UpcomingEvents events={upcomingPerSeminar} language={language} />
       </AboveTheFold>
+      <BrowserWindow>
+        <StoryTelling>test</StoryTelling>
+      </BrowserWindow>
     </Layout>
   );
 };

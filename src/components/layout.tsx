@@ -15,19 +15,49 @@ import { Global } from "../styles";
 
 import { StyledContainer } from "../styles/Main";
 
-const Layout = ({ children, lang }) => (
-  <Provider>
-    <React.Fragment>
-      <Global />
-      <StyledContainer id="StyledContainer">
-        <NavBar language={lang} />
+type Props = {
+  lang: string;
+};
+type State = {
+  navWhite: boolean;
+};
 
-        <div>
-          <main>{children}</main>
-          <footer />
-        </div>
-      </StyledContainer>
-    </React.Fragment>
-  </Provider>
-);
+class Layout extends React.Component<Props, State> {
+  state = {
+    navWhite: false,
+  };
+  changeNavColor = (scrollY, innerHeight) => {
+    const threshold = innerHeight * 0.52;
+    return scrollY > threshold;
+  };
+
+  componentDidMount() {
+    window.addEventListener("scroll", () => {
+      if (
+        this.changeNavColor(window.scrollY, window.innerHeight) !==
+        this.state.navWhite
+      ) {
+        this.setState({ navWhite: !this.state.navWhite });
+      }
+    });
+  }
+  render() {
+    const { lang } = this.props;
+    return (
+      <Provider>
+        <React.Fragment>
+          <Global />
+          <StyledContainer id="StyledContainer">
+            <NavBar language={lang} switchBg={this.state.navWhite} />
+
+            <div>
+              <main>{this.props.children}</main>
+              <footer />
+            </div>
+          </StyledContainer>
+        </React.Fragment>
+      </Provider>
+    );
+  }
+}
 export default Layout;

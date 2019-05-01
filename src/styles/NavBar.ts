@@ -2,12 +2,13 @@ import styled from "./styled-components";
 import { COLOR, STYLES } from "./constants";
 import { Button } from "./buttons";
 
-export const NavBar = styled.div`
+export const NavBar = styled.div<{ switchBg: boolean }>`
   height: 6rem;
   width: 100%;
   display: flex;
   position: fixed;
-  background: ${COLOR.WHITE_15};
+  background: ${props => (props.switchBg ? COLOR.WHITE : COLOR.WHITE_15)};
+  transition: all 0.2s;
   border-bottom: 0.1rem solid ${COLOR.VDEP_BLUE};
   z-index: 1000;
   justify-content: space-evenly;
@@ -55,6 +56,6 @@ export const Menu = styled.div`
 
 export const MenuItem = styled.div`
   font-weight: bold;
-  color: ${COLOR.WHITE};
+  color: ${COLOR.VDEP_BLUE};
   margin: 0 3rem;
 `;

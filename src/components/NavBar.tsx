@@ -15,8 +15,8 @@ import {
 } from "../styles/NavBar";
 import { Button } from "../styles/buttons";
 
-export const NavBar = ({ language }) => (
-  <StyledNavBar>
+export const NavBar = ({ language, switchBg }) => (
+  <StyledNavBar switchBg={switchBg}>
     <LogoBox>
       <Link to="/">
         <Logo>
