@@ -1,7 +1,6 @@
-import { Link, graphql, StaticQuery, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 
-import { LanguageState } from "../lib/LanguageStateProvider";
 import { translate as t } from "../lib/i18n";
 
 import Image from "./image";
@@ -15,7 +14,7 @@ import {
   LogoTextTwo,
   LogoTextThree,
   SitePayoff,
-} from "../styles/Main";
+} from "../styles/Header";
 
 const Header = ({ language }) => {
   const { drupal } = useStaticQuery(graphql`

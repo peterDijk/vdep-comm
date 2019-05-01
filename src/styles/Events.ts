@@ -3,14 +3,14 @@ import { COLOR, STYLES } from "./constants";
 
 export const UpcomingEventsContainer = styled.div`
   width: 100%;
-  padding: 3rem 2rem;
+  padding: 3rem 4rem;
 
   h2 {
     color: ${COLOR.VDEP_DARK_BLUE};
     font-size: 2rem;
     font-family: "Roboto Slab", "sans-serif";
     font-weight: bold;
-    margin: 0 2rem 2rem;
+    margin: 0 0 2rem;
   }
 `;
 
@@ -25,8 +25,12 @@ export const TilesContainer = styled.div`
 export const EventTile = styled.div`
   position: relative;
   text-align: center;
-  width: calc(100% / 3 - 1.5rem);
-  margin: 0 2rem;
+  width: calc(100% / 3);
+  margin-right: 3rem;
+
+  &:last-child {
+    margin-right: 0;
+  }
 
   h2 {
     color: ${COLOR.VDEP_TERTIARY_BLUE};

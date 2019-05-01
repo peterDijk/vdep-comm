@@ -12,7 +12,7 @@ import {
   NavBarRight,
   LangBox,
   LangOption,
-} from "../styles/Main";
+} from "../styles/NavBar";
 import { Button } from "../styles/buttons";
 
 export const NavBar = ({ language }) => (
