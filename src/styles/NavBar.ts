@@ -27,7 +27,7 @@ export const NavBarRight = styled.div`
 `;
 
 export const LangBox = styled.div`
-  color: ${COLOR.VDEP_SECONDARY_BLUE}
+  color: ${COLOR.VDEP_SECONDARY_BLUE};
   font-weight: normal;
   min-width: 10rem;
   display: flex;
@@ -35,7 +35,7 @@ export const LangBox = styled.div`
 `;
 
 export const LangOption = styled.div<{ isActive?: boolean }>`
-  ${props => props.isActive && "font-weight: 900"}
+  ${props => (props.isActive ? "font-weight: 900" : "font-weight: 100")};
   cursor: pointer;
 `;
 

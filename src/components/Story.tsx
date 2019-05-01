@@ -41,8 +41,6 @@ export const Story = ({ language }) => {
   const story = articleEntities
     .find(article => article.fieldIdentifier === "story")
     .entityTranslations.find(transl => transl.langcode.value === language);
-
-  console.log(story);
   return (
     <StyledStory>
       <h2>{story.title}</h2>
