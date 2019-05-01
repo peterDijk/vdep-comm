@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[4],{142:function(n,e,a){"use strict";a.r(e),a.d(e,"queryName",function(){return i});a(74);var t=a(0),u=a.n(t),r=a(145),l=a(148),i="17827930";e.default=function(n){var e=n.data;return u.a.createElement(l.a,null,u.a.createElement(r.a,null,function(n){var a=n.language;return e.drupal.nodeQuery.entities[2].entityTranslations.find(function(n){return n.langcode.value===a}),null}))}}}]);
-//# sourceMappingURL=component---src-pages-index-tsx-5df1f25e794ec51ef325.js.map

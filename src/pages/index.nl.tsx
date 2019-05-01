@@ -5,8 +5,9 @@ import Header from "../components/header";
 import { UpcomingEvents } from "../components/UpcomingEvents";
 import SEO from "../components/seo";
 import { filterEvents } from "../lib/filterEvents";
-import { AboveTheFold, StoryTelling, BrowserWindow } from "../styles/Main";
+import { AboveTheFold, BrowserWindow } from "../styles/Main";
 import { Story } from "../components/Story";
+import { OrganisationCTA } from "../components/OrganisationCTA";
 
 const IndexPage = ({ data }) => {
   const { drupal } = useStaticQuery(graphql`
@@ -71,15 +72,24 @@ const IndexPage = ({ data }) => {
         <Header language={language} />
         <React.Fragment>
           <SEO
-            title="Home"
-            keywords={[`gatsby`, `application`, `react`]}
-            description="omschrijving"
+            title="Bij Communicatie over Grenzen geloven wij in de kracht van duidelijke communicatie"
+            keywords={[
+              `communicatie`,
+              `grenzen`,
+              `cultuur`,
+              `culturen`,
+              `bert`,
+              `dijk`,
+            ]}
+            description="Met onze Seminars helpen we organisaties en individuelen met effectief communiceren met andere culturen in hun zakelijke relaties"
+            lang={language}
           />
         </React.Fragment>
         <UpcomingEvents events={upcomingPerSeminar} language={language} />
       </AboveTheFold>
       <BrowserWindow>
         <Story language={language} />
+        <OrganisationCTA language={language} />
       </BrowserWindow>
     </Layout>
   );

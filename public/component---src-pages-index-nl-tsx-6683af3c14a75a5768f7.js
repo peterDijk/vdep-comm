@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[5],{143:function(n,e,t){"use strict";t.r(e),t.d(e,"queryName",function(){return i});t(74);var a=t(0),r=t.n(a),u=t(147),i="17827930";e.default=function(n){n.data.drupal.nodeQuery.entities[2].entityTranslations.find(function(n){return"nl"===n.langcode.value});return r.a.createElement(u.a,{lang:"nl"})}}}]);
-//# sourceMappingURL=component---src-pages-index-nl-tsx-6683af3c14a75a5768f7.js.map
