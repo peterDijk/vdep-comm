@@ -19,7 +19,7 @@ export const UpcomingEvents = ({ events, language }: Props) => (
     <h2>{t("UPCOMINGSEMINARS", language)}:</h2>
     <TilesContainer>
       {events.map(event => (
-        <EventTile>
+        <EventTile key={event.uuid}>
           <EventImage
             imgUrl={event.fieldSeminar.entity.fieldImageNight.derivative.url}
           />
