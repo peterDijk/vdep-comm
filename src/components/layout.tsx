@@ -27,7 +27,7 @@ class Layout extends React.Component<Props, State> {
     navWhite: false,
   };
   changeNavColor = (scrollY, innerHeight) => {
-    const threshold = innerHeight * 0.52;
+    const threshold = innerHeight * 0.12;
     return scrollY > threshold;
   };
 

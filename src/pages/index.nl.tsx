@@ -1,16 +1,59 @@
 import React from "react";
-import { Link, StaticQuery, graphql } from "gatsby";
+import { Link, useStaticQuery, graphql } from "gatsby";
 import Layout from "../components/layout";
 import Header from "../components/header";
 import { UpcomingEvents } from "../components/UpcomingEvents";
 import SEO from "../components/seo";
 import { filterEvents } from "../lib/filterEvents";
 import { AboveTheFold, StoryTelling, BrowserWindow } from "../styles/Main";
+import { Story } from "../components/Story";
 
 const IndexPage = ({ data }) => {
+  const { drupal } = useStaticQuery(graphql`
+    query {
+      drupal {
+        events: nodeQuery(
+          filter: { conditions: [{ field: "type", value: "events" }] }
+        ) {
+          entities {
+            entityType
+            ... on DRUPAL_NodeEvents {
+              uuid
+              langcode {
+                value
+              }
+              title
+              fieldLocationCity
+              fieldLocationVenue
+              fieldDateDay1 {
+                value
+                date
+              }
+              fieldDatesText
+              fieldSeminar {
+                targetId
+                entity {
+                  ... on DRUPAL_NodeSeminar {
+                    title
+                    fieldImageNight {
+                      derivative(style: LARGE) {
+                        height
+                        width
+                        url
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
   const language = "nl";
-  console.log(data);
-  const eventEntities = data.drupal.nodeQuery.entities;
+
+  const eventEntities = drupal.events.entities;
   const filteredEvents = filterEvents(eventEntities);
   const upcomingPerSeminar = [
     filteredEvents.eventsMiddleEast[0],
@@ -21,7 +64,6 @@ const IndexPage = ({ data }) => {
     const bDate: any = new Date(b.fieldDateDay1.date);
     return aDate - bDate;
   });
-  console.log(upcomingPerSeminar);
 
   return (
     <Layout lang={language}>
@@ -37,51 +79,10 @@ const IndexPage = ({ data }) => {
         <UpcomingEvents events={upcomingPerSeminar} language={language} />
       </AboveTheFold>
       <BrowserWindow>
-        <StoryTelling>test</StoryTelling>
+        <Story language={language} />
       </BrowserWindow>
     </Layout>
   );
 };
-
-export const queryName = graphql`
-  query {
-    drupal {
-      nodeQuery(filter: { conditions: [{ field: "type", value: "events" }] }) {
-        entities {
-          entityType
-          ... on DRUPAL_NodeEvents {
-            uuid
-            langcode {
-              value
-            }
-            title
-            fieldLocationCity
-            fieldLocationVenue
-            fieldDateDay1 {
-              value
-              date
-            }
-            fieldDatesText
-            fieldSeminar {
-              targetId
-              entity {
-                ... on DRUPAL_NodeSeminar {
-                  title
-                  fieldImageNight {
-                    derivative(style: LARGE) {
-                      height
-                      width
-                      url
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`;
 
 export default IndexPage;
