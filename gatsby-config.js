@@ -53,6 +53,12 @@ module.exports = {
         useLangKeyLayout: true,
         prefixDefault: false,
       }
+    },
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        // Add any options here
+      }
     }
   ],
 }
