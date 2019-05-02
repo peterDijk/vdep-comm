@@ -1,5 +1,5 @@
 import styled from "./styled-components";
-import { COLOR, STYLES } from "./constants";
+import { COLOR } from "./constants";
 
 export const UpcomingEventsContainer = styled.div`
   width: 100%;

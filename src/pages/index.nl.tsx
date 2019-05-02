@@ -10,48 +10,6 @@ import { Story } from "../components/Story";
 import { OrganisationCTA } from "../components/OrganisationCTA";
 
 const IndexPage = () => {
-  // const { drupal } = useStaticQuery(graphql`
-  //   query {
-  //     drupal {
-  //       events: nodeQuery(
-  //         filter: { conditions: [{ field: "type", value: "events" }] }
-  //       ) {
-  //         entities {
-  //           entityType
-  //           ... on DRUPAL_NodeEvents {
-  //             uuid
-  //             langcode {
-  //               value
-  //             }
-  //             title
-  //             fieldLocationCity
-  //             fieldLocationVenue
-  //             fieldDateDay1 {
-  //               value
-  //               date
-  //             }
-  //             fieldDatesText
-  //             fieldSeminar {
-  //               targetId
-  //               entity {
-  //                 ... on DRUPAL_NodeSeminar {
-  //                   title
-  //                   fieldImageNight {
-  //                     derivative(style: LARGE) {
-  //                       height
-  //                       width
-  //                       url
-  //                     }
-  //                   }
-  //                 }
-  //               }
-  //             }
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-  // `);
   const data = useStaticQuery(graphql`
     query {
       header: prismicHeader(lang: { eq: "nl-nl" }) {
@@ -71,24 +29,79 @@ const IndexPage = () => {
           cog_sub_message {
             text
           }
+          hero_image {
+            url
+          }
+        }
+      }
+      events: allPrismicEvent {
+        nodes {
+          id
+          uid
+          data {
+            location_venue
+            location_city
+            starting_date
+            dates_text
+            seminar {
+              id
+              uid
+              slug
+              document {
+                data {
+                  subject {
+                    text
+                  }
+                  image_night {
+                    dimensions {
+                      width
+                      height
+                    }
+                    alt
+                    url
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      story: prismicStory {
+        uid
+        lang
+        data {
+          title {
+            text
+          }
+          body {
+            html
+          }
+        }
+      }
+      organisationCta: prismicOrganisationCta {
+        uid
+        data {
+          title
+          organisation_cta
+          image {
+            url
+          }
         }
       }
     }
   `);
   const language = "nl-nl";
-  console.log(data);
-
-  // const eventEntities = drupal.events.entities;
-  // const filteredEvents = filterEvents(eventEntities);
-  // const upcomingPerSeminar = [
-  //   filteredEvents.eventsMiddleEast[0],
-  //   filteredEvents.eventsWestAfrica[0],
-  //   filteredEvents.eventsRussia[0],
-  // ].sort((a, b) => {
-  //   const aDate: any = new Date(a.fieldDateDay1.date);
-  //   const bDate: any = new Date(b.fieldDateDay1.date);
-  //   return aDate - bDate;
-  // });
+  const eventEntities = data.events.nodes;
+  const filteredEvents = filterEvents(eventEntities);
+  const upcomingPerSeminar = [
+    filteredEvents.eventsMiddleEast[0],
+    filteredEvents.eventsWestAfrica[0],
+    filteredEvents.eventsRussia[0],
+  ].sort((a, b) => {
+    const aDate: any = new Date(a.data.starting_date);
+    const bDate: any = new Date(b.data.starting_date);
+    return aDate - bDate;
+  });
 
   return (
     <Layout lang={language}>
@@ -112,8 +125,11 @@ const IndexPage = () => {
         <UpcomingEvents events={upcomingPerSeminar} language={language} />
       </AboveTheFold>
       <BrowserWindow>
-        <Story language={language} />
-        <OrganisationCTA language={language} />
+        <Story story={data.story} language={language} />
+        <OrganisationCTA
+          organisationCta={data.organisationCta}
+          language={language}
+        />
       </BrowserWindow>
     </Layout>
   );

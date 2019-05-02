@@ -1,6 +1,6 @@
 import * as React from "react";
 import { translate as t } from "../lib/i18n";
-import { EventEntity } from "../lib/filterEvents";
+import { EventNode } from "../lib/filterEvents";
 import {
   UpcomingEventsContainer,
   TilesContainer,
@@ -10,7 +10,7 @@ import {
 } from "../styles/Events";
 
 type Props = {
-  events: EventEntity[];
+  events: EventNode[];
   language: string;
 };
 
@@ -19,14 +19,14 @@ export const UpcomingEvents = ({ events, language }: Props) => (
     <h2>{t("UPCOMINGSEMINARS", language)}:</h2>
     <TilesContainer>
       {events.map(event => (
-        <EventTile key={event.uuid}>
+        <EventTile key={event.uid}>
           <EventImage
-            imgUrl={event.fieldSeminar.entity.fieldImageNight.derivative.url}
+            imgUrl={event.data.seminar.document[0].data.image_night.url}
           />
-          <h2>{event.fieldSeminar.entity.title}</h2>
+          <h2>{event.data.seminar.document[0].data.subject.text}</h2>
           <LocationDateContainer>
-            <h3>{event.fieldLocationCity}</h3>
-            <h4>{event.fieldDatesText}</h4>
+            <h3>{event.data.location_city}</h3>
+            <h4>{event.data.dates_text}</h4>
           </LocationDateContainer>
         </EventTile>
       ))}

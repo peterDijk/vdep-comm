@@ -16,9 +16,10 @@ import {
 } from "../styles/Header";
 
 const Header = ({ header, language }) => {
+  console.log(header);
   return (
     <StyledHeader>
-      <Hero heroImgUrl={header.fieldHeroImage.url}>
+      <Hero heroImgUrl={header.data.hero_image.url}>
         <SiteTitleContainer>
           <LogoContainer>
             <CoG>

@@ -1,35 +1,35 @@
 const translations = {
   COMMUNICATION: {
-    nl: "Communicatie",
-    en: "Communication",
+    "nl-nl": "Communicatie",
+    "en-gb": "Communication",
   },
   ACCROSS: {
-    nl: "over",
-    en: "accross",
+    "nl-nl": "over",
+    "en-gb": "accross",
   },
   BORDERS: {
-    nl: "grenzen",
-    en: "borders",
+    "nl-nl": "grenzen'",
+    "en-gb": "borders",
   },
   ABOUTUS: {
-    nl: "Over ons",
-    en: "About us",
+    "nl-nl": "Over ons",
+    "en-gb": "About us",
   },
   OURSEMINARS: {
-    nl: "Onze Seminars",
-    en: "Our Seminars",
+    "nl-nl": "Onze Seminars",
+    "en-gb": "Our Seminars",
   },
   FAQs: {
-    nl: "FAQs",
-    en: "FAQs",
+    "nl-nl": "FAQs",
+    "en-gb": "FAQs",
   },
   MAKEINQ: {
-    nl: "Doe een aanvraag",
-    en: "Make an Inquiry",
+    "nl-nl": "Doe een aanvraag",
+    "en-gb": "Make an Inquiry",
   },
   UPCOMINGSEMINARS: {
-    nl: "Bekijk Aankomende Seminars",
-    en: "View Upcoming Seminars",
+    "nl-nl": "Bekijk Aankomende Seminars",
+    "en-gb": "View Upcoming Seminars",
   },
 };
 

@@ -1,40 +1,37 @@
-export type Seminar = {
-  title: string;
-  fieldImageNight: {
-    derivative: {
-      height: number;
-      width: number;
-      url: string;
+export type EventNode = {
+  uid: string;
+  data: {
+    starting_date: Date;
+    dates_text: string;
+    location_city: string;
+    location_venue: string;
+    seminar: {
+      uid: string;
+      document: [
+        {
+          data: {
+            subject: {
+              text: string;
+            };
+            image_night: {
+              alt: string;
+              url: string;
+              dimensions: {
+                width: number;
+                height: number;
+              };
+            };
+          };
+        }
+      ];
     };
   };
-  __typename: "DRUPAL_NodeSeminar";
-};
-
-export type EventEntity = {
-  entityType: string;
-  fieldDateDay1: {
-    date: Date;
-    value: string;
-  };
-  fieldDatesText: string;
-  fieldLocationCity: string;
-  fieldLocationVenue: string;
-  fieldSeminar: {
-    targetId: number;
-    entity: Seminar;
-  };
-  langcode: {
-    value: string;
-  };
-  title: string;
-  uuid: string;
-  __typename: "DRUPAL_NodeEvents";
 };
 
 type FilteredEvents = {
-  eventsMiddleEast: EventEntity[];
-  eventsWestAfrica: EventEntity[];
-  eventsRussia: EventEntity[];
+  eventsMiddleEast: EventNode[];
+  eventsWestAfrica: EventNode[];
+  eventsRussia: EventNode[];
 };
 
 const dateInFuture = (date: Date) => {
@@ -43,38 +40,38 @@ const dateInFuture = (date: Date) => {
   return eventDate >= now;
 };
 
-export const filterEvents = (eventEntities: EventEntity[]): FilteredEvents => {
+export const filterEvents = (eventEntities: EventNode[]): FilteredEvents => {
   const allEventsMiddleEast = eventEntities.filter(
-    entity => entity.fieldSeminar.entity.title === "Middle-East"
+    node => node.data.seminar.uid === "middle-east"
   );
   const allEventsWestAfrica = eventEntities.filter(
-    entity => entity.fieldSeminar.entity.title === "West-Africa"
+    node => node.data.seminar.uid === "west-africa"
   );
   const allEventsRussia = eventEntities.filter(
-    entity => entity.fieldSeminar.entity.title === "Russia"
+    node => node.data.seminar.uid === "russia"
   );
 
   const eventsMiddleEast = allEventsMiddleEast
-    .filter(event => dateInFuture(event.fieldDateDay1.date))
+    .filter(event => dateInFuture(event.data.starting_date))
     .sort((a, b) => {
-      const aDate: any = new Date(a.fieldDateDay1.date);
-      const bDate: any = new Date(b.fieldDateDay1.date);
+      const aDate: any = new Date(a.data.starting_date);
+      const bDate: any = new Date(b.data.starting_date);
       return aDate - bDate;
     });
 
   const eventsWestAfrica = allEventsWestAfrica
-    .filter(event => dateInFuture(event.fieldDateDay1.date))
+    .filter(event => dateInFuture(event.data.starting_date))
     .sort((a, b) => {
-      const aDate: any = new Date(a.fieldDateDay1.date);
-      const bDate: any = new Date(b.fieldDateDay1.date);
+      const aDate: any = new Date(a.data.starting_date);
+      const bDate: any = new Date(b.data.starting_date);
       return aDate - bDate;
     });
 
   const eventsRussia = allEventsRussia
-    .filter(event => dateInFuture(event.fieldDateDay1.date))
+    .filter(event => dateInFuture(event.data.starting_date))
     .sort((a, b) => {
-      const aDate: any = new Date(a.fieldDateDay1.date);
-      const bDate: any = new Date(b.fieldDateDay1.date);
+      const aDate: any = new Date(a.data.starting_date);
+      const bDate: any = new Date(b.data.starting_date);
       return aDate - bDate;
     });
 
