@@ -9,67 +9,91 @@ import { AboveTheFold, BrowserWindow } from "../styles/Main";
 import { Story } from "../components/Story";
 import { OrganisationCTA } from "../components/OrganisationCTA";
 
-const IndexPage = ({ data }) => {
-  const { drupal } = useStaticQuery(graphql`
+const IndexPage = () => {
+  // const { drupal } = useStaticQuery(graphql`
+  //   query {
+  //     drupal {
+  //       events: nodeQuery(
+  //         filter: { conditions: [{ field: "type", value: "events" }] }
+  //       ) {
+  //         entities {
+  //           entityType
+  //           ... on DRUPAL_NodeEvents {
+  //             uuid
+  //             langcode {
+  //               value
+  //             }
+  //             title
+  //             fieldLocationCity
+  //             fieldLocationVenue
+  //             fieldDateDay1 {
+  //               value
+  //               date
+  //             }
+  //             fieldDatesText
+  //             fieldSeminar {
+  //               targetId
+  //               entity {
+  //                 ... on DRUPAL_NodeSeminar {
+  //                   title
+  //                   fieldImageNight {
+  //                     derivative(style: LARGE) {
+  //                       height
+  //                       width
+  //                       url
+  //                     }
+  //                   }
+  //                 }
+  //               }
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // `);
+  const data = useStaticQuery(graphql`
     query {
-      drupal {
-        events: nodeQuery(
-          filter: { conditions: [{ field: "type", value: "events" }] }
-        ) {
-          entities {
-            entityType
-            ... on DRUPAL_NodeEvents {
-              uuid
-              langcode {
-                value
-              }
-              title
-              fieldLocationCity
-              fieldLocationVenue
-              fieldDateDay1 {
-                value
-                date
-              }
-              fieldDatesText
-              fieldSeminar {
-                targetId
-                entity {
-                  ... on DRUPAL_NodeSeminar {
-                    title
-                    fieldImageNight {
-                      derivative(style: LARGE) {
-                        height
-                        width
-                        url
-                      }
-                    }
-                  }
-                }
-              }
-            }
+      header: prismicHeader(lang: { eq: "nl-nl" }) {
+        id
+        uid
+        type
+        tags
+        slugs
+        lang
+        data {
+          title {
+            text
+          }
+          cog_message {
+            text
+          }
+          cog_sub_message {
+            text
           }
         }
       }
     }
   `);
-  const language = "nl";
+  const language = "nl-nl";
+  console.log(data);
 
-  const eventEntities = drupal.events.entities;
-  const filteredEvents = filterEvents(eventEntities);
-  const upcomingPerSeminar = [
-    filteredEvents.eventsMiddleEast[0],
-    filteredEvents.eventsWestAfrica[0],
-    filteredEvents.eventsRussia[0],
-  ].sort((a, b) => {
-    const aDate: any = new Date(a.fieldDateDay1.date);
-    const bDate: any = new Date(b.fieldDateDay1.date);
-    return aDate - bDate;
-  });
+  // const eventEntities = drupal.events.entities;
+  // const filteredEvents = filterEvents(eventEntities);
+  // const upcomingPerSeminar = [
+  //   filteredEvents.eventsMiddleEast[0],
+  //   filteredEvents.eventsWestAfrica[0],
+  //   filteredEvents.eventsRussia[0],
+  // ].sort((a, b) => {
+  //   const aDate: any = new Date(a.fieldDateDay1.date);
+  //   const bDate: any = new Date(b.fieldDateDay1.date);
+  //   return aDate - bDate;
+  // });
 
   return (
     <Layout lang={language}>
       <AboveTheFold>
-        <Header language={language} />
+        <Header language={language} header={data.header} />
         <React.Fragment>
           <SEO
             title="Bij Communicatie over Grenzen geloven wij in de kracht van duidelijke communicatie"

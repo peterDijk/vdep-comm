@@ -1,4 +1,7 @@
 const languages = require('./src/lib/languages');
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 
 module.exports = {
   siteMetadata: {
@@ -28,6 +31,18 @@ module.exports = {
         theme_color: `#7CC04E`,
         display: `minimal-ui`,
         icon: `src/images/VDEP_Vignet_Logo.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: `gatsby-source-prismic`,
+      options: {
+        repositoryName: `communicatie-over-grenzen`,
+        accessToken: `${process.env.API_KEY}`,
+        linkResolver: ({
+          node,
+          key,
+          value
+        }) => post => `/${post.uid}`,
       },
     },
     {

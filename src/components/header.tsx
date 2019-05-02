@@ -1,4 +1,3 @@
-import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 
 import { translate as t } from "../lib/i18n";
@@ -16,40 +15,8 @@ import {
   SitePayoff,
 } from "../styles/Header";
 
-const Header = ({ language }) => {
-  const { drupal } = useStaticQuery(graphql`
-    query {
-      drupal {
-        nodeQuery(
-          filter: { conditions: [{ field: "type", value: "header" }] }
-        ) {
-          entities {
-            entityTranslations {
-              ... on DRUPAL_NodeHeader {
-                uuid
-                langcode {
-                  value
-                }
-                title
-                fieldCogMessage
-                fieldCogSubMessage
-                fieldHeroImage {
-                  alt
-                  url
-                  height
-                  width
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
-  const header = drupal.nodeQuery.entities[0].entityTranslations.find(
-    lang => lang.langcode.value === language
-  );
-  return header ? (
+const Header = ({ header, language }) => {
+  return (
     <StyledHeader>
       <Hero heroImgUrl={header.fieldHeroImage.url}>
         <SiteTitleContainer>
@@ -64,13 +31,13 @@ const Header = ({ language }) => {
             </h1>
           </LogoContainer>
           <SitePayoff>
-            <h2>{header.fieldCogMessage}</h2>
-            <h3>{header.fieldCogSubMessage}</h3>
+            <h2>{header.data.cog_message.text}</h2>
+            <h3>{header.data.cog_sub_message.text}</h3>
           </SitePayoff>
         </SiteTitleContainer>
       </Hero>
     </StyledHeader>
-  ) : null;
+  );
 };
 
 export default Header;
