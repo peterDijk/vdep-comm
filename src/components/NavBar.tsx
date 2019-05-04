@@ -32,11 +32,11 @@ export const NavBar = ({ language, switchBg }) => (
     <NavBarRight>
       <LangBox>
         <Link to="/en">
-          <LangOption isActive={language === "en"}>EN</LangOption>
+          <LangOption isActive={language === "en-gb"}>EN</LangOption>
         </Link>
         /
         <Link to="/">
-          <LangOption isActive={language === "nl"}>NL</LangOption>
+          <LangOption isActive={language === "nl-nl"}>NL</LangOption>
         </Link>
       </LangBox>
       <Button>{t("MAKEINQ", language)}</Button>

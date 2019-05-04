@@ -24,7 +24,7 @@ const translations = {
     "en-gb": "FAQs",
   },
   MAKEINQ: {
-    "nl-nl": "Doe een aanvraag",
+    "nl-nl": "Neem contact op",
     "en-gb": "Make an Inquiry",
   },
   UPCOMINGSEMINARS: {
