@@ -40,7 +40,11 @@ module.exports = {
       options: {
         repositoryName: `communicatie-over-grenzen`,
         accessToken: `${process.env.API_KEY}`,
-        linkResolver: ({ node, key, value }) => post => `/${post.uid}`,
+        linkResolver: ({
+          node,
+          key,
+          value
+        }) => post => `/${post.uid}`,
       },
     },
     {
@@ -56,8 +60,12 @@ module.exports = {
       resolve: `gatsby-plugin-styled-components`,
       options: {
         // Add any options here
-      },
+
+      }
     },
+    // google analytics toevoegen
+    // google tag manager
+    // mUI Grid system - Grid - Hidden - Grow
   ],
   developMiddleware: app => {
     app.use(

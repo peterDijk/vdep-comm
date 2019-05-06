@@ -1,22 +1,33 @@
 var request = require("request");
-function addToZoho(postData) {
+
+function addToZoho(postData, callback) {
   var clientServerOptions = {
-    uri: "http://" + clientHost + "" + clientContext,
+    uri: "https://c.zoho.com/api/petervandijk/json/test/form/Website_respondees/record/add",
     body: postData,
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
   };
-  request(clientServerOptions, function(error, response) {
+  request(clientServerOptions, function (error, response) {
     console.log(error, response.body);
+    callback(response.body)
     return;
   });
 }
 
-exports.handler = function(event, context, callback) {
-  callback(null, {
-    statusCode: 200,
-    body: "Hello, World",
-  });
+exports.handler = function (event, context, callback) {
+  const postData = {
+    email: 'lambda@netlify.com',
+    authtoken: '9d5767b1d72675f78c9f495810c4b1ce',
+    scope: 'creatorapi',
+  };
+  const doIt = (response) => {
+    callback(null, {
+      statusCode: 200,
+      body: response,
+    });
+  }
+  addToZoho(postData, doIt);
+
 };
