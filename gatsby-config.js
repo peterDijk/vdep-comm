@@ -1,7 +1,8 @@
-const languages = require('./src/lib/languages');
+const languages = require("./src/lib/languages");
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
-})
+});
+const proxy = require("http-proxy-middleware");
 
 module.exports = {
   siteMetadata: {
@@ -11,7 +12,8 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-typescript`, {
+    `gatsby-plugin-typescript`,
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
@@ -38,42 +40,35 @@ module.exports = {
       options: {
         repositoryName: `communicatie-over-grenzen`,
         accessToken: `${process.env.API_KEY}`,
-        linkResolver: ({
-          node,
-          key,
-          value
-        }) => post => `/${post.uid}`,
+        linkResolver: ({ node, key, value }) => post => `/${post.uid}`,
       },
     },
     {
-      resolve: "gatsby-source-graphql",
+      resolve: "gatsby-plugin-i18n",
       options: {
-        // This type will contain remote schema Query type
-        typeName: "DRUPAL",
-        // This is the field under which it's accessible
-        fieldName: "drupal",
-        // URL to query from
-        url: "https://drupal.communicatieovergrenzen.nl/graphql",
-        // headers: {
-        //   // Learn about environment variables: https://gatsby.dev/env-vars
-        //   Authorization: `bearer ${process.env.GITHUB_TOKEN}`,
-        // },
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-i18n',
-      options: {
-        langKeyForNull: 'any',
+        langKeyForNull: "any",
         langKeyDefault: languages.defaultLangKey,
         useLangKeyLayout: true,
         prefixDefault: false,
-      }
+      },
     },
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {
         // Add any options here
-      }
-    }
+      },
+    },
   ],
-}
+  developMiddleware: app => {
+    app.use(
+      "/.netlify/lambda/",
+      proxy({
+        target: "http://localhost:9000",
+        secure: false,
+        pathRewrite: {
+          "/.netlify/lambda/": "",
+        },
+      })
+    );
+  },
+};
