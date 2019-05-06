@@ -28,12 +28,24 @@ export class Inquiry extends React.Component {
   render() {
     return (
       <>
-        <input
-          name="email"
-          value={this.state.emailInput}
-          onChange={this.handleInputChange}
-        />
-        <button onClick={this.postToZohoAPI}>send</button>
+        <form
+          method="POST"
+          action="https://creator.zoho.com/api/petervandijk/json/test/form/Website_respondees/record/add"
+        >
+          <input
+            type="hidden"
+            name="authtoken"
+            value="9d5767b1d72675f78c9f495810c4b1ce"
+          />
+          <input type="hidden" name="scope" id="scope" value="creatorapi" />
+          <input
+            name="email"
+            value={this.state.emailInput}
+            onChange={this.handleInputChange}
+          />
+          <input type="submit" value="Add Record" />
+          {/* <button onClick={this.postToZohoAPI}>send</button> */}
+        </form>
       </>
     );
   }

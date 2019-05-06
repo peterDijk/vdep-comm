@@ -74,6 +74,9 @@ module.exports = {
       options: {
         // Add any options here
       }
-    }
+    },
+    // google analytics toevoegen
+    // google tag manager
+    // mUI Grid system - Grid - Hidden - Grow
   ],
 }
