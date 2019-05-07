@@ -71,7 +71,7 @@ module.exports = {
     app.use(
       "/.netlify/lambda/",
       proxy({
-        target: "http://localhost:9000",
+        target: "http://127.0.0.1:9010",
         secure: false,
         pathRewrite: {
           "/.netlify/lambda/": "",
