@@ -13,17 +13,14 @@ function addToZoho(formData, callback) {
     (err, httpResponse, body) => {
       if (err) {
         callback({ err, httpResponse, body });
-        console.error("Error: ", { err, httpResponse, body });
         return;
       }
-      console.log("Success: ", { err, httpResponse, body });
       callback({ err, httpResponse, body });
     }
   );
 }
 
 exports.handler = function(event, context, callback) {
-  console.log({ event });
   const lambdaResponse = response => {
     callback(null, {
       statusCode: 200,
