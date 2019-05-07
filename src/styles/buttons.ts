@@ -21,3 +21,7 @@ export const Button = styled.div`
 
   cursor: pointer;
 `;
+
+export const SecButton = styled(Button)`
+  background-color: ${COLOR.VDEP_TERTIARY_BLUE};
+`;

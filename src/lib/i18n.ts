@@ -8,7 +8,7 @@ const translations = {
     "en-gb": "accross",
   },
   BORDERS: {
-    "nl-nl": "grenzen'",
+    "nl-nl": "grenzen",
     "en-gb": "borders",
   },
   ABOUTUS: {

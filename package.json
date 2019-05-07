@@ -5,11 +5,14 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@types/aws-lambda": "^8.10.25",
     "@types/helmet": "^0.0.43",
+    "@types/node": "^12.0.0",
     "axios": "^0.18.0",
     "babel-plugin-styled-components": "^1.10.0",
     "gatsby": "^2.2.5",
     "gatsby-image": "^2.0.34",
+    "gatsby-plugin-google-analytics": "^2.0.19",
     "gatsby-plugin-i18n": "^1.0.1",
     "gatsby-plugin-manifest": "^2.0.24",
     "gatsby-plugin-offline": "^2.0.25",
@@ -21,15 +24,19 @@
     "gatsby-source-graphql": "^2.0.18",
     "gatsby-source-prismic": "^2.3.0-alpha.3",
     "gatsby-transformer-sharp": "^2.1.17",
+    "http-proxy-middleware": "^0.19.1",
+    "netlify-lambda": "^1.4.7",
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-helmet": "^5.2.0",
     "react-html-parser": "^2.0.2",
+    "request": "^2.88.0",
     "sharp": "^0.22.0",
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
+    "@babel/preset-typescript": "^7.3.3",
     "@types/styled-components": "^4.1.14",
     "dotenv": "^7.0.0",
     "prettier": "^1.16.4",
@@ -45,7 +52,9 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "start:lambda": "netlify-lambda serve src/lambda -p 9010",
+    "build:lambda": "netlify-lambda build src/lambda"
   },
   "repository": {
     "type": "git",

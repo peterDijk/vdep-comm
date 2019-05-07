@@ -3,7 +3,7 @@ import axios from "axios";
 
 export class Inquiry extends React.Component {
   state = {
-    emailInput: "placeholder",
+    emailInput: "placeholder@domain.io",
   };
 
   handleInputChange = e => {
@@ -14,14 +14,11 @@ export class Inquiry extends React.Component {
 
   postToZohoAPI = () => {
     axios
-      .post(
-        "https://creator.zoho.com/api/petervandijk/json/test/form/Website_respondees/record/add",
-        {
-          authtoken: "9d5767b1d72675f78c9f495810c4b1ce",
-          scope: "creatorapi",
-          email: this.state.emailInput,
-        }
-      )
+      .post("/.netlify/lambda/zoho", {
+        authtoken: process.env.GATSBY_ZOHO_AUTH,
+        scope: "creatorapi",
+        email: this.state.emailInput,
+      })
       .then(resp => console.log(resp));
   };
 
@@ -33,7 +30,7 @@ export class Inquiry extends React.Component {
           value={this.state.emailInput}
           onChange={this.handleInputChange}
         />
-        <button onClick={this.postToZohoAPI}>send</button>
+        <button onClick={this.postToZohoAPI}>test Lambda</button>
       </>
     );
   }
