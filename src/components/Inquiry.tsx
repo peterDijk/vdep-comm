@@ -14,7 +14,7 @@ export class Inquiry extends React.Component {
 
   postToZohoAPI = () => {
     axios
-      .post("/.netlify/lambda/zoho", {
+      .post("/lambda/zoho", {
         authtoken: process.env.GATSBY_ZOHO_AUTH,
         scope: "creatorapi",
         email: this.state.emailInput,
