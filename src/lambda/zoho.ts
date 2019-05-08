@@ -1,7 +1,4 @@
 var request = require("request");
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-});
 
 function addToZoho(formData, callback) {
   request.post(
@@ -27,6 +24,6 @@ exports.handler = function(event, context, callback) {
       body: response.httpResponse.body,
     });
   };
-  const formData = JSON.parse(event.body);
+  const formData = event.body;
   addToZoho(formData, lambdaResponse);
 };
