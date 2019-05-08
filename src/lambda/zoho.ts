@@ -1,17 +1,18 @@
 var request = require("request");
 
-function addToZoho(formData, callback) {
+function serverSideRequest(formData, callback) {
   request.post(
     {
-      url:
-        "https://creator.zoho.com/api/petervandijk/json/communicatie-over-grenzen-administratie/form/Add_prospect/record/add",
+      url: formData.url,
       formData,
     },
     (err, httpResponse, body) => {
       if (err) {
+        console.log("Error", { err, httpResponse, body });
         callback({ err, httpResponse, body });
         return;
       }
+      console.log("Success", { err, httpResponse, body });
       callback({ err, httpResponse, body });
     }
   );
@@ -26,5 +27,5 @@ exports.handler = function(event, context, callback) {
     });
   };
   const formData = JSON.parse(event.body);
-  addToZoho(formData, lambdaResponse);
+  serverSideRequest(formData, lambdaResponse);
 };
