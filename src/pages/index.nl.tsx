@@ -45,14 +45,12 @@ const IndexPage = ({ data }) => {
         </React.Fragment>
         <UpcomingEvents events={upcomingPerSeminar} language={language} />
       </AboveTheFold>
-      <BrowserWindow>
-        <Story story={data.story} language={language} />
-        <OrganisationCTA
-          organisationCta={data.organisationCta}
-          language={language}
-        />
-        <Inquiry />
-      </BrowserWindow>
+      <Story story={data.story} language={language} />
+      <OrganisationCTA
+        organisationCta={data.organisationCta}
+        language={language}
+      />
+      {/* <Inquiry /> */}
     </Layout>
   );
 };

@@ -11,24 +11,22 @@ export const StyledContainer = styled.div`
 
 export const AboveTheFold = styled.div`
   position: relative;
-  height: 100vh;
   box-shadow: 0 0.8rem 1rem 0 rgba(${COLOR.RICHBLACK_RBG}, 0.15);
   z-index: 10;
 `;
 
 export const BrowserWindow = styled.div`
   position: relative;
-  height: calc(100vh - 6rem);
   z-index: 8;
 `;
 
 export const StoryTelling = styled.div`
   position: relative;
-  height: calc(85% - 6rem);
+  // height: calc(85% - 6rem);
   background-color: ${COLOR.VDEP_TERTIARY_BLUE};
   z-index: 2;
   text-align: center;
-  // padding: 6rem 2rem 0;
+  padding: 6rem 2rem 4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
