@@ -15,6 +15,8 @@ export class Inquiry extends React.Component {
   postToZohoAPI = () => {
     axios
       .post("/.netlify/functions/zoho", {
+        url:
+          "https://creator.zoho.com/api/petervandijk/json/communicatie-over-grenzen-administratie/form/Add_prospect/record/add",
         authtoken: process.env.GATSBY_ZOHO_AUTH,
         scope: "creatorapi",
         email: this.state.emailInput,
