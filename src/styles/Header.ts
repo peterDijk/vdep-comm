@@ -3,7 +3,7 @@ import { COLOR } from "./constants";
 
 export const Header = styled.div`
   width: 100%;
-  height: 60%;
+  height: 60vh;
   position: relative;
 `;
 

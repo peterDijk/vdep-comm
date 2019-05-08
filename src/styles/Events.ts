@@ -14,18 +14,19 @@ export const UpcomingEventsContainer = styled.div`
   }
 `;
 
-export const TilesContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-  margin: 0;
-`;
+// export const TilesContainer = styled.div`
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: space-between;
+//   width: 100%;
+//   margin: 0;
+// `;
 
 export const EventTile = styled.div`
   position: relative;
   text-align: center;
-  width: calc(100% / 3);
+  // width: calc(100% / 3);
+  width: 100%;
   margin-right: 3rem;
 
   &:last-child {
