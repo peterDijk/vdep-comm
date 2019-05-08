@@ -22,7 +22,6 @@ export const BrowserWindow = styled.div`
 
 export const StoryTelling = styled.div`
   position: relative;
-  // height: calc(85% - 6rem);
   background-color: ${COLOR.VDEP_TERTIARY_BLUE};
   z-index: 2;
   text-align: center;
@@ -45,12 +44,48 @@ export const StoryTelling = styled.div`
     font-size: 1.8rem;
     margin: 2rem auto;
     max-width: 70rem;
+    margin-bottom: 0.2rem;
+  }
+`;
+
+export const Expertise = styled.div`
+  position: relative;
+  background-color: ${COLOR.WHITE};
+  z-index: 2;
+  text-align: center;
+  padding: 6rem 2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  > div {
+    margin: auto;
+    text-align: justify;
+    max-width: 50rem;
+  }
+
+  h2 {
+    text-align: center;
+    color: ${COLOR.VDEP_DARK_BLUE};
+    font-family: "Roboto Slab", "sans-serif";
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin: 0 0 3rem 0;
+  }
+  p {
+    text-align: justify;
+    color: ${COLOR.RICHBLACK};
+    font-family: "Roboto Slab", "sans-serif";
+    font-size: 1.4rem;
+    margin: 1.5rem auto;
   }
 `;
 
 export const OrganisationCTA = styled.div<{ imgUrl: string }>`
   position: relative;
-  height: 13rem;
+  // height: 13rem;
   background-image: url(${props => props.imgUrl});
   background-size: cover;
   background-position: center;

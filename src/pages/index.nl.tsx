@@ -7,7 +7,9 @@ import SEO from "../components/seo";
 import { filterEvents } from "../lib/filterEvents";
 import { AboveTheFold, BrowserWindow } from "../styles/Main";
 import { Story } from "../components/Story";
+import { Expertise } from "../components/Expertise";
 import { OrganisationCTA } from "../components/OrganisationCTA";
+import { Seminars } from "../components/Seminars";
 import { Inquiry } from "../components/Inquiry";
 
 const IndexPage = ({ data }) => {
@@ -23,6 +25,8 @@ const IndexPage = ({ data }) => {
     const bDate: any = new Date(b.data.starting_date);
     return aDate - bDate;
   });
+
+  console.log(data.seminars);
 
   return (
     <Layout lang={language}>
@@ -46,10 +50,14 @@ const IndexPage = ({ data }) => {
         <UpcomingEvents events={upcomingPerSeminar} language={language} />
       </AboveTheFold>
       <Story story={data.story} language={language} />
-      <OrganisationCTA
-        organisationCta={data.organisationCta}
-        language={language}
-      />
+      <AboveTheFold>
+        <OrganisationCTA
+          organisationCta={data.organisationCta}
+          language={language}
+        />
+      </AboveTheFold>
+      <Expertise expertise={data.expertise} />
+      <Seminars seminars={data.seminars.nodes} language={language} />
       {/* <Inquiry /> */}
     </Layout>
   );
@@ -111,7 +119,7 @@ export const query = graphql`
         }
       }
     }
-    story: prismicStory {
+    story: prismicStory(lang: { eq: "nl-nl" }) {
       uid
       lang
       data {
@@ -123,13 +131,39 @@ export const query = graphql`
         }
       }
     }
-    organisationCta: prismicOrganisationCta {
+    expertise: prismicExpertise(lang: { eq: "nl-nl" }) {
+      lang
+      data {
+        title {
+          text
+        }
+        body {
+          html
+        }
+      }
+    }
+    organisationCta: prismicOrganisationCta(lang: { eq: "nl-nl" }) {
       uid
       data {
         title
         organisation_cta
         image {
           url
+        }
+      }
+    }
+    seminars: allPrismicSeminar(filter: { lang: { eq: "nl-nl" } }) {
+      nodes {
+        id
+        lang
+        data {
+          subject {
+            text
+          }
+          country
+          image_day {
+            url
+          }
         }
       }
     }
