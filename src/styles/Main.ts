@@ -30,7 +30,7 @@ export const StoryTelling = styled.div`
   flex-direction: column;
   justify-content: center;
 
-  color: ${COLOR.VDEP_DARK_BLUE};
+  color: ${COLOR.VDEP_SECONDARY_BLUE};
 
   h2 {
     font-family: "Roboto Slab", "sans-serif";
@@ -45,6 +45,27 @@ export const StoryTelling = styled.div`
     margin: 2rem auto;
     max-width: 70rem;
     margin-bottom: 0.2rem;
+  }
+`;
+
+export const OrganisationCTA = styled.div<{ imgUrl: string }>`
+  position: relative;
+  // height: 13rem;
+  background-image: url(${props => props.imgUrl});
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding: 4rem;
+
+  h3 {
+    font-family: "Roboto", "sans-serif";
+    color: ${COLOR.VDEP_BLUE};
+    font-size: 2rem;
+  }
+  h2 {
+    font-family: "Roboto Slab", "sans-serif";
+    color: ${COLOR.VDEP_TERTIARY_BLUE};
+    font-size: 2.2rem;
   }
 `;
 
@@ -66,7 +87,7 @@ export const Expertise = styled.div`
 
   h2 {
     text-align: center;
-    color: ${COLOR.VDEP_DARK_BLUE};
+    color: ${COLOR.VDEP_SECONDARY_BLUE};
     font-family: "Roboto Slab", "sans-serif";
     letter-spacing: 0.15em;
     text-transform: uppercase;
@@ -77,29 +98,13 @@ export const Expertise = styled.div`
   p {
     text-align: justify;
     color: ${COLOR.RICHBLACK};
-    font-family: "Roboto Slab", "sans-serif";
-    font-size: 1.4rem;
-    margin: 1.5rem auto;
-  }
-`;
-
-export const OrganisationCTA = styled.div<{ imgUrl: string }>`
-  position: relative;
-  // height: 13rem;
-  background-image: url(${props => props.imgUrl});
-  background-size: cover;
-  background-position: center;
-  text-align: center;
-  padding: 4rem;
-
-  h3 {
     font-family: "Roboto", "sans-serif";
-    color: ${COLOR.VDEP_SECONDARY_BLUE};
-    font-size: 2rem;
-  }
-  h2 {
-    font-family: "Roboto Slab", "sans-serif";
-    color: ${COLOR.VDEP_TERTIARY_BLUE};
-    font-size: 2.2rem;
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin: 1.5rem auto;
+
+    strong {
+      font-weight: 700;
+    }
   }
 `;

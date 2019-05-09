@@ -19,7 +19,7 @@ export const SeminarInfoBox = styled.div`
   transform: translate(-50%, -50%);
 
   h4 {
-    color: ${COLOR.RICHBLACK};
+    color: ${COLOR.VDEP_DARK_BLUE};
     font-size: 1.3rem;
     letter-spacing: 0.15rem;
     font-family: "Roboto Slab", "sans-serif";
@@ -29,7 +29,7 @@ export const SeminarInfoBox = styled.div`
   h2 {
     position: relative;
     top: -0.6rem;
-    color: ${COLOR.VDEP_DARK_BLUE};
+    color: ${COLOR.VDEP_SECONDARY_BLUE};
     font-size: 2rem;
     letter-spacing: 0.15rem;
     font-family: "Roboto Slab", "sans-serif";
@@ -46,7 +46,7 @@ export const ViewProgramButton = styled(Button)`
   height: 6rem;
   margin: 0.8rem auto 0 auto;
 
-  color: ${COLOR.RICHBLACK};
+  color: ${COLOR.VDEP_DARK_BLUE};
   font-size: 1.3rem;
   letter-spacing: 0.15rem;
   font-family: "Roboto Slab", "sans-serif";

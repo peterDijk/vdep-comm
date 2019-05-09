@@ -37,12 +37,12 @@ export const SitePayoff = styled.div`
 
   h2 {
     font-size: 1.4rem;
-    font-weight: bold;
+    font-weight: 500;
     margin: 2rem 0;
   }
   h3 {
     font-size: 1.4rem;
-    font-weight: normal;
+    font-weight: 400;
     margin: 2rem 0;
   }
 `;

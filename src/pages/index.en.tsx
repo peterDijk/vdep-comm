@@ -9,6 +9,7 @@ import { AboveTheFold, BrowserWindow } from "../styles/Main";
 import { Story } from "../components/Story";
 import { Expertise } from "../components/Expertise";
 import { OrganisationCTA } from "../components/OrganisationCTA";
+import { Seminars } from "../components/Seminars";
 import { Inquiry } from "../components/Inquiry";
 
 const IndexPage = ({ data }) => {
@@ -24,6 +25,8 @@ const IndexPage = ({ data }) => {
     const bDate: any = new Date(b.data.starting_date);
     return aDate - bDate;
   });
+
+  console.log(data.seminars);
 
   return (
     <Layout lang={language}>
@@ -54,6 +57,7 @@ const IndexPage = ({ data }) => {
         />
       </AboveTheFold>
       <Expertise expertise={data.expertise} />
+      <Seminars seminars={data.seminars.nodes} language={language} />
       {/* <Inquiry /> */}
     </Layout>
   );
@@ -145,6 +149,51 @@ export const query = graphql`
         organisation_cta
         image {
           url
+        }
+      }
+    }
+    seminars: allPrismicSeminar(filter: { lang: { eq: "en-gb" } }) {
+      nodes {
+        id
+        lang
+        data {
+          subject {
+            text
+          }
+          country
+          image_day {
+            url
+          }
+        }
+      }
+    }
+    experience: prismicExperience(lang: { eq: "en-gb" }) {
+      lang
+      data {
+        title {
+          text
+        }
+        body {
+          html
+        }
+      }
+    }
+    seminarOverview: allPrismicSeminarOverview(
+      filter: { lang: { eq: "en-gb" } }
+    ) {
+      nodes {
+        id
+        lang
+        data {
+          title {
+            text
+          }
+          body {
+            html
+          }
+          image {
+            url
+          }
         }
       }
     }
