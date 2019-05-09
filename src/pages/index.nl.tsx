@@ -58,7 +58,7 @@ const IndexPage = ({ data }) => {
       </AboveTheFold>
       <Expertise expertise={data.expertise} />
       <Seminars seminars={data.seminars.nodes} language={language} />
-      {/* <Inquiry /> */}
+      <Inquiry />
     </Layout>
   );
 };
