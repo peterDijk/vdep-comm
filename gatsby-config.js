@@ -69,12 +69,12 @@ module.exports = {
   ],
   developMiddleware: app => {
     app.use(
-      "/.netlify/lambda/",
+      "/.netlify/functions/",
       proxy({
-        target: "http://127.0.0.1:9010",
+        target: "http://localhost:9010",
         secure: false,
         pathRewrite: {
-          "/.netlify/lambda/": "",
+          "/.netlify/functions/": "",
         },
       })
     );

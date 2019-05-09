@@ -2,9 +2,7 @@ import styled from "./styled-components";
 import { COLOR } from "./constants";
 
 export const Header = styled.div`
-  width: 100%;
-  height: 60%;
-  position: relative;
+  height: 60vh;
 `;
 
 type HeroProps = {

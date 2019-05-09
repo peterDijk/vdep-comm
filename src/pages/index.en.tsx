@@ -7,7 +7,9 @@ import SEO from "../components/seo";
 import { filterEvents } from "../lib/filterEvents";
 import { AboveTheFold, BrowserWindow } from "../styles/Main";
 import { Story } from "../components/Story";
+import { Expertise } from "../components/Expertise";
 import { OrganisationCTA } from "../components/OrganisationCTA";
+import { Inquiry } from "../components/Inquiry";
 
 const IndexPage = ({ data }) => {
   const language = "en-gb";
@@ -44,13 +46,15 @@ const IndexPage = ({ data }) => {
         </React.Fragment>
         <UpcomingEvents events={upcomingPerSeminar} language={language} />
       </AboveTheFold>
-      <BrowserWindow>
-        <Story story={data.story} language={language} />
+      <Story story={data.story} language={language} />
+      <AboveTheFold>
         <OrganisationCTA
           organisationCta={data.organisationCta}
           language={language}
         />
-      </BrowserWindow>
+      </AboveTheFold>
+      <Expertise expertise={data.expertise} />
+      {/* <Inquiry /> */}
     </Layout>
   );
 };
@@ -111,7 +115,7 @@ export const query = graphql`
         }
       }
     }
-    story: prismicStory {
+    story: prismicStory(lang: { eq: "en-gb" }) {
       uid
       lang
       data {
@@ -123,7 +127,18 @@ export const query = graphql`
         }
       }
     }
-    organisationCta: prismicOrganisationCta {
+    expertise: prismicExpertise(lang: { eq: "en-gb" }) {
+      lang
+      data {
+        title {
+          text
+        }
+        body {
+          html
+        }
+      }
+    }
+    organisationCta: prismicOrganisationCta(lang: { eq: "en-gb" }) {
       uid
       data {
         title

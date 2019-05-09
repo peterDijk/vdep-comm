@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Link, useStaticQuery, graphql } from "gatsby";
 import ReactHtmlParser from "react-html-parser";
 import { StoryTelling as StyledStory } from "../styles/Main";
 
