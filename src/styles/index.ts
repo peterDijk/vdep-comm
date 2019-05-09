@@ -3,7 +3,7 @@ import { COLOR } from "./constants";
 
 export const Global = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab:200,400,500,700,900');
-@import url('https://fonts.googleapis.com/css?family=Roboto:200,400,500,700,900');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100, 200,400,500,700,900');
 *,
 *::after,
 *::before {

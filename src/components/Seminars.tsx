@@ -1,6 +1,6 @@
 import * as React from "react";
 import Grid from "@material-ui/core/Grid";
-import ReactHtmlParser from "react-html-parser";
+import { translate as t } from "../lib/i18n";
 import {
   SeminarTile,
   SeminarInfoBox,
@@ -17,9 +17,10 @@ export const Seminars = ({ seminars, language }) => {
             <SeminarInfoBox>
               <h4>{seminar.data.country}</h4>
               <h2>{seminar.data.subject.text}</h2>
-              <ViewProgramButton>View Program</ViewProgramButton>
+              <ViewProgramButton>
+                {t("VIEWPROGRAM", language)}
+              </ViewProgramButton>
             </SeminarInfoBox>
-            {/* {seminar.data.subject.text} */}
           </SeminarTile>
         </Grid>
       ))}

@@ -10,6 +10,7 @@ import { Story } from "../components/Story";
 import { Expertise } from "../components/Expertise";
 import { OrganisationCTA } from "../components/OrganisationCTA";
 import { Seminars } from "../components/Seminars";
+import { Experience } from "../components/Experience";
 import { Inquiry } from "../components/Inquiry";
 
 const IndexPage = ({ data }) => {
@@ -58,6 +59,10 @@ const IndexPage = ({ data }) => {
       </AboveTheFold>
       <Expertise expertise={data.expertise} />
       <Seminars seminars={data.seminars.nodes} language={language} />
+      <Experience
+        experience={data.experience}
+        seminarOverview={data.seminarOverview.nodes}
+      />
       {/* <Inquiry /> */}
     </Layout>
   );
@@ -162,6 +167,36 @@ export const query = graphql`
           }
           country
           image_day {
+            url
+          }
+        }
+      }
+    }
+    experience: prismicExperience(lang: { eq: "nl-nl" }) {
+      lang
+      data {
+        title {
+          text
+        }
+        body {
+          html
+        }
+      }
+    }
+    seminarOverview: allPrismicSeminarOverview(
+      filter: { lang: { eq: "nl-nl" } }
+    ) {
+      nodes {
+        id
+        lang
+        data {
+          title {
+            text
+          }
+          body {
+            html
+          }
+          image {
             url
           }
         }

@@ -4,10 +4,10 @@ const WHITE_RGB = "255,255,255";
 const RICHBLACK = "#002233";
 const RICHBLACK_RBG = "0,34,51";
 const VDEP_BLUE = "#00ADF1";
-const VDEP_SECONDARY_BLUE = "#0084B5";
+const VDEP_SECONDARY_BLUE = "#015B80";
 const VDEP_TERTIARY_BLUE = "#D4F3FA";
-const VDEP_DARK_BLUE = "#005B80";
-const VDEP_GREEN = "7CC04E";
+const VDEP_DARK_BLUE = "#00354A";
+const VDEP_GREEN = "#BDED9D";
 
 export const COLOR = {
   BLACK,

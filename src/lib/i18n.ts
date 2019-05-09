@@ -31,6 +31,10 @@ const translations = {
     "nl-nl": "Bekijk Aankomende Seminars",
     "en-gb": "View Upcoming Seminars",
   },
+  VIEWPROGRAM: {
+    "nl-nl": "Bekijk Programma",
+    "en-gb": "View Program",
+  },
 };
 
 export const translate = (string, language) => {
