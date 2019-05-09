@@ -20,6 +20,11 @@ export const Button = styled.div`
   padding: 0 1.6rem;
 
   cursor: pointer;
+
+  &:hover {
+    background-color: ${COLOR.WHITE_0};
+    border: 1px solid ${COLOR.VDEP_BLUE};
+  }
 `;
 
 export const SecButton = styled(Button)`
