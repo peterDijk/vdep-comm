@@ -59,7 +59,7 @@ typings/
 # build files
 .cache/
 public
-/functions
+functions
 
 # Mac files
 .DS_Store
