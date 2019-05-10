@@ -185,11 +185,13 @@ export const query = graphql`
     }
     seminarOverview: allPrismicSeminarOverview(
       filter: { lang: { eq: "nl-nl" } }
+      sort: { fields: data___order, order: ASC }
     ) {
       nodes {
         id
         lang
         data {
+          order
           title {
             text
           }
