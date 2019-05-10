@@ -77,7 +77,7 @@ export const DayText = styled.div`
   background-color: ${COLOR.VDEP_DARK_BLUE};
   padding: 3rem;
   color: ${COLOR.VDEP_TERTIARY_BLUE};
-  height: 18rem;
+  // height: 18rem;
   border-radius: 0 0 0.5rem 0.5rem;
 
   p {
