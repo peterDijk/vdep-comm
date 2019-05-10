@@ -18,7 +18,7 @@ export const Experience = ({ experience, seminarOverview }) => {
       </ExperienceText>
       <Grid container spacing={40}>
         {seminarOverview.map(item => (
-          <Grid item xs={12} md={3}>
+          <Grid item xs={12} md={6} lg={3}>
             <SeminarDayTile>
               <DayImage imgUrl={item.data.image.url}>
                 <h2>{item.data.title.text}</h2>
