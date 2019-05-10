@@ -10,6 +10,7 @@ import { Story } from "../components/Story";
 import { Expertise } from "../components/Expertise";
 import { OrganisationCTA } from "../components/OrganisationCTA";
 import { Seminars } from "../components/Seminars";
+import { Experience } from "../components/Experience";
 import { Inquiry } from "../components/Inquiry";
 
 const IndexPage = ({ data }) => {
@@ -58,6 +59,10 @@ const IndexPage = ({ data }) => {
       </AboveTheFold>
       <Expertise expertise={data.expertise} />
       <Seminars seminars={data.seminars.nodes} language={language} />
+      <Experience
+        experience={data.experience}
+        seminarOverview={data.seminarOverview.nodes}
+      />
       {/* <Inquiry /> */}
     </Layout>
   );
@@ -180,11 +185,13 @@ export const query = graphql`
     }
     seminarOverview: allPrismicSeminarOverview(
       filter: { lang: { eq: "en-gb" } }
+      sort: { fields: data___order, order: ASC }
     ) {
       nodes {
         id
         lang
         data {
+          order
           title {
             text
           }
