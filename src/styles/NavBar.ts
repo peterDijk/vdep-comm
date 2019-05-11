@@ -9,13 +9,13 @@ export const NavBar = styled.div<{ switchBg: boolean }>`
   position: fixed;
   ${props =>
     props.switchBg
-      ? `background: ${COLOR.VDEP_SECONDARY_BLUE}; ${MenuItem} {
-      color: ${COLOR.VDEP_GREEN};
+      ? `background: ${COLOR.VDEP_TERTIARY_BLUE}; ${MenuItem} {
+      color: ${COLOR.VDEP_SECONDARY_BLUE};
     }`
       : `background: ${COLOR.WHITE_15}; ${MenuItem} {
       color: ${COLOR.WHITE};
     }`};
-  transition: all 0.2s;
+  transition: all 0.4s;
   border-bottom: 0.1rem solid ${COLOR.VDEP_SECONDARY_BLUE};
   z-index: 1000;
   justify-content: space-evenly;
