@@ -6,7 +6,7 @@ export const Experience = styled.div`
   background-color: ${COLOR.VDEP_SECONDARY_BLUE};
   z-index: 2;
   text-align: center;
-  padding: 6rem 6rem 8rem;
+  padding: 6rem 0 8rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -39,7 +39,8 @@ export const Experience = styled.div`
 export const ExperienceText = styled.div`
   margin: auto;
   text-align: justify;
-  max-width: 50rem;
+  max-width: 60rem;
+  padding: 0 2rem;
 `;
 
 export const SeminarDayTile = styled.div`
@@ -77,7 +78,7 @@ export const DayText = styled.div`
   background-color: ${COLOR.VDEP_DARK_BLUE};
   padding: 3rem;
   color: ${COLOR.VDEP_TERTIARY_BLUE};
-  // height: 18rem;
+  min-height: 17rem;
   border-radius: 0 0 0.5rem 0.5rem;
 
   p {
