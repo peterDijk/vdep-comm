@@ -35,7 +35,7 @@ export const NavBar = ({ language, switchBg }) => {
         </Menu>
       )}
       <NavBarRight>
-        <LangBox>
+        <LangBox switchBg={switchBg}>
           <Link to="/en">
             <LangOption isActive={language === "en-gb"}>EN</LangOption>
           </Link>
