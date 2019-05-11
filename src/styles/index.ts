@@ -3,7 +3,7 @@ import { COLOR } from "./constants";
 
 export const Global = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab:200,400,500,700,900');
-@import url('https://fonts.googleapis.com/css?family=Roboto:100, 200,400,500,700,900');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100, 200,400,500,600,700,900');
 *,
 *::after,
 *::before {
@@ -25,6 +25,6 @@ body {
 a,
 a:visited {
   text-decoration: none;
-  color: ${COLOR.VDEP_SECONDARY_BLUE}
+  color: ${COLOR.VDEP_SECONDARY_BLUE};
 }
 `;
