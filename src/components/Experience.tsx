@@ -16,9 +16,9 @@ export const Experience = ({ experience, seminarOverview }) => {
         <h2>{experience.data.title.text}</h2>
         {ReactHtmlParser(experience.data.body.html)}
       </ExperienceText>
-      <Grid container spacing={40}>
+      <Grid container spacing={0}>
         {seminarOverview.map(item => (
-          <Grid item key={item.id} xs={12} md={6} lg={3}>
+          <Grid item key={item.id} xs={12} sm={6} md={3} lg={3}>
             <SeminarDayTile>
               <DayImage imgUrl={item.data.image.url}>
                 <h2>{item.data.title.text}</h2>

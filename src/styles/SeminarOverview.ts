@@ -46,7 +46,7 @@ export const ExperienceText = styled.div`
 export const SeminarDayTile = styled.div`
   position: relative;
   width: 100%;
-  padding: 2.5rem;
+  padding: 1.5rem;
 `;
 
 export const DayImage = styled.div<{ imgUrl: string }>`
