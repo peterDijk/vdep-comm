@@ -11,6 +11,7 @@ import { Expertise } from "../components/Expertise";
 import { OrganisationCTA } from "../components/OrganisationCTA";
 import { Seminars } from "../components/Seminars";
 import { Experience } from "../components/Experience";
+import { PricingTable } from "../components/PricingTable";
 import { Inquiry } from "../components/Inquiry";
 
 const IndexPage = ({ data }) => {
@@ -63,6 +64,7 @@ const IndexPage = ({ data }) => {
         experience={data.experience}
         seminarOverview={data.seminarOverview.nodes}
       />
+      <PricingTable benefits={data.benefits} benefitsOptions={[]} />
       {/* <Inquiry /> */}
     </Layout>
   );
