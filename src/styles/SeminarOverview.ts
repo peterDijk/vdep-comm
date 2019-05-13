@@ -40,13 +40,13 @@ export const ExperienceText = styled.div`
   margin: auto;
   text-align: justify;
   max-width: 60rem;
-  padding: 0 2rem;
+  padding: 0 2rem 4rem;
 `;
 
 export const SeminarDayTile = styled.div`
   position: relative;
   width: 100%;
-  padding: 1.5rem;
+  padding: 2.5rem;
 `;
 
 export const DayImage = styled.div<{ imgUrl: string }>`

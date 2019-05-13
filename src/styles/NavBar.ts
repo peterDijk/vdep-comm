@@ -9,14 +9,14 @@ export const NavBar = styled.div<{ switchBg: boolean }>`
   position: fixed;
   ${props =>
     props.switchBg
-      ? `background: ${COLOR.VDEP_TERTIARY_BLUE}; ${MenuItem} {
-      color: ${COLOR.VDEP_SECONDARY_BLUE};
+      ? `background: ${COLOR.VDEP_DARK_BLUE}; ${MenuItem} {
+      color: ${COLOR.WHITE};
     }`
       : `background: ${COLOR.WHITE_15}; ${MenuItem} {
       color: ${COLOR.WHITE};
     }`};
   transition: all 0.4s;
-  border-bottom: 0.1rem solid ${COLOR.VDEP_SECONDARY_BLUE};
+  // border-bottom: 0.1rem solid ${COLOR.VDEP_SECONDARY_BLUE};
   z-index: 1000;
   justify-content: space-evenly;
   align-items: center;
@@ -27,7 +27,7 @@ export const NavBar = styled.div<{ switchBg: boolean }>`
 
 export const Menu = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: start;
   width: 100%;
 `;
 
@@ -47,12 +47,10 @@ export const NavBarRight = styled.div`
 export const LangBox = styled.div<{ switchBg: boolean }>`
   ${props =>
     props.switchBg
-      ? `color: ${COLOR.WHITE_15}; ${LangOption} {
-    color: ${COLOR.WHITE_15};
+      ? `color: ${COLOR.WHITE}; ${LangOption} {
+    color: ${COLOR.WHITE};
   }`
-      : `color: ${COLOR.VDEP_SECONDARY_BLUE}; ${LangOption} { color: ${
-          COLOR.VDEP_SECONDARY_BLUE
-        }}`};
+      : `color: ${COLOR.WHITE}; ${LangOption} { color: ${COLOR.WHITE}}`};
   font-weight: normal;
   min-width: 10rem;
   display: flex;
@@ -66,7 +64,7 @@ export const LangOption = styled.div<{ isActive?: boolean }>`
 
 export const LogoBox = styled.div`
   margin-left: 3rem;
-  width: 30rem;
+  width: 20rem;
 `;
 
 export const Logo = styled.div`
