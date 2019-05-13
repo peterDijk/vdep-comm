@@ -12,7 +12,7 @@ type HeroProps = {
 export const Hero = styled.div<HeroProps>`
   background-image: url(${props => props.heroImgUrl});
   background-size: cover;
-  background-position: top;
+  background-position: center;
   height: 100%;
   position: relative;
 `;
@@ -36,12 +36,12 @@ export const SitePayoff = styled.div`
   width: 100%;
 
   h2 {
-    font-size: 1.4rem;
+    font-size: 2.5rem;
     font-weight: 500;
     margin: 2rem 0;
   }
   h3 {
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     font-weight: 400;
     margin: 2rem 0;
   }

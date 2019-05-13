@@ -82,7 +82,7 @@ export const Expertise = styled.div`
   > div {
     margin: auto;
     text-align: justify;
-    max-width: 50rem;
+    max-width: 60rem;
   }
 
   h2 {
