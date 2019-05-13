@@ -58,6 +58,7 @@ class PricingTable extends React.Component<
               <Grid item xs={12} md={4}>
                 <ColumnContainer
                   selected={this.state.selected === "organisation"}
+                  onClick={() => this.select("organisation")}
                 >
                   <ColumnTitle>Organization</ColumnTitle>
                   <ColumnItem>Test</ColumnItem>
@@ -80,6 +81,7 @@ class PricingTable extends React.Component<
               <Grid item xs={12} md={4}>
                 <ColumnContainer
                   selected={this.state.selected === "individual"}
+                  onClick={() => this.select("individual")}
                 >
                   <ColumnTitle>Individual</ColumnTitle>
                   <ColumnItem>Test</ColumnItem>
