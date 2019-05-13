@@ -86,6 +86,7 @@ export const ColumnItem = styled.div`
 export const ColumnContainer = styled.div<{ selected: boolean }>`
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 
   ${ColumnItem}, ${ColumnTitle} {
     ${props =>
