@@ -11,7 +11,7 @@ import { Expertise } from "../components/Expertise";
 import { OrganisationCTA } from "../components/OrganisationCTA";
 import { Seminars } from "../components/Seminars";
 import { Experience } from "../components/Experience";
-import { PricingTable } from "../components/PricingTable";
+import PricingTable from "../components/PricingTable";
 import { Inquiry } from "../components/Inquiry";
 
 const IndexPage = ({ data }) => {
