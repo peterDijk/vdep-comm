@@ -204,6 +204,54 @@ export const query = graphql`
         }
       }
     }
+    benefits: prismicBenefits(lang: { eq: "nl-nl" }) {
+      id
+      lang
+      data {
+        title {
+          text
+        }
+        body {
+          html
+        }
+      }
+    }
+    benefitsOptions: allPrismicBenefitsOption(
+      filter: { lang: { eq: "nl-nl" } }
+    ) {
+      nodes {
+        id
+        lang
+        data {
+          title {
+            text
+          }
+          number_of_attendees {
+            text
+          }
+          frequency {
+            text
+          }
+          seminar_subject {
+            text
+          }
+          seminar_content {
+            text
+          }
+          seminar_venue {
+            text
+          }
+          accomodation {
+            text
+          }
+          attendance_fee_text
+          attendance_fee_price
+          note {
+            text
+          }
+        }
+      }
+    }
   }
 `;
 
