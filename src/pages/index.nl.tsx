@@ -11,6 +11,7 @@ import { Expertise } from "../components/Expertise";
 import { OrganisationCTA } from "../components/OrganisationCTA";
 import { Seminars } from "../components/Seminars";
 import { Experience } from "../components/Experience";
+import { PricingTable } from "../components/PricingTable";
 import { Inquiry } from "../components/Inquiry";
 
 const IndexPage = ({ data }) => {
@@ -63,6 +64,7 @@ const IndexPage = ({ data }) => {
         experience={data.experience}
         seminarOverview={data.seminarOverview.nodes}
       />
+      <PricingTable benefits={data.benefits} benefitsOptions={[]} />
       {/* <Inquiry /> */}
     </Layout>
   );
@@ -200,6 +202,54 @@ export const query = graphql`
           }
           image {
             url
+          }
+        }
+      }
+    }
+    benefits: prismicBenefits(lang: { eq: "nl-nl" }) {
+      id
+      lang
+      data {
+        title {
+          text
+        }
+        body {
+          html
+        }
+      }
+    }
+    benefitsOptions: allPrismicBenefitsOption(
+      filter: { lang: { eq: "nl-nl" } }
+    ) {
+      nodes {
+        id
+        lang
+        data {
+          title {
+            text
+          }
+          number_of_attendees {
+            text
+          }
+          frequency {
+            text
+          }
+          seminar_subject {
+            text
+          }
+          seminar_content {
+            text
+          }
+          seminar_venue {
+            text
+          }
+          accomodation {
+            text
+          }
+          attendance_fee_text
+          attendance_fee_price
+          note {
+            text
           }
         }
       }
