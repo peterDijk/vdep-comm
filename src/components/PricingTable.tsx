@@ -1,6 +1,7 @@
 import * as React from "react";
 import ReactHtmlParser from "react-html-parser";
 import Grid from "@material-ui/core/Grid";
+import withWidth from "@material-ui/core/withWidth";
 import {
   Benefits as StyledBenefits,
   CenteredParagraph,
@@ -12,10 +13,11 @@ import {
   ItemEmpty,
 } from "../styles/PricingTable";
 
-export class PricingTable extends React.Component<
+class PricingTable extends React.Component<
   {
-    benefits;
-    benefitsOptions;
+    benefits: any;
+    benefitsOptions: any;
+    width?: any;
   },
   { selected: string }
 > {
@@ -28,7 +30,7 @@ export class PricingTable extends React.Component<
   };
 
   render() {
-    const { benefits, benefitsOptions } = this.props;
+    const { benefits, benefitsOptions, width } = this.props;
     return (
       <StyledBenefits>
         <h2>{benefits.data.title.text}</h2>
@@ -38,19 +40,21 @@ export class PricingTable extends React.Component<
         <BenefitsOptions>
           <TableContainer>
             <Grid container spacing={0}>
-              <Grid item xs={12} md={4}>
-                <ColumnContainer selected={false}>
-                  <ItemEmpty>&nbsp;</ItemEmpty>
-                  <ColumnItem>Test</ColumnItem>
-                  <ColumnItem>Test</ColumnItem>
-                  <ColumnItem>Test</ColumnItem>
-                  <ColumnItem>Test</ColumnItem>
-                  <ColumnItem>Test</ColumnItem>
-                  <ColumnItem>Test</ColumnItem>
-                  <ColumnItem>Test</ColumnItem>
-                  <ColumnItem>Test</ColumnItem>
-                </ColumnContainer>
-              </Grid>
+              {width !== "sm" && (
+                <Grid item xs={12} md={4}>
+                  <ColumnContainer selected={false}>
+                    <ItemEmpty>&nbsp;</ItemEmpty>
+                    <ColumnItem>Test</ColumnItem>
+                    <ColumnItem>Test</ColumnItem>
+                    <ColumnItem>Test</ColumnItem>
+                    <ColumnItem>Test</ColumnItem>
+                    <ColumnItem>Test</ColumnItem>
+                    <ColumnItem>Test</ColumnItem>
+                    <ColumnItem>Test</ColumnItem>
+                    <ColumnItem>Test</ColumnItem>
+                  </ColumnContainer>
+                </Grid>
+              )}
               <Grid item xs={12} md={4}>
                 <ColumnContainer
                   selected={this.state.selected === "organisation"}
@@ -102,3 +106,5 @@ export class PricingTable extends React.Component<
     );
   }
 }
+
+export default withWidth()(PricingTable);
