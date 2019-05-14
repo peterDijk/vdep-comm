@@ -1,5 +1,6 @@
 import styled from "./styled-components";
 import { COLOR } from "./constants";
+import Check from "@material-ui/icons/Check";
 
 export const CenteredParagraph = styled.div`
   margin: auto;
@@ -74,25 +75,49 @@ export const ColumnTitle = styled.div`
 `;
 
 export const LegendItem = styled.div`
-  padding: 1.6rem;
-  height: 5rem;
+  min-height: 7rem;
   padding-left: 5rem;
   text-align: left;
   font-family: "Roboto Slab", "sans-serif";
   font-size: 1.3rem;
   font-weight: bold;
   margin-bottom: 0.2rem;
+  position: relative;
+
+  p {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 `;
 
 export const ColumnItem = styled.div`
-  padding: 1.6rem;
-  height: 5rem;
-  padding-left: 5rem;
+  min-height: 7rem;
+  padding-left: 3rem;
+  padding-right: 2rem;
   text-align: left;
   font-family: "Roboto", "sans-serif";
   font-size: 1rem;
   margin-bottom: 0.2rem;
   transition: all 0.2s;
+  position: relative;
+
+  p {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 80%;
+  }
+`;
+
+export const CheckItem = styled(ColumnItem)`
+  padding: 0;
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 `;
 
 export const ColumnContainer = styled.div<{ selected: boolean }>`

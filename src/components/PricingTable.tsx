@@ -1,6 +1,7 @@
 import * as React from "react";
 import ReactHtmlParser from "react-html-parser";
 import Grid from "@material-ui/core/Grid";
+import Check from "@material-ui/icons/Check";
 import withWidth from "@material-ui/core/withWidth";
 import { translate as t } from "../lib/i18n";
 import {
@@ -11,6 +12,7 @@ import {
   ColumnContainer,
   LegendItem,
   ColumnItem,
+  CheckItem,
   ColumnTitle,
   ItemEmpty,
 } from "../styles/PricingTable";
@@ -53,14 +55,30 @@ class PricingTable extends React.Component<
                 <Grid item xs={12} md={4}>
                   <ColumnContainer selected={false}>
                     <ItemEmpty>&nbsp;</ItemEmpty>
-                    <LegendItem>{t("NUM_ATTENDEES", language)}</LegendItem>
-                    <LegendItem>{t("SEM_ATTENDANCE", language)}</LegendItem>
-                    <LegendItem>{t("FREQUENCY", language)}</LegendItem>
-                    <LegendItem>{t("SEM_SUBJECT", language)}</LegendItem>
-                    <LegendItem>{t("SEM_CONTENT", language)}</LegendItem>
-                    <LegendItem>{t("SEM_VENUE", language)}</LegendItem>
-                    <LegendItem>{t("ACCOMODATION", language)}</LegendItem>
-                    <LegendItem>{t("ATTENDANCE_FEE", language)}</LegendItem>
+                    <LegendItem>
+                      <p>{t("NUM_ATTENDEES", language)}</p>
+                    </LegendItem>
+                    <LegendItem>
+                      <p>{t("SEM_ATTENDANCE", language)}</p>
+                    </LegendItem>
+                    <LegendItem>
+                      <p>{t("FREQUENCY", language)}</p>
+                    </LegendItem>
+                    <LegendItem>
+                      <p>{t("SEM_SUBJECT", language)}</p>
+                    </LegendItem>
+                    <LegendItem>
+                      <p>{t("SEM_CONTENT", language)}</p>
+                    </LegendItem>
+                    <LegendItem>
+                      <p>{t("SEM_VENUE", language)}</p>
+                    </LegendItem>
+                    <LegendItem>
+                      <p>{t("ACCOMODATION", language)}</p>
+                    </LegendItem>
+                    <LegendItem>
+                      <p>{t("ATTENDANCE_FEE", language)}</p>
+                    </LegendItem>
                   </ColumnContainer>
                 </Grid>
               )}
@@ -73,7 +91,9 @@ class PricingTable extends React.Component<
                   <ColumnItem>
                     {ReactHtmlParser(optionOrg.data.number_of_attendees.html)}
                   </ColumnItem>
-                  <ColumnItem>check</ColumnItem>
+                  <CheckItem>
+                    <Check />
+                  </CheckItem>
                   <ColumnItem>
                     {ReactHtmlParser(optionOrg.data.frequency.html)}
                   </ColumnItem>
@@ -90,8 +110,10 @@ class PricingTable extends React.Component<
                     {ReactHtmlParser(optionOrg.data.accomodation.html)}
                   </ColumnItem>
                   <ColumnItem>
-                    {ReactHtmlParser(optionOrg.data.attendance_fee_text)}
-                    {ReactHtmlParser(optionOrg.data.attendance_fee_price)}
+                    <p>
+                      {ReactHtmlParser(optionOrg.data.attendance_fee_text)}
+                      {ReactHtmlParser(optionOrg.data.attendance_fee_price)}
+                    </p>
                   </ColumnItem>
                   <ItemEmpty>
                     <input
@@ -111,7 +133,9 @@ class PricingTable extends React.Component<
                   <ColumnItem>
                     {ReactHtmlParser(optionInd.data.number_of_attendees.html)}
                   </ColumnItem>
-                  <ColumnItem>check</ColumnItem>
+                  <CheckItem>
+                    <Check />
+                  </CheckItem>
                   <ColumnItem>
                     {ReactHtmlParser(optionInd.data.frequency.html)}
                   </ColumnItem>
@@ -128,8 +152,10 @@ class PricingTable extends React.Component<
                     {ReactHtmlParser(optionInd.data.accomodation.html)}
                   </ColumnItem>
                   <ColumnItem>
-                    {ReactHtmlParser(optionInd.data.attendance_fee_text)}
-                    {ReactHtmlParser(optionInd.data.attendance_fee_price)}
+                    <p>
+                      {ReactHtmlParser(optionInd.data.attendance_fee_text)}
+                      {ReactHtmlParser(optionInd.data.attendance_fee_price)}
+                    </p>
                   </ColumnItem>
                   <ItemEmpty>
                     <input
