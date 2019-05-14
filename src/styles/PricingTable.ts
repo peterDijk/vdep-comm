@@ -55,30 +55,42 @@ export const TableContainer = styled.div`
 `;
 
 export const ItemEmpty = styled.div`
-  padding: 3rem;
+  height: 7rem;
   padding-left: 5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.2rem;
   font-size: 1.4rem;
 `;
 
 export const ColumnTitle = styled.div`
-  padding: 3rem;
+  padding: 2.6rem;
+  height: 7rem;
   text-align: center;
   font-family: "Roboto Slab", "sans-serif";
   letter-spacing: 0.04em;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 700;
   margin-bottom: 0.2rem;
   transition: all 0.2s;
 `;
 
+export const LegendItem = styled.div`
+  padding: 1.6rem;
+  height: 5rem;
+  padding-left: 5rem;
+  text-align: left;
+  font-family: "Roboto Slab", "sans-serif";
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+`;
+
 export const ColumnItem = styled.div`
-  padding: 2rem;
+  padding: 1.6rem;
+  height: 5rem;
   padding-left: 5rem;
   text-align: left;
   font-family: "Roboto", "sans-serif";
   font-size: 1rem;
-  font-weight: bold;
   margin-bottom: 0.2rem;
   transition: all 0.2s;
 `;
@@ -88,12 +100,12 @@ export const ColumnContainer = styled.div<{ selected: boolean }>`
   flex-direction: column;
   cursor: pointer;
 
-  ${ColumnItem}, ${ColumnTitle} {
+  ${ColumnItem}, ${ColumnTitle}, ${LegendItem} {
     ${props =>
       props.selected
         ? `background-color: ${COLOR.VDEP_SECONDARY_BLUE};
-       color: ${COLOR.VDEP_TERTIARY_BLUE_DARK};`
+       color: ${COLOR.VDEP_QUARTIARY_BLUE};`
         : `background-color: ${COLOR.VDEP_TERTIARY_BLUE_DARK};
-       color: ${COLOR.VDEP_DARK_BLUE};`}
+       color: ${COLOR.VDEP_SECONDARY_BLUE};`}
   }
 `;

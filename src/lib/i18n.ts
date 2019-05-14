@@ -35,6 +35,42 @@ const translations = {
     "nl-nl": "Bekijk Programma",
     "en-gb": "View Program",
   },
+  NUM_ATTENDEES: {
+    "nl-nl": "Aantal Deelnemers",
+    "en-gb": "Number of Attendees",
+  },
+  SEM_ATTENDANCE: {
+    "nl-nl": "Seminar Deelname",
+    "en-gb": "Seminar Attendance",
+  },
+  FREQUENCY: {
+    "nl-nl": "Frequentie",
+    "en-gb": "Frequency",
+  },
+  SEM_SUBJECT: {
+    "nl-nl": "Seminar Onderwerp",
+    "en-gb": "Seminar Subject",
+  },
+  SEM_CONTENT: {
+    "nl-nl": "Seminar Inhoud",
+    "en-gb": "Seminar Content",
+  },
+  SEM_VENUE: {
+    "nl-nl": "Seminar Lokatie",
+    "en-gb": "Seminar Venue",
+  },
+  ACCOMODATION: {
+    "nl-nl": "Accomodatie",
+    "en-gb": "Accomodation",
+  },
+  ATTENDANCE_FEE: {
+    "nl-nl": "Deelname Prijs",
+    "en-gb": "Attendance Fee",
+  },
+  INTERESTED_IN_ATTENDING: {
+    "nl-nl": "Geïntereseerd in deelnemen?",
+    "en-gb": "Interested in attending?",
+  },
 };
 
 export const translate = (string, language) => {

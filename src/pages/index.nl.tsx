@@ -28,7 +28,7 @@ const IndexPage = ({ data }) => {
     return aDate - bDate;
   });
 
-  console.log(data.seminars);
+  console.log(data);
 
   return (
     <Layout lang={language}>
@@ -64,7 +64,11 @@ const IndexPage = ({ data }) => {
         experience={data.experience}
         seminarOverview={data.seminarOverview.nodes}
       />
-      <PricingTable benefits={data.benefits} benefitsOptions={[]} />
+      <PricingTable
+        benefits={data.benefits}
+        benefitsOptions={data.benefitsOptions}
+        language={language}
+      />
       {/* <Inquiry /> */}
     </Layout>
   );
@@ -224,33 +228,35 @@ export const query = graphql`
       nodes {
         id
         lang
+        uid
         data {
           title {
             text
           }
           number_of_attendees {
-            text
+            html
           }
           frequency {
-            text
+            html
           }
           seminar_subject {
-            text
+            html
           }
           seminar_content {
-            text
+            html
           }
           seminar_venue {
-            text
+            html
           }
           accomodation {
-            text
+            html
           }
           attendance_fee_text
           attendance_fee_price
           note {
-            text
+            html
           }
+          interested_text
         }
       }
     }
