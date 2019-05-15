@@ -180,3 +180,35 @@ export const ColumnContainer = styled.div<{ selected: boolean }>`
        color: ${COLOR.VDEP_SECONDARY_BLUE};`}
   }
 `;
+
+export const NoteItem = styled.div`
+  height: 1rem;
+  padding: 0.5rem;
+  text-align: left;
+  font-family: "Roboto", "sans-serif";
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: ${COLOR.VDEP_SECONDARY_BLUE};
+
+  strong {
+    font-weight: 700;
+    color: ${COLOR.VDEP_BLUE};
+  }
+`;
+
+export const ChoiceItem = styled.div`
+  padding: 2.5rem;
+  text-align: left;
+  font-family: "Roboto Slab", "sans-serif";
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: ${COLOR.VDEP_BLUE};
+  position: relative;
+
+  p {
+    display: inline-block;
+    position: relative;
+    top: 50%;
+    transform: translateY(-40%);
+  }
+`;

@@ -23,6 +23,8 @@ import {
   ColumnTitleLeft,
   ColumnTitleRight,
   ItemEmpty,
+  ChoiceItem,
+  NoteItem,
 } from "../styles/PricingTable";
 import { Checkbox } from "./Checkbox";
 
@@ -88,6 +90,10 @@ class PricingTable extends React.Component<
                     <LegendItemLargeLeft>
                       <p>{t("ATTENDANCE_FEE", language)}</p>
                     </LegendItemLargeLeft>
+                    <NoteItem />
+                    <ChoiceItem>
+                      <p>Interested in attending?</p>
+                    </ChoiceItem>
                   </ColumnContainer>
                 </Grid>
               )}
@@ -124,12 +130,14 @@ class PricingTable extends React.Component<
                       {ReactHtmlParser(optionOrg.data.attendance_fee_price)}
                     </p>
                   </ColumnItemLarge>
-                  <ItemEmpty>
+                  <NoteItem />
+                  <ChoiceItem>
                     <Checkbox
                       checked={this.state.selected === "organisation"}
                       callbackFn={() => this.select("organisation")}
                     />
-                  </ItemEmpty>
+                    <p>{optionOrg.data.interested_text}</p>
+                  </ChoiceItem>
                 </ColumnContainer>
               </Grid>
               <Grid item xs={12} md={4}>
@@ -167,12 +175,16 @@ class PricingTable extends React.Component<
                       {ReactHtmlParser(optionInd.data.attendance_fee_price)}
                     </p>
                   </ColumnItemLargeRight>
-                  <ItemEmpty>
+                  <NoteItem>
+                    {ReactHtmlParser(optionInd.data.note.html)}
+                  </NoteItem>
+                  <ChoiceItem>
                     <Checkbox
                       checked={this.state.selected === "individual"}
                       callbackFn={() => this.select("individual")}
                     />
-                  </ItemEmpty>
+                    <p>{optionInd.data.interested_text}</p>
+                  </ChoiceItem>
                 </ColumnContainer>
               </Grid>
             </Grid>

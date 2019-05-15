@@ -41,7 +41,7 @@ export class Checkbox extends React.Component<Props, State> {
       <StyledCheckbox>
         <input
           type="checkbox"
-          name="requestType"
+          name="checkbox"
           onChange={this.changeHandler}
           checked={this.state.checked}
         />
