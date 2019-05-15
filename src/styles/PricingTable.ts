@@ -1,6 +1,5 @@
 import styled from "./styled-components";
 import { COLOR } from "./constants";
-import Check from "@material-ui/icons/Check";
 
 export const CenteredParagraph = styled.div`
   margin: auto;
@@ -58,7 +57,7 @@ export const TableContainer = styled.div`
 export const ItemEmpty = styled.div`
   height: 7rem;
   padding-left: 5rem;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.3rem;
   font-size: 1.4rem;
 `;
 
@@ -70,18 +69,26 @@ export const ColumnTitle = styled.div`
   letter-spacing: 0.04em;
   font-size: 1.6rem;
   font-weight: 700;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.3rem;
   transition: all 0.2s;
 `;
 
+export const ColumnTitleLeft = styled(ColumnTitle)`
+  border-radius: 0.5rem 0 0 0;
+`;
+
+export const ColumnTitleRight = styled(ColumnTitle)`
+  border-radius: 0 0.5rem 0 0;
+`;
+
 export const LegendItem = styled.div`
-  min-height: 7rem;
+  min-height: 5rem;
   padding-left: 5rem;
   text-align: left;
   font-family: "Roboto Slab", "sans-serif";
   font-size: 1.3rem;
   font-weight: bold;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.1rem;
   position: relative;
 
   p {
@@ -91,14 +98,35 @@ export const LegendItem = styled.div`
   }
 `;
 
+export const LegendItemMarginBottom = styled(LegendItem)`
+  margin-bottom: 0.3rem;
+`;
+
+export const LegendItemMedium = styled(LegendItem)`
+  min-height: 6rem;
+  margin-bottom: 0.3rem;
+`;
+
+export const LegendItemMediumLeft = styled(LegendItemMedium)`
+  border-radius: 0.5rem 0 0 0;
+`;
+
+export const LegendItemLarge = styled(LegendItem)`
+  min-height: 9rem;
+`;
+
+export const LegendItemLargeLeft = styled(LegendItemLarge)`
+  border-radius: 0 0 0 0.5rem;
+`;
+
 export const ColumnItem = styled.div`
-  min-height: 7rem;
+  min-height: 5rem;
   padding-left: 3rem;
   padding-right: 2rem;
   text-align: left;
   font-family: "Roboto", "sans-serif";
   font-size: 1rem;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.1rem;
   transition: all 0.2s;
   position: relative;
 
@@ -108,6 +136,24 @@ export const ColumnItem = styled.div`
     transform: translateY(-50%);
     width: 80%;
   }
+`;
+
+export const ColumnItemMedium = styled(ColumnItem)`
+  min-height: 6rem;
+  margin-bottom: 0.3rem;
+`;
+
+export const ColumnItemLarge = styled(ColumnItem)`
+  min-height: 9rem;
+  margin-bottom: 0.3rem;
+`;
+
+export const ColumnItemLargeRight = styled(ColumnItemLarge)`
+  border-radius: 0 0 0.5rem 0;
+`;
+
+export const ColumnItemMarginBottom = styled(ColumnItem)`
+  margin-bottom: 0.3rem;
 `;
 
 export const CheckItem = styled(ColumnItem)`
