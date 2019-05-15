@@ -11,11 +11,22 @@ import {
   TableContainer,
   ColumnContainer,
   LegendItem,
+  LegendItemMediumLeft,
+  LegendItemMarginBottom,
+  LegendItemLargeLeft,
+  ColumnItemLargeRight,
   ColumnItem,
+  ColumnItemMedium,
+  ColumnItemLarge,
+  ColumnItemMarginBottom,
   CheckItem,
-  ColumnTitle,
+  ColumnTitleLeft,
+  ColumnTitleRight,
   ItemEmpty,
+  ChoiceItem,
+  NoteItem,
 } from "../styles/PricingTable";
+import { Checkbox } from "./Checkbox";
 
 class PricingTable extends React.Component<
   {
@@ -55,9 +66,9 @@ class PricingTable extends React.Component<
                 <Grid item xs={12} md={4}>
                   <ColumnContainer selected={false}>
                     <ItemEmpty>&nbsp;</ItemEmpty>
-                    <LegendItem>
+                    <LegendItemMediumLeft>
                       <p>{t("NUM_ATTENDEES", language)}</p>
-                    </LegendItem>
+                    </LegendItemMediumLeft>
                     <LegendItem>
                       <p>{t("SEM_ATTENDANCE", language)}</p>
                     </LegendItem>
@@ -67,18 +78,22 @@ class PricingTable extends React.Component<
                     <LegendItem>
                       <p>{t("SEM_SUBJECT", language)}</p>
                     </LegendItem>
-                    <LegendItem>
+                    <LegendItemMarginBottom>
                       <p>{t("SEM_CONTENT", language)}</p>
-                    </LegendItem>
+                    </LegendItemMarginBottom>
                     <LegendItem>
                       <p>{t("SEM_VENUE", language)}</p>
                     </LegendItem>
-                    <LegendItem>
+                    <LegendItemMarginBottom>
                       <p>{t("ACCOMODATION", language)}</p>
-                    </LegendItem>
-                    <LegendItem>
+                    </LegendItemMarginBottom>
+                    <LegendItemLargeLeft>
                       <p>{t("ATTENDANCE_FEE", language)}</p>
-                    </LegendItem>
+                    </LegendItemLargeLeft>
+                    <NoteItem />
+                    <ChoiceItem>
+                      <p>Interested in attending?</p>
+                    </ChoiceItem>
                   </ColumnContainer>
                 </Grid>
               )}
@@ -87,10 +102,10 @@ class PricingTable extends React.Component<
                   selected={this.state.selected === "organisation"}
                   onClick={() => this.select("organisation")}
                 >
-                  <ColumnTitle>{optionOrg.data.title.text}</ColumnTitle>
-                  <ColumnItem>
+                  <ColumnTitleLeft>{optionOrg.data.title.text}</ColumnTitleLeft>
+                  <ColumnItemMedium>
                     {ReactHtmlParser(optionOrg.data.number_of_attendees.html)}
-                  </ColumnItem>
+                  </ColumnItemMedium>
                   <CheckItem>
                     <Check />
                   </CheckItem>
@@ -100,28 +115,29 @@ class PricingTable extends React.Component<
                   <ColumnItem>
                     {ReactHtmlParser(optionOrg.data.seminar_subject.html)}
                   </ColumnItem>
-                  <ColumnItem>
+                  <ColumnItemMarginBottom>
                     {ReactHtmlParser(optionOrg.data.seminar_content.html)}
-                  </ColumnItem>
+                  </ColumnItemMarginBottom>
                   <ColumnItem>
                     {ReactHtmlParser(optionOrg.data.seminar_venue.html)}
                   </ColumnItem>
-                  <ColumnItem>
+                  <ColumnItemMarginBottom>
                     {ReactHtmlParser(optionOrg.data.accomodation.html)}
-                  </ColumnItem>
-                  <ColumnItem>
+                  </ColumnItemMarginBottom>
+                  <ColumnItemLarge>
                     <p>
                       {ReactHtmlParser(optionOrg.data.attendance_fee_text)}
                       {ReactHtmlParser(optionOrg.data.attendance_fee_price)}
                     </p>
-                  </ColumnItem>
-                  <ItemEmpty>
-                    <input
-                      type="checkbox"
-                      onChange={() => this.select("organisation")}
+                  </ColumnItemLarge>
+                  <NoteItem />
+                  <ChoiceItem>
+                    <Checkbox
                       checked={this.state.selected === "organisation"}
+                      callbackFn={() => this.select("organisation")}
                     />
-                  </ItemEmpty>
+                    <p>{optionOrg.data.interested_text}</p>
+                  </ChoiceItem>
                 </ColumnContainer>
               </Grid>
               <Grid item xs={12} md={4}>
@@ -129,10 +145,12 @@ class PricingTable extends React.Component<
                   selected={this.state.selected === "individual"}
                   onClick={() => this.select("individual")}
                 >
-                  <ColumnTitle>{optionInd.data.title.text}</ColumnTitle>
-                  <ColumnItem>
+                  <ColumnTitleRight>
+                    {optionInd.data.title.text}
+                  </ColumnTitleRight>
+                  <ColumnItemMedium>
                     {ReactHtmlParser(optionInd.data.number_of_attendees.html)}
-                  </ColumnItem>
+                  </ColumnItemMedium>
                   <CheckItem>
                     <Check />
                   </CheckItem>
@@ -142,28 +160,31 @@ class PricingTable extends React.Component<
                   <ColumnItem>
                     {ReactHtmlParser(optionInd.data.seminar_subject.html)}
                   </ColumnItem>
-                  <ColumnItem>
+                  <ColumnItemMarginBottom>
                     {ReactHtmlParser(optionInd.data.seminar_content.html)}
-                  </ColumnItem>
+                  </ColumnItemMarginBottom>
                   <ColumnItem>
                     {ReactHtmlParser(optionInd.data.seminar_venue.html)}
                   </ColumnItem>
-                  <ColumnItem>
+                  <ColumnItemMarginBottom>
                     {ReactHtmlParser(optionInd.data.accomodation.html)}
-                  </ColumnItem>
-                  <ColumnItem>
+                  </ColumnItemMarginBottom>
+                  <ColumnItemLargeRight>
                     <p>
                       {ReactHtmlParser(optionInd.data.attendance_fee_text)}
                       {ReactHtmlParser(optionInd.data.attendance_fee_price)}
                     </p>
-                  </ColumnItem>
-                  <ItemEmpty>
-                    <input
-                      type="checkbox"
-                      onChange={() => this.select("individual")}
+                  </ColumnItemLargeRight>
+                  <NoteItem>
+                    {ReactHtmlParser(optionInd.data.note.html)}
+                  </NoteItem>
+                  <ChoiceItem>
+                    <Checkbox
                       checked={this.state.selected === "individual"}
+                      callbackFn={() => this.select("individual")}
                     />
-                  </ItemEmpty>
+                    <p>{optionInd.data.interested_text}</p>
+                  </ChoiceItem>
                 </ColumnContainer>
               </Grid>
             </Grid>
