@@ -22,7 +22,7 @@ export const Button = styled.div`
   cursor: pointer;
 
   &:hover {
-    background-color: ${COLOR.WHITE_0};
+    // background-color: ${COLOR.VDEP_DARK_BLUE};
     border: 1px solid ${COLOR.VDEP_BLUE};
   }
 `;

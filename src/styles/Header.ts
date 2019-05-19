@@ -26,6 +26,7 @@ export const SiteTitleContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  // width: 30rem;
 `;
 
 export const SitePayoff = styled.div`
@@ -34,6 +35,7 @@ export const SitePayoff = styled.div`
   font-family: "Roboto", "sans-serif";
   color: ${COLOR.WHITE};
   width: 100%;
+  // padding: 0 0.2rem;
 
   h2 {
     font-size: 2rem;
@@ -49,11 +51,12 @@ export const SitePayoff = styled.div`
 
 export const LogoContainer = styled.div`
   display: flex;
+  font-size: 0.037rem;
 
   h1 {
     font-family: "Roboto Slab", "sans-serif";
     color: ${COLOR.WHITE};
-    font-size: 0.037rem;
+    font-size: 1em;
     text-align: center;
     position: relative;
     top: 0.5rem;
@@ -67,13 +70,13 @@ export const CoG = styled.div`
   width: 18rem;
 `;
 
-export const LogoTextOne = styled.div`
+export const LogoTextOne = styled.span`
   text-transform: uppercase;
   font-size: 72em;
   display: block;
 `;
 
-export const LogoTextTwo = styled.div`
+export const LogoTextTwo = styled.span`
   font-size: 40em;
   text-transform: lowercase;
   display: inline-block;
@@ -107,7 +110,7 @@ export const LogoTextTwo = styled.div`
   }
 `;
 
-export const LogoTextThree = styled.div`
+export const LogoTextThree = styled.span`
   text-transform: uppercase;
   font-size: 96em;
   display: block;
