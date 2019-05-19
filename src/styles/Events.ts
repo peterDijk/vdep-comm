@@ -49,7 +49,7 @@ export const LocationDateContainer = styled.div`
     color: ${COLOR.VDEP_SECONDARY_BLUE};
     letter-spacing: 0.15rem;
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     text-transform: uppercase;
   }
   h4 {
@@ -57,7 +57,7 @@ export const LocationDateContainer = styled.div`
     color: ${COLOR.VDEP_SECONDARY_BLUE};
     letter-spacing: 0.15rem;
     font-weight: normal;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     text-transform: uppercase;
   }
 `;

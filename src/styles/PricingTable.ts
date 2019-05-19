@@ -133,9 +133,17 @@ export const ColumnItem = styled.div`
   p {
     position: absolute;
     top: 50%;
+    // left: 50%;
     transform: translateY(-50%);
     width: 80%;
   }
+  // h2 {
+  //   position: absolute;
+  //   top: 60%;
+  //   left: 50%;
+  //   transform: translate(-50%, -50%);
+  //   width: 80%;
+  // }
 `;
 
 export const ColumnItemMedium = styled(ColumnItem)`

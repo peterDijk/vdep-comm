@@ -170,10 +170,10 @@ class PricingTable extends React.Component<
                     {ReactHtmlParser(optionInd.data.accomodation.html)}
                   </ColumnItemMarginBottom>
                   <ColumnItemLargeRight>
-                    <p>
-                      {ReactHtmlParser(optionInd.data.attendance_fee_text)}
+                    <p>{ReactHtmlParser(optionInd.data.attendance_fee_text)}</p>
+                    <h2>
                       {ReactHtmlParser(optionInd.data.attendance_fee_price)}
-                    </p>
+                    </h2>
                   </ColumnItemLargeRight>
                   <NoteItem>
                     {ReactHtmlParser(optionInd.data.note.html)}

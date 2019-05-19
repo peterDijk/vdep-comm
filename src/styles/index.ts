@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "./styled-components";
 import { COLOR } from "./constants";
+import { LogoContainer, CoG } from "./Header";
 
 export const Global = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab:200,400,500,600,700,900');
@@ -26,5 +27,14 @@ a,
 a:visited {
   text-decoration: none;
   color: ${COLOR.VDEP_SECONDARY_BLUE};
+}
+
+@media screen and (max-width: 450px){
+  ${LogoContainer} {
+      font-size: 0.031rem;
+  }
+  ${CoG} {
+    width: 15rem;
+  }
 }
 `;
