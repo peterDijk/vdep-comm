@@ -49,14 +49,23 @@ export const SeminarDayTile = styled.div`
   padding: 1.5rem;
 `;
 
-export const DayImage = styled.div<{ imgUrl: string }>`
+export const DayImage = styled.div`
   border-top: 0.8rem solid ${COLOR.VDEP_GREEN};
   position: relative;
-  background-image: url(${props => props.imgUrl});
-  background-size: cover;
-  background-position: center;
+
+  background-color: ${COLOR.VDEP_DARK_BLUE};
+  // background-size: cover;
+  // background-position: center;
   width: 100%;
   height: 25rem;
+
+  svg {
+    padding: 1rem;
+    margin: 1rem;
+    color: ${COLOR.VDEP_GREEN};
+    width: 16rem;
+    height: 16rem;
+  }
 
   h2 {
     width: 100%;

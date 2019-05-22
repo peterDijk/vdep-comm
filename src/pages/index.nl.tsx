@@ -207,6 +207,7 @@ export const query = graphql`
           image {
             url
           }
+          muiicon
         }
       }
     }
