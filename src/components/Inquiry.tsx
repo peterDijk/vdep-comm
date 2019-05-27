@@ -54,12 +54,12 @@ export class Inquiry extends React.Component<Props, State> {
       this.setState({ response: "FAILURE" });
     } else {
       this.setState({ pending: true });
-      axios
-        .post("https://www.google.com/recaptcha/api/siteverify", {
-          secret: process.env.GATSBY_CAPTCHA_SERVER,
-          response: this.state.rcToken,
-        })
-        .then(resp => console.log(resp));
+      // axios
+      //   .post("https://www.google.com/recaptcha/api/siteverify", {
+      //     secret: process.env.GATSBY_CAPTCHA_SERVER,
+      //     response: this.state.rcToken,
+      //   })
+      //   .then(resp => console.log(resp));
       axios
         .post("/.netlify/functions/zoho", {
           url:
