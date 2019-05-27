@@ -27,6 +27,7 @@ import {
   NoteItem,
 } from "../styles/PricingTable";
 import { Checkbox } from "./Checkbox";
+import { Inquiry } from "./Inquiry";
 
 class PricingTable extends React.Component<
   {
@@ -188,6 +189,7 @@ class PricingTable extends React.Component<
                 </ColumnContainer>
               </Grid>
             </Grid>
+            <Inquiry language={language} interest={this.state.selected} />
           </TableContainer>
         </BenefitsOptions>
       </StyledBenefits>
