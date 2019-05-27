@@ -9,9 +9,9 @@ export const Button = styled.div`
   border: 1px solid transparent;
   border-radius: 0.5rem;
   background-color: ${COLOR.VDEP_BLUE};
-  color: ${COLOR.WHITE}
-  font-family: 'Roboto Slab', 'sans-serif';
-  font-weight: bold;
+  color: ${COLOR.WHITE};
+  font-family: "Roboto Slab", "sans-serif";
+  font-weight: 600;
   font-size: 1.5rem;
   line-height: 1;
   display: flex;
@@ -22,7 +22,6 @@ export const Button = styled.div`
   cursor: pointer;
 
   &:hover {
-    // background-color: ${COLOR.VDEP_DARK_BLUE};
     border: 1px solid ${COLOR.VDEP_BLUE};
   }
 `;

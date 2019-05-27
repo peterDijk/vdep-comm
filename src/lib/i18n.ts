@@ -71,6 +71,10 @@ const translations = {
     "nl-nl": "Geïntereseerd in deelnemen?",
     "en-gb": "Interested in attending?",
   },
+  INSERT_YOUR_EMAIL: {
+    "nl-nl": "Laat je emailadres hier achter en wij leiden je door de rest.",
+    "en-gb": "Insert your email here and we'll guide you through the rest.",
+  },
 };
 
 export const translate = (string, language) => {
