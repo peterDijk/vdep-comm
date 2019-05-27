@@ -6,6 +6,8 @@ import { Global } from "../styles";
 
 import { StyledContainer } from "../styles/Main";
 
+import { loadReCaptcha } from "react-recaptcha-v3";
+
 type Props = {
   lang: string;
 };
@@ -23,6 +25,7 @@ class Layout extends React.Component<Props, State> {
   };
 
   componentDidMount() {
+    loadReCaptcha(process.env.GATSBY_CAPTCHA_CLIENT);
     window.addEventListener("scroll", () => {
       if (
         this.changeNavColor(window.scrollY, window.innerHeight) !==

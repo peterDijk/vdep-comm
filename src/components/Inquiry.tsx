@@ -11,6 +11,7 @@ import { Button } from "../styles/buttons";
 import { translate as t } from "../lib/i18n";
 import CloseIcon from "@material-ui/icons/Close";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import { ReCaptcha } from "react-recaptcha-v3";
 
 type State = {
   emailInput: string;
@@ -38,6 +39,11 @@ export class Inquiry extends React.Component<Props, State> {
 
   resetFailure = () => {
     this.setState({ response: null, pending: false });
+  };
+
+  verifyCallback = recaptchaToken => {
+    // Here you will get the final recaptchaToken!!!
+    console.log(recaptchaToken, "<= your recaptcha token");
   };
 
   postToZohoAPI = () => {
@@ -70,6 +76,11 @@ export class Inquiry extends React.Component<Props, State> {
     const { language } = this.props;
     return (
       <InquiryContainer id="inquiry">
+        <ReCaptcha
+          sitekey={process.env.GATSBY_CAPTCHA_CLIENT}
+          action="action_name"
+          verifyCallback={this.verifyCallback}
+        />
         <InputClean
           name="email"
           value={this.state.emailInput}
