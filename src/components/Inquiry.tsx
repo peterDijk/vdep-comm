@@ -17,6 +17,7 @@ type State = {
   emailInput: string;
   response: "OK" | "FAILURE";
   pending: boolean;
+  rcToken: string;
 };
 
 type Props = {
@@ -29,6 +30,7 @@ export class Inquiry extends React.Component<Props, State> {
     emailInput: "",
     response: null,
     pending: false,
+    rcToken: null,
   };
 
   handleInputChange = e => {
@@ -43,6 +45,7 @@ export class Inquiry extends React.Component<Props, State> {
 
   verifyCallback = recaptchaToken => {
     // Here you will get the final recaptchaToken!!!
+    this.setState({ rcToken: recaptchaToken });
     console.log(recaptchaToken, "<= your recaptcha token");
   };
 
@@ -51,6 +54,12 @@ export class Inquiry extends React.Component<Props, State> {
       this.setState({ response: "FAILURE" });
     } else {
       this.setState({ pending: true });
+      axios
+        .post("https://www.google.com/recaptcha/api/siteverify", {
+          secret: process.env.GATSBY_CAPTCHA_SERVER,
+          response: this.state.rcToken,
+        })
+        .then(resp => console.log(resp));
       axios
         .post("/.netlify/functions/zoho", {
           url:
