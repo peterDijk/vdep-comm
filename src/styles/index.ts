@@ -17,16 +17,28 @@ html {
   // This defines what 1rem is. 100% is 16px (most of the time).
   font-size: 62.5%; // 10px
   font-family: 'Roboto';
+
 }
 
 body {
   box-sizing: border-box;
 }
 
+main { 
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
 a,
 a:visited {
   text-decoration: none;
   color: ${COLOR.VDEP_SECONDARY_BLUE};
+}
+
+input:-internal-autofill-selected {
+  background-color: ${COLOR.WHITE};
+  background-image: none !important;
+  color: rgb(0, 0, 0) !important;
 }
 
 @media screen and (max-width: 450px){

@@ -15,11 +15,12 @@ export const InputClean = styled.input`
 export const InquiryContainer = styled.div`
   width: 100%;
   background: ${COLOR.WHITE};
-  // border: 0.1rem solid transparent;
   border-radius: 0.5rem;
   display: flex;
   justify-content: flex-end;
   position: relative;
+  margin-bottom: 10rem;
+  color: ${COLOR.VDEP_GREEN};
 
   ${InputClean} {
     width: 100%;
@@ -33,6 +34,13 @@ export const InquiryContainer = styled.div`
     width: 20rem;
     height: 4rem;
   }
+`;
+
+export const ProgressContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 2rem;
 `;
 
 export const InquirySuccess = styled.div<{ visible: boolean }>`
@@ -80,5 +88,10 @@ export const InquiryFailure = styled.div<{ visible: boolean }>`
     font-weight: 700;
     font-size: 1.4rem;
     color: ${COLOR.VDEP_DARK_BLUE};
+  }
+  svg {
+    position: absolute;
+    right: 2rem;
+    cursor: pointer;
   }
 `;

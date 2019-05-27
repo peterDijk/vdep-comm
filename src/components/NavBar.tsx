@@ -44,7 +44,9 @@ export const NavBar = ({ language, switchBg }) => {
             <LangOption isActive={language === "nl-nl"}>NL</LangOption>
           </Link>
         </LangBox>
-        <Button>{t("MAKEINQ", language)}</Button>
+        <a href="#inquiry">
+          <Button>{t("MAKEINQ", language)}</Button>
+        </a>
       </NavBarRight>
     </StyledNavBar>
   );

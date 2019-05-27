@@ -5,20 +5,29 @@ import {
   InputClean,
   InquirySuccess,
   InquiryFailure,
+  ProgressContainer,
 } from "../styles/Inquiry";
 import { Button } from "../styles/buttons";
 import { translate as t } from "../lib/i18n";
+import CloseIcon from "@material-ui/icons/Close";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
-export class Inquiry extends React.Component<
-  {
-    language: string;
-    interest: string;
-  },
-  { emailInput: string; response: "OK" | "FAILURE" }
-> {
+type State = {
+  emailInput: string;
+  response: "OK" | "FAILURE";
+  pending: boolean;
+};
+
+type Props = {
+  language: string;
+  interest: string;
+};
+
+export class Inquiry extends React.Component<Props, State> {
   state = {
     emailInput: "",
     response: null,
+    pending: false,
   };
 
   handleInputChange = e => {
@@ -27,10 +36,15 @@ export class Inquiry extends React.Component<
     });
   };
 
+  resetFailure = () => {
+    this.setState({ response: null, pending: false });
+  };
+
   postToZohoAPI = () => {
     if (this.state.emailInput === "") {
       this.setState({ response: "FAILURE" });
     } else {
+      this.setState({ pending: true });
       axios
         .post("/.netlify/functions/zoho", {
           url:
@@ -44,7 +58,7 @@ export class Inquiry extends React.Component<
           console.log(resp);
           const zohoStatus = resp.data.formname[1].operation[1].status;
           if (zohoStatus === "Success") {
-            this.setState({ response: "OK" });
+            this.setState({ response: "OK", pending: false });
           } else {
             this.setState({ response: "FAILURE" });
           }
@@ -55,29 +69,33 @@ export class Inquiry extends React.Component<
   render() {
     const { language } = this.props;
     return (
-      <React.Fragment>
-        <InquiryContainer>
-          <InputClean
-            name="email"
-            value={this.state.emailInput}
-            onChange={this.handleInputChange}
-            placeholder={t("INSERT_YOUR_EMAIL", language)}
-          />
-          <Button onClick={this.postToZohoAPI}>{t("MAKEINQ", language)}</Button>
-          {this.state.response === "OK" && (
-            <InquirySuccess visible={true}>
-              <p>{`Bedankt! wij nemen contact op via ${
-                this.state.emailInput
-              }`}</p>
-            </InquirySuccess>
-          )}
-          {this.state.response === "FAILURE" && (
-            <InquiryFailure visible={true}>
-              <p>{`Sorry, er is iets niet goed gegaan. Probeer opnieuw, of stuur een email naar info@communicatieovergrenzen.nl`}</p>
-            </InquiryFailure>
-          )}
-        </InquiryContainer>
-      </React.Fragment>
+      <InquiryContainer id="inquiry">
+        <InputClean
+          name="email"
+          value={this.state.emailInput}
+          onChange={this.handleInputChange}
+          placeholder={t("INSERT_YOUR_EMAIL", language)}
+        />
+        {this.state.pending && (
+          <ProgressContainer>
+            <CircularProgress color="inherit" size={32} />
+          </ProgressContainer>
+        )}
+        <Button onClick={this.postToZohoAPI}>{t("MAKEINQ", language)}</Button>
+        {this.state.response === "OK" && (
+          <InquirySuccess visible={true}>
+            <p>{`Bedankt! wij nemen contact op via ${
+              this.state.emailInput
+            }`}</p>
+          </InquirySuccess>
+        )}
+        {this.state.response === "FAILURE" && (
+          <InquiryFailure visible={true}>
+            <p>{`Sorry, er is iets niet goed gegaan. Probeer opnieuw, of stuur een email naar info@communicatieovergrenzen.nl`}</p>
+            <CloseIcon onClick={this.resetFailure} />
+          </InquiryFailure>
+        )}
+      </InquiryContainer>
     );
   }
 }
