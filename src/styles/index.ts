@@ -41,6 +41,10 @@ input:-internal-autofill-selected {
   color: rgb(0, 0, 0) !important;
 }
 
+.grecaptcha-badge {
+  z-index: 100;
+}
+
 @media screen and (max-width: 450px){
   ${LogoContainer} {
       font-size: 0.031rem;
