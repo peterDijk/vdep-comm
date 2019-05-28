@@ -15,7 +15,7 @@ import { ReCaptcha } from "react-recaptcha-v3";
 
 type State = {
   emailInput: string;
-  response: "OK" | "FAILURE";
+  response: "OK" | "FAILURE" | "BOT";
   pending: boolean;
   rcToken: string;
 };
@@ -44,9 +44,7 @@ export class Inquiry extends React.Component<Props, State> {
   };
 
   verifyCallback = recaptchaToken => {
-    // Here you will get the final recaptchaToken!!!
     this.setState({ rcToken: recaptchaToken });
-    console.log(recaptchaToken, "<= your recaptcha token");
   };
 
   postToZohoAPI = () => {
@@ -62,25 +60,29 @@ export class Inquiry extends React.Component<Props, State> {
         })
         .then(response => {
           console.log(response);
+          if (response.data.score > 0.6) {
+            axios
+              .post("/.netlify/functions/zoho", {
+                url:
+                  "https://creator.zoho.com/api/petervandijk/json/communicatie-over-grenzen-administratie/form/Add_prospect/record/add",
+                authtoken: process.env.GATSBY_ZOHO_AUTH,
+                scope: "creatorapi",
+                email: this.state.emailInput,
+                interest: this.props.interest,
+              })
+              .then(resp => {
+                console.log(resp);
+                const zohoStatus = resp.data.formname[1].operation[1].status;
+                if (zohoStatus === "Success") {
+                  this.setState({ response: "OK", pending: false });
+                } else {
+                  this.setState({ response: "FAILURE" });
+                }
+              });
+          } else {
+            this.setState({ response: "BOT" });
+          }
         });
-      // axios
-      //   .post("/.netlify/functions/zoho", {
-      //     url:
-      //       "https://creator.zoho.com/api/petervandijk/json/communicatie-over-grenzen-administratie/form/Add_prospect/record/add",
-      //     authtoken: process.env.GATSBY_ZOHO_AUTH,
-      //     scope: "creatorapi",
-      //     email: this.state.emailInput,
-      //     interest: this.props.interest,
-      //   })
-      //   .then(resp => {
-      //     console.log(resp);
-      //     const zohoStatus = resp.data.formname[1].operation[1].status;
-      //     if (zohoStatus === "Success") {
-      //       this.setState({ response: "OK", pending: false });
-      //     } else {
-      //       this.setState({ response: "FAILURE" });
-      //     }
-      //   });
     }
   };
 
@@ -90,7 +92,7 @@ export class Inquiry extends React.Component<Props, State> {
       <InquiryContainer id="inquiry">
         <ReCaptcha
           sitekey={process.env.GATSBY_CAPTCHA_CLIENT}
-          action="action_name"
+          action="CoG_inquiry_form"
           verifyCallback={this.verifyCallback}
         />
         <InputClean
@@ -115,6 +117,12 @@ export class Inquiry extends React.Component<Props, State> {
         {this.state.response === "FAILURE" && (
           <InquiryFailure visible={true}>
             <p>{`Sorry, er is iets niet goed gegaan. Probeer opnieuw, of stuur een email naar info@communicatieovergrenzen.nl`}</p>
+            <CloseIcon onClick={this.resetFailure} />
+          </InquiryFailure>
+        )}
+        {this.state.response === "BOT" && (
+          <InquiryFailure visible={true}>
+            <p>{`reCAPTCHA score tells us you might be a bot. If you are a human reading this, email us at info@communicatieovergrenzen.nl`}</p>
             <CloseIcon onClick={this.resetFailure} />
           </InquiryFailure>
         )}
