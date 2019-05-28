@@ -19,7 +19,6 @@ function serverSideRequest(formData, callback) {
 }
 
 exports.handler = function(event, context, callback) {
-  console.log({ lambdaHandlerEvent: event });
   const lambdaResponse = response => {
     callback(null, {
       statusCode: 200,

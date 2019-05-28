@@ -54,30 +54,33 @@ export class Inquiry extends React.Component<Props, State> {
       this.setState({ response: "FAILURE" });
     } else {
       this.setState({ pending: true });
-      // axios
-      //   .post("https://www.google.com/recaptcha/api/siteverify", {
-      //     secret: process.env.GATSBY_CAPTCHA_SERVER,
-      //     response: this.state.rcToken,
-      //   })
-      //   .then(resp => console.log(resp));
       axios
         .post("/.netlify/functions/zoho", {
-          url:
-            "https://creator.zoho.com/api/petervandijk/json/communicatie-over-grenzen-administratie/form/Add_prospect/record/add",
-          authtoken: process.env.GATSBY_ZOHO_AUTH,
-          scope: "creatorapi",
-          email: this.state.emailInput,
-          interest: this.props.interest,
+          url: "https://www.google.com/recaptcha/api/siteverify",
+          secret: process.env.GATSBY_CAPTCHA_SERVER,
+          response: this.state.rcToken,
         })
-        .then(resp => {
-          console.log(resp);
-          const zohoStatus = resp.data.formname[1].operation[1].status;
-          if (zohoStatus === "Success") {
-            this.setState({ response: "OK", pending: false });
-          } else {
-            this.setState({ response: "FAILURE" });
-          }
+        .then(response => {
+          console.log(response);
         });
+      // axios
+      //   .post("/.netlify/functions/zoho", {
+      //     url:
+      //       "https://creator.zoho.com/api/petervandijk/json/communicatie-over-grenzen-administratie/form/Add_prospect/record/add",
+      //     authtoken: process.env.GATSBY_ZOHO_AUTH,
+      //     scope: "creatorapi",
+      //     email: this.state.emailInput,
+      //     interest: this.props.interest,
+      //   })
+      //   .then(resp => {
+      //     console.log(resp);
+      //     const zohoStatus = resp.data.formname[1].operation[1].status;
+      //     if (zohoStatus === "Success") {
+      //       this.setState({ response: "OK", pending: false });
+      //     } else {
+      //       this.setState({ response: "FAILURE" });
+      //     }
+      //   });
     }
   };
 
