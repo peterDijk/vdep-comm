@@ -8,6 +8,7 @@ export type EventNode = {
     location_image?: { url: string };
     seminar: {
       uid: string;
+      slug: string;
       document: [
         {
           data: {
@@ -22,7 +23,6 @@ export type EventNode = {
                 height: number;
               };
             };
-            slug: string;
           };
         }
       ];
