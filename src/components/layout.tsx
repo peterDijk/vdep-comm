@@ -10,6 +10,7 @@ import { loadReCaptcha } from "react-recaptcha-v3";
 
 type Props = {
   lang: string;
+  navBlue?: boolean;
 };
 type State = {
   navWhite: boolean;
@@ -36,7 +37,7 @@ class Layout extends React.Component<Props, State> {
     });
   }
   render() {
-    const { lang } = this.props;
+    const { lang, navBlue } = this.props;
     return (
       <Provider>
         <React.Fragment>
@@ -44,11 +45,14 @@ class Layout extends React.Component<Props, State> {
           <Grid container spacing={0}>
             <StyledContainer id="StyledContainer">
               <Grid item xs={12}>
-                <NavBar language={lang} switchBg={this.state.navWhite} />
+                <NavBar
+                  language={lang}
+                  switchBg={this.state.navWhite}
+                  textBlue={navBlue}
+                />
               </Grid>
               <Grid item xs={12}>
                 <main>{this.props.children}</main>
-                <footer />
               </Grid>
             </StyledContainer>
           </Grid>

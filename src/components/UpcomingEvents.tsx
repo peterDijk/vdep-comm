@@ -8,32 +8,53 @@ import {
   EventImage,
   LocationDateContainer,
 } from "../styles/Events";
+import { Link } from "gatsby";
+
+export enum PageType {
+  LANDING,
+  SEMINAR,
+}
 
 type Props = {
   events: EventNode[];
   language: string;
+  page?: PageType;
 };
 
-export const UpcomingEvents = ({ events, language }: Props) => (
+export const UpcomingEvents = ({ events, language, page }: Props) => (
   <Grid container spacing={0}>
     <Grid item xs={12}>
       <UpcomingEventsContainer>
         <h2>{t("UPCOMINGSEMINARS", language)}:</h2>
         <Grid container spacing={24}>
-          {events.map(event => (
-            <Grid item xs={12} md={4} key={event.uid}>
-              <EventTile key={event.uid}>
-                <EventImage
-                  imgUrl={event.data.seminar.document[0].data.image_night.url}
-                />
-                <h2>{event.data.seminar.document[0].data.subject.text}</h2>
-                <LocationDateContainer>
-                  <h3>{event.data.location_city}</h3>
-                  <h4>{event.data.dates_text}</h4>
-                </LocationDateContainer>
-              </EventTile>
-            </Grid>
-          ))}
+          {events
+            .filter((e, i) => i < 3)
+            .map(event => (
+              <Grid item xs={12} md={4} key={event.uid}>
+                <Link to={`/${event.data.seminar.slug}`}>
+                  <EventTile key={event.uid}>
+                    <EventImage
+                      imgUrl={
+                        page === PageType.SEMINAR
+                          ? event.data.location_image.url
+                          : event.data.seminar.document[0].data.image_night.url
+                      }
+                    />
+                    {page === PageType.LANDING ? (
+                      <h2>
+                        {event.data.seminar.document[0].data.subject.text}
+                      </h2>
+                    ) : (
+                      <h2>{event.data.location_venue}</h2>
+                    )}
+                    <LocationDateContainer>
+                      <h3>{event.data.location_city}</h3>
+                      <h4>{event.data.dates_text}</h4>
+                    </LocationDateContainer>
+                  </EventTile>
+                </Link>
+              </Grid>
+            ))}
         </Grid>
       </UpcomingEventsContainer>
     </Grid>

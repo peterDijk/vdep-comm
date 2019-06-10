@@ -24,10 +24,10 @@ body {
   box-sizing: border-box;
 }
 
-main { 
-  overflow-y: scroll;
-  scroll-behavior: smooth;
-}
+// main { 
+//   overflow-y: scroll;
+//   scroll-behavior: smooth;
+// }
 
 a,
 a:visited {
