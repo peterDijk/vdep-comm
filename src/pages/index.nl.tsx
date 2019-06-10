@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import Layout from "../components/layout";
 import Header from "../components/header";
-import { UpcomingEvents } from "../components/UpcomingEvents";
+import { UpcomingEvents, PageType } from "../components/UpcomingEvents";
 import SEO from "../components/seo";
 import { filterEvents } from "../lib/filterEvents";
 import { AboveTheFold, BrowserWindow } from "../styles/Main";
@@ -12,7 +12,6 @@ import { OrganisationCTA } from "../components/OrganisationCTA";
 import { Seminars } from "../components/Seminars";
 import { Experience } from "../components/Experience";
 import PricingTable from "../components/PricingTable";
-import { Inquiry } from "../components/Inquiry";
 
 const IndexPage = ({ data }) => {
   const language = "nl-nl";
@@ -27,8 +26,6 @@ const IndexPage = ({ data }) => {
     const bDate: any = new Date(b.data.starting_date);
     return aDate - bDate;
   });
-
-  console.log(data);
 
   return (
     <Layout lang={language}>
@@ -49,7 +46,11 @@ const IndexPage = ({ data }) => {
             lang={language}
           />
         </React.Fragment>
-        <UpcomingEvents events={upcomingPerSeminar} language={language} />
+        <UpcomingEvents
+          events={upcomingPerSeminar}
+          language={language}
+          page={PageType.LANDING}
+        />
       </AboveTheFold>
       <Story story={data.story} language={language} />
       <AboveTheFold>
@@ -69,7 +70,6 @@ const IndexPage = ({ data }) => {
         benefitsOptions={data.benefitsOptions}
         language={language}
       />
-      {/* <Inquiry /> */}
     </Layout>
   );
 };
@@ -175,6 +175,7 @@ export const query = graphql`
           image_day {
             url
           }
+          slug
         }
       }
     }

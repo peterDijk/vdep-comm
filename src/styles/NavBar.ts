@@ -2,19 +2,23 @@ import styled from "./styled-components";
 import { COLOR } from "./constants";
 import { Button } from "./buttons";
 
-export const NavBar = styled.div<{ switchBg: boolean }>`
+export const MenuItem = styled.div`
+  font-weight: 500;
+  margin: 0 3rem;
+`;
+
+export const NavBar = styled.div<{ switchBg: boolean; textBlue?: boolean }>`
   height: 6rem;
   width: 100%;
   display: flex;
   position: fixed;
   ${props =>
     props.switchBg
-      ? `background: ${COLOR.VDEP_DARK_BLUE}; ${MenuItem} {
-      color: ${COLOR.WHITE};
-    }`
-      : `background: ${COLOR.WHITE_15}; ${MenuItem} {
-      color: ${COLOR.WHITE};
-    }`};
+      ? `background: ${COLOR.VDEP_DARK_BLUE};`
+      : `background: ${COLOR.WHITE_15};`};
+  ${MenuItem} {
+        color: ${props => (props.textBlue ? COLOR.VDEP_BLUE : COLOR.WHITE)};
+  }
   transition: all 0.4s;
   // border-bottom: 0.1rem solid ${COLOR.VDEP_SECONDARY_BLUE};
   z-index: 1000;
@@ -31,11 +35,6 @@ export const Menu = styled.div`
   width: 100%;
 `;
 
-export const MenuItem = styled.div`
-  font-weight: 500;
-  margin: 0 3rem;
-`;
-
 export const NavBarRight = styled.div`
   margin-left: 4rem;
   ${Button} {
@@ -50,7 +49,7 @@ export const LangBox = styled.div<{ switchBg: boolean }>`
       ? `color: ${COLOR.WHITE}; ${LangOption} {
     color: ${COLOR.WHITE};
   }`
-      : `color: ${COLOR.WHITE}; ${LangOption} { color: ${COLOR.WHITE}}`};
+      : `color: ${COLOR.WHITE}; ${LangOption} { color: ${COLOR.VDEP_BLUE}}`};
   font-weight: normal;
   min-width: 10rem;
   display: flex;

@@ -7,6 +7,7 @@ export const StyledContainer = styled.div`
   height: 100%;
   background: ${COLOR.WHITE};
   position: relative;
+  overflow: none;
 `;
 
 export const AboveTheFold = styled.div`
