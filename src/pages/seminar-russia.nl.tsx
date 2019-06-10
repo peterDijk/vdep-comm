@@ -29,7 +29,7 @@ import { COLOR } from "../styles/constants";
 import { InquiryContainer } from "../components/InquiryContainer";
 
 const SeminarInDepth = ({ data }) => {
-  const language = "en-gb";
+  const language = "nl-nl";
   const eventEntities = data.events.nodes;
   const filteredEvents = filterEvents(eventEntities);
   console.log(data);
@@ -193,7 +193,7 @@ export default SeminarInDepth;
 
 export const query = graphql`
   {
-    seminar: prismicSeminar(lang: { eq: "en-gb" }, uid: { eq: "middle-east" }) {
+    seminar: prismicSeminar(lang: { eq: "nl-nl" }, uid: { eq: "russia" }) {
       data {
         subject {
           text
@@ -256,8 +256,8 @@ export const query = graphql`
     }
     events: allPrismicEvent(
       filter: {
-        data: { seminar: { uid: { eq: "middle-east" } } }
-        lang: { eq: "en-gb" }
+        data: { seminar: { uid: { eq: "russia" } } }
+        lang: { eq: "nl-nl" }
       }
     ) {
       nodes {
@@ -287,7 +287,7 @@ export const query = graphql`
       }
     }
     seminarOverview: allPrismicSeminarOverview(
-      filter: { lang: { eq: "en-gb" } }
+      filter: { lang: { eq: "nl-nl" } }
       sort: { fields: data___order, order: ASC }
     ) {
       nodes {

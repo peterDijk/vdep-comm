@@ -22,6 +22,7 @@ export type EventNode = {
                 height: number;
               };
             };
+            slug: string;
           };
         }
       ];

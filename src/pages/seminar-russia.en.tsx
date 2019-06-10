@@ -193,7 +193,7 @@ export default SeminarInDepth;
 
 export const query = graphql`
   {
-    seminar: prismicSeminar(lang: { eq: "en-gb" }, uid: { eq: "middle-east" }) {
+    seminar: prismicSeminar(lang: { eq: "en-gb" }, uid: { eq: "russia" }) {
       data {
         subject {
           text
@@ -256,7 +256,7 @@ export const query = graphql`
     }
     events: allPrismicEvent(
       filter: {
-        data: { seminar: { uid: { eq: "middle-east" } } }
+        data: { seminar: { uid: { eq: "russia" } } }
         lang: { eq: "en-gb" }
       }
     ) {

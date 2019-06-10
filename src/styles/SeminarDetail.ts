@@ -123,7 +123,7 @@ export const Entry = styled.div`
   flex-shrink: 0;
   flex-basis: 50%;
   margin: 1rem;
-  padding: 4rem;
+  padding: 2rem;
   display: flex;
   font-size: 1.8rem;
   font-weight: 600;
