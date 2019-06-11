@@ -49,7 +49,9 @@ export const LangBox = styled.div<{ switchBg: boolean }>`
       ? `color: ${COLOR.WHITE}; ${LangOption} {
     color: ${COLOR.WHITE};
   }`
-      : `color: ${COLOR.WHITE}; ${LangOption} { color: ${COLOR.VDEP_BLUE}}`};
+      : `color: ${COLOR.VDEP_BLUE}; ${LangOption} { color: ${
+          COLOR.VDEP_BLUE
+        }}`};
   font-weight: normal;
   min-width: 10rem;
   display: flex;
