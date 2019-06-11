@@ -98,7 +98,7 @@ export const query = graphql`
         }
       }
     }
-    events: allPrismicEvent {
+    events: allPrismicEvent(filter: { lang: { eq: "nl-nl" } }) {
       nodes {
         id
         uid

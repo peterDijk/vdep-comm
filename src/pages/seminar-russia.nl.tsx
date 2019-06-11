@@ -62,7 +62,7 @@ const SeminarInDepth = ({ data }) => {
           </LogoContainer>
         </SeminarTitleBar>
         <UpcomingEvents
-          events={filteredEvents.eventsMiddleEast}
+          events={filteredEvents.eventsRussia}
           language={language}
           page={PageType.SEMINAR}
         />
