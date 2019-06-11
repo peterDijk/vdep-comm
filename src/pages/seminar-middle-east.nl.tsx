@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import ReactHtmlParser from "react-html-parser";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import { translate as t } from "../lib/i18n";
 
 import {
   SeminarHeader,
@@ -19,6 +20,7 @@ import {
   Entry,
 } from "../styles/SeminarDetail";
 import Image from "../components/image";
+import { Button } from "../styles/buttons";
 
 import { UpcomingEvents, PageType } from "../components/UpcomingEvents";
 import { filterEvents } from "../lib/filterEvents";
@@ -93,8 +95,12 @@ const SeminarInDepth = ({ data }) => {
             ))}
         </Grid>
         {/*  */}
-        <DayHeading id="0">
-          {data.seminarOverview.nodes[0].data.title.text}
+        <DayHeading id="0" />
+        <DayHeading>
+          {data.seminarOverview.nodes[0].data.title.text}{" "}
+          <a href="#inquiry">
+            <Button>{t("MAKEINQ", language)}</Button>
+          </a>
         </DayHeading>
         <MainQuote bgColor={COLOR.WHITE}>
           <QuoteBox bgColor={COLOR.VDEP_DARK_BLUE}>
@@ -129,8 +135,12 @@ const SeminarInDepth = ({ data }) => {
           })}
         </ProgrammeEntries>
         {/*  */}
-        <DayHeading id="1">
-          {data.seminarOverview.nodes[1].data.title.text}
+        <DayHeading id="1" />
+        <DayHeading>
+          {data.seminarOverview.nodes[1].data.title.text}{" "}
+          <a href="#inquiry">
+            <Button>{t("MAKEINQ", language)}</Button>
+          </a>
         </DayHeading>
         <MainQuote bgColor={COLOR.WHITE}>
           <QuoteBox bgColor={COLOR.VDEP_DARK_BLUE}>
@@ -155,8 +165,12 @@ const SeminarInDepth = ({ data }) => {
           ))}
         </ProgrammeEntries>
         {/*  */}
-        <DayHeading id="2">
-          {data.seminarOverview.nodes[2].data.title.text}
+        <DayHeading id="2" />
+        <DayHeading>
+          {data.seminarOverview.nodes[2].data.title.text}{" "}
+          <a href="#inquiry">
+            <Button>{t("MAKEINQ", language)}</Button>
+          </a>
         </DayHeading>
         <MainQuote bgColor={COLOR.WHITE}>
           <QuoteBox bgColor={COLOR.VDEP_DARK_BLUE}>

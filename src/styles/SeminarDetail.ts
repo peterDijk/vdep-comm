@@ -92,6 +92,8 @@ export const DayHeading = styled.div`
   color: ${COLOR.VDEP_BLUE};
   padding: 2rem 7rem;
   font-size: 2rem;
+  display: flex;
+  justify-content: space-between;
 `;
 
 export const ProgrammeTabs = styled.div<{ isActive?: boolean }>`
@@ -161,7 +163,7 @@ export const EntryTitle = styled.div`
 `;
 
 export const InquiryWrapper = styled.div`
-  padding: 10rem 5rem;
+  padding: 5rem 5rem 15rem;
   background-color: ${COLOR.VDEP_DARK_BLUE};
   h1 {
     color: ${COLOR.WHITE};
@@ -178,4 +180,10 @@ export const InquiryWrapper = styled.div`
   ${ChoiceItem} {
     padding: 1rem;
   }
+`;
+
+export const ChoicesWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 `;
