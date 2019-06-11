@@ -41,11 +41,13 @@ export const SitePayoff = styled.div`
   h2 {
     font-size: 2rem;
     font-weight: 500;
+    line-height: 2.4rem;
     margin: 2rem 0;
   }
   h3 {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-weight: 400;
+    line-height: 2.4rem;
     margin: 2rem 0;
   }
 `;

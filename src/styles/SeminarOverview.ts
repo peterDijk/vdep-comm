@@ -26,8 +26,9 @@ export const Experience = styled.div`
     text-align: justify;
     color: ${COLOR.VDEP_TERTIARY_BLUE};
     font-family: "Roboto", "sans-serif";
-    font-weight: 100;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    font-weight: 400;
     margin: 1.5rem auto;
 
     strong {
@@ -94,8 +95,9 @@ export const DayText = styled.div`
     text-align: justify;
     color: ${COLOR.VDEP_TERTIARY_BLUE};
     font-family: "Roboto", "sans-serif";
-    font-weight: 100;
+    font-weight: 400;
     font-size: 1.4rem;
+    line-height: 2.4rem;
     margin: 0;
 
     strong {

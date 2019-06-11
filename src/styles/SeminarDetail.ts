@@ -61,6 +61,8 @@ export const QuoteBox = styled.div<{ bgColor?: string }>`
   position: relative;
   font-family: "Roboto Slab", sans-serif;
   font-size: 1.4rem;
+  line-height: 2.4rem;
+  font-weight: 600;
   color: ${props =>
     props.bgColor === COLOR.VDEP_DARK_BLUE
       ? COLOR.WHITE
@@ -115,7 +117,7 @@ export const ProgrammeTabs = styled.div<{ isActive?: boolean }>`
 export const ProgrammeEntries = styled.div`
   display: flex;
   flex-wrap: wrap;
-  padding: 5rem 10rem;
+  padding: 1rem 10rem;
 `;
 
 export const Entry = styled.div`
@@ -123,7 +125,7 @@ export const Entry = styled.div`
   flex-shrink: 0;
   flex-basis: 50%;
   margin: 1rem;
-  padding: 2rem;
+  padding: 1rem;
   display: flex;
   font-size: 1.8rem;
   font-weight: 600;
@@ -151,8 +153,9 @@ export const EntryTitle = styled.div`
   p {
     color: ${COLOR.VDEP_DARK_BLUE};
     text-transform: none;
-    font-size: 1.2rem;
-    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+    font-weight: 600;
     padding: 1.5rem 0;
   }
 `;

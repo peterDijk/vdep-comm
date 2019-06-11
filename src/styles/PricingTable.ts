@@ -10,8 +10,9 @@ export const CenteredParagraph = styled.div`
     text-align: justify;
     color: ${COLOR.VDEP_DARK_BLUE};
     font-family: "Roboto", "sans-serif";
-    font-size: 1.4rem;
-    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    font-weight: 500;
     margin: 1.5rem auto;
 
     strong {
