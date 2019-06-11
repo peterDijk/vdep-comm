@@ -31,7 +31,11 @@ export const UpcomingEvents = ({ events, language, page }: Props) => (
             .filter((e, i) => i < 3)
             .map(event => (
               <Grid item xs={12} md={4} key={event.uid}>
-                <Link to={`/${event.data.seminar.slug}`}>
+                <Link
+                  to={`/${language === "en-gb" ? "en/" : ""}${
+                    event.data.seminar.slug
+                  }`}
+                >
                   <EventTile key={event.uid}>
                     <EventImage
                       imgUrl={

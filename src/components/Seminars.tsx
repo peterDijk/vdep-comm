@@ -18,7 +18,9 @@ export const Seminars = ({ seminars, language }) => {
             <SeminarInfoBox>
               <h4>{seminar.data.country}</h4>
               <h2>{seminar.data.subject.text}</h2>
-              <Link to={`/${seminar.data.slug}`}>
+              <Link
+                to={`/${language === "en-gb" ? "en/" : ""}${seminar.data.slug}`}
+              >
                 <ViewProgramButton>
                   {t("VIEWPROGRAM", language)}
                 </ViewProgramButton>
