@@ -25,6 +25,7 @@ import {
   ItemEmpty,
   ChoiceItem,
   NoteItem,
+  InterestedItem,
 } from "../styles/PricingTable";
 import { Checkbox } from "./Checkbox";
 import { Inquiry } from "./Inquiry";
@@ -92,9 +93,9 @@ class PricingTable extends React.Component<
                       <p>{t("ATTENDANCE_FEE", language)}</p>
                     </LegendItemLargeLeft>
                     <NoteItem />
-                    <ChoiceItem>
-                      <p>Interested in attending?</p>
-                    </ChoiceItem>
+                    <InterestedItem>
+                      <p>{t("INTERESTED_IN_ATTENDING", language)}</p>
+                    </InterestedItem>
                   </ColumnContainer>
                 </Grid>
               )}
@@ -126,10 +127,12 @@ class PricingTable extends React.Component<
                     {ReactHtmlParser(optionOrg.data.accomodation.html)}
                   </ColumnItemMarginBottom>
                   <ColumnItemLarge>
-                    <p>
+                    <span>
                       {ReactHtmlParser(optionOrg.data.attendance_fee_text)}
+                    </span>
+                    <h2>
                       {ReactHtmlParser(optionOrg.data.attendance_fee_price)}
-                    </p>
+                    </h2>
                   </ColumnItemLarge>
                   <NoteItem />
                   <ChoiceItem>
@@ -171,7 +174,9 @@ class PricingTable extends React.Component<
                     {ReactHtmlParser(optionInd.data.accomodation.html)}
                   </ColumnItemMarginBottom>
                   <ColumnItemLargeRight>
-                    <p>{ReactHtmlParser(optionInd.data.attendance_fee_text)}</p>
+                    <span>
+                      {ReactHtmlParser(optionInd.data.attendance_fee_text)}
+                    </span>
                     <h2>
                       {ReactHtmlParser(optionInd.data.attendance_fee_price)}
                     </h2>

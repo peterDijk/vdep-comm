@@ -1,5 +1,6 @@
 import styled from "./styled-components";
 import { COLOR } from "./constants";
+import { Checkbox } from "./Checkbox";
 
 export const CenteredParagraph = styled.div`
   margin: auto;
@@ -133,17 +134,12 @@ export const ColumnItem = styled.div`
   p {
     position: absolute;
     top: 50%;
-    // left: 50%;
     transform: translateY(-50%);
     width: 80%;
   }
-  // h2 {
-  //   position: absolute;
-  //   top: 60%;
-  //   left: 50%;
-  //   transform: translate(-50%, -50%);
-  //   width: 80%;
-  // }
+  h2 {
+    transition: all 0.2s;
+  }
 `;
 
 export const ColumnItemMedium = styled(ColumnItem)`
@@ -154,6 +150,15 @@ export const ColumnItemMedium = styled(ColumnItem)`
 export const ColumnItemLarge = styled(ColumnItem)`
   min-height: 9rem;
   margin-bottom: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h2 {
+    font-size: 1.6rem;
+    margin: 1rem 0 0 0;
+    text-align: left;
+  }
 `;
 
 export const ColumnItemLargeRight = styled(ColumnItemLarge)`
@@ -179,7 +184,7 @@ export const ColumnContainer = styled.div<{ selected: boolean }>`
   flex-direction: column;
   cursor: pointer;
 
-  ${ColumnItem}, ${ColumnTitle}, ${LegendItem} {
+  ${ColumnItem}, ${ColumnItem} h2, ${ColumnTitle}, ${LegendItem} {
     ${props =>
       props.selected
         ? `background-color: ${COLOR.VDEP_SECONDARY_BLUE};
@@ -191,7 +196,7 @@ export const ColumnContainer = styled.div<{ selected: boolean }>`
 
 export const NoteItem = styled.div`
   height: 1rem;
-  padding: 0.5rem;
+  padding: 1rem;
   text-align: left;
   font-family: "Roboto", "sans-serif";
   font-size: 0.8rem;
@@ -212,11 +217,20 @@ export const ChoiceItem = styled.div`
   font-weight: bold;
   color: ${COLOR.VDEP_BLUE};
   position: relative;
+  display: flex;
+  flex-direction: column;
 
   p {
     display: inline-block;
-    position: relative;
-    top: 50%;
-    transform: translateY(-40%);
+    // position: relative;
+    // top: 50%;
+    // transform: translateY(-40%);
   }
+  span {
+    display: inline-block;
+  }
+`;
+
+export const InterestedItem = styled(ChoiceItem)`
+  margin-top: 0.8rem;
 `;
