@@ -98,7 +98,7 @@ export const query = graphql`
         }
       }
     }
-    events: allPrismicEvent(filter: { lang: { eq: "gb-gb" } }) {
+    events: allPrismicEvent(filter: { lang: { eq: "en-gb" } }) {
       nodes {
         id
         uid
