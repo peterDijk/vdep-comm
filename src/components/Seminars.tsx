@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link } from "gatsby";
 import Grid from "@material-ui/core/Grid";
 import { translate as t } from "../lib/i18n";
 import {
@@ -17,9 +18,11 @@ export const Seminars = ({ seminars, language }) => {
             <SeminarInfoBox>
               <h4>{seminar.data.country}</h4>
               <h2>{seminar.data.subject.text}</h2>
-              <ViewProgramButton>
-                {t("VIEWPROGRAM", language)}
-              </ViewProgramButton>
+              <Link to={`/${seminar.data.slug}`}>
+                <ViewProgramButton>
+                  {t("VIEWPROGRAM", language)}
+                </ViewProgramButton>
+              </Link>
             </SeminarInfoBox>
           </SeminarTile>
         </Grid>

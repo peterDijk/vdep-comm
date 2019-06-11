@@ -26,7 +26,8 @@ export const SiteTitleContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  // width: 30rem;
+  font-family: "Roboto Slab", "sans-serif";
+  color: ${COLOR.WHITE};
 `;
 
 export const SitePayoff = styled.div`
@@ -119,4 +120,18 @@ export const LogoTextThree = styled.span`
   top: 1.1em;
   left: 0.08em;
   font-weight: 900;
+`;
+
+export const TitleThin = styled.span`
+  text-transform: uppercase;
+  font-size: 80em;
+  display: block;
+  letter-spacing 0.1em;
+  text-align: left;
+  color: ${COLOR.VDEP_SECONDARY_BLUE};
+  font-weight: 200;
+`;
+
+export const TitleThick = styled(TitleThin)`
+  font-weight: 600;
 `;

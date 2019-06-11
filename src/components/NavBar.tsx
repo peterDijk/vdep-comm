@@ -16,10 +16,16 @@ import {
 } from "../styles/NavBar";
 import { Button } from "../styles/buttons";
 
-export const NavBar = ({ language, switchBg }) => {
+type Props = {
+  language: string;
+  switchBg: boolean;
+  textBlue?: boolean;
+};
+
+export const NavBar = ({ language, switchBg, textBlue }: Props) => {
   const bigEnough = useMediaQuery("(min-width: 700px)");
   return (
-    <StyledNavBar switchBg={switchBg}>
+    <StyledNavBar switchBg={switchBg} textBlue={textBlue}>
       <LogoBox>
         <Link to="/">
           <Logo>
@@ -30,7 +36,9 @@ export const NavBar = ({ language, switchBg }) => {
       {bigEnough && (
         <Menu>
           <MenuItem>{t("ABOUTUS", language)}</MenuItem>
-          <MenuItem>{t("OURSEMINARS", language)}</MenuItem>
+          <Link to="/seminar-middle-east">
+            <MenuItem>{t("OURSEMINARS", language)}</MenuItem>
+          </Link>
           <MenuItem>{t("FAQs", language)}</MenuItem>
         </Menu>
       )}

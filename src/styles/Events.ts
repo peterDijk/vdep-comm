@@ -3,13 +3,13 @@ import { COLOR } from "./constants";
 
 export const UpcomingEventsContainer = styled.div`
   width: 100%;
-  padding: 3rem 4rem;
+  padding: 2rem 4rem;
 
   h2 {
     color: ${COLOR.VDEP_DARK_BLUE};
     font-size: 2rem;
     font-family: "Roboto Slab", "sans-serif";
-    font-weight: bold;
+    font-weight: 500;
     margin: 0 0 2rem;
   }
 `;
@@ -65,7 +65,7 @@ export const LocationDateContainer = styled.div`
 export const EventImage = styled.div<{ imgUrl: string }>`
   background-image: url(${props => props.imgUrl});
   background-size: cover;
-  background-position: top;
+  background-position: center;
   border-radius: 0.5rem;
   width: 100%;
   height: 13rem;

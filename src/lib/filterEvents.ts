@@ -5,8 +5,10 @@ export type EventNode = {
     dates_text: string;
     location_city: string;
     location_venue: string;
+    location_image?: { url: string };
     seminar: {
       uid: string;
+      slug: string;
       document: [
         {
           data: {
