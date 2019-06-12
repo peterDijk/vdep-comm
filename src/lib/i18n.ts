@@ -16,28 +16,28 @@ const translations = {
     "en-gb": "About us",
   },
   OURSEMINARS: {
-    "nl-nl": "Onze Seminars",
-    "en-gb": "Our Seminars",
+    "nl-nl": "Seminars",
+    "en-gb": "Seminars",
   },
   FAQs: {
     "nl-nl": "FAQs",
     "en-gb": "FAQs",
   },
   MAKEINQ: {
-    "nl-nl": "Neem contact op",
+    "nl-nl": "Vraag informatie aan",
     "en-gb": "Make an Inquiry",
   },
   UPCOMINGSEMINARS: {
-    "nl-nl": "Bekijk Aankomende Seminars",
-    "en-gb": "View Upcoming Seminars",
+    "nl-nl": "Aankomende Seminars",
+    "en-gb": "Upcoming Seminars",
   },
   VIEWPROGRAM: {
     "nl-nl": "Bekijk Programma",
     "en-gb": "View Program",
   },
   NUM_ATTENDEES: {
-    "nl-nl": "Aantal Deelnemers",
-    "en-gb": "Number of Attendees",
+    "nl-nl": "Aantal deelnemers",
+    "en-gb": "Number of attendees",
   },
   SEM_ATTENDANCE: {
     "nl-nl": "Seminar Deelname",
@@ -48,12 +48,12 @@ const translations = {
     "en-gb": "Frequency",
   },
   SEM_SUBJECT: {
-    "nl-nl": "Seminar Onderwerp",
-    "en-gb": "Seminar Subject",
+    "nl-nl": "Onderwerp",
+    "en-gb": "Subject",
   },
   SEM_CONTENT: {
-    "nl-nl": "Seminar Inhoud",
-    "en-gb": "Seminar Content",
+    "nl-nl": "Inhoud",
+    "en-gb": "Content",
   },
   SEM_VENUE: {
     "nl-nl": "Seminar Lokatie",
@@ -64,17 +64,17 @@ const translations = {
     "en-gb": "Accomodation",
   },
   ATTENDANCE_FEE: {
-    "nl-nl": "Deelname Prijs",
-    "en-gb": "Attendance Fee",
+    "nl-nl": "Investering",
+    "en-gb": "Investment",
   },
   INTERESTED_IN_ATTENDING: {
-    "nl-nl": "Geïntereseerd in deelnemen?",
-    "en-gb": "Interested in attending?",
+    "nl-nl": "Geïntereseerd?",
+    "en-gb": "Interested?",
   },
   INSERT_YOUR_EMAIL: {
     "nl-nl":
-      "Laat vrijblijvend je emailadres hier achter en wij leiden je door de rest.",
-    "en-gb": "Insert your email here and we'll guide you through the rest.",
+      "Laat hier vrijblijvend uw e-mailadres achter en wij nemen zo snel mogelijk contact met u op.",
+    "en-gb": "Insert your email here and we'll contact you as soon as possible",
   },
 };
 

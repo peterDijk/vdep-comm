@@ -22,7 +22,7 @@ export const NavBar = styled.div<{ switchBg: boolean; textBlue?: boolean }>`
   transition: all 0.4s;
   // border-bottom: 0.1rem solid ${COLOR.VDEP_SECONDARY_BLUE};
   z-index: 1000;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
 
   font-family: "Roboto Slab", "sans-serif";
@@ -32,7 +32,7 @@ export const NavBar = styled.div<{ switchBg: boolean; textBlue?: boolean }>`
 export const Menu = styled.div`
   display: flex;
   justify-content: start;
-  width: 100%;
+  // width: 100%;
 `;
 
 export const NavBarRight = styled.div`
@@ -65,7 +65,7 @@ export const LangOption = styled.div<{ isActive?: boolean }>`
 
 export const LogoBox = styled.div`
   margin-left: 3rem;
-  width: 20rem;
+  width: 10rem;
 `;
 
 export const Logo = styled.div`
