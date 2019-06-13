@@ -47,6 +47,18 @@ export class Inquiry extends React.Component<Props, State> {
     this.setState({ rcToken: recaptchaToken });
   };
 
+  autoResponseMail = () => {
+    axios
+      .post("/.netlify/functions/sendgrid", {
+        email: this.state.emailInput,
+        secret: process.env.GATSBY_SENDGRID,
+      })
+      .then(resp => {
+        console.log(resp);
+        this.setState({ response: "OK", pending: false });
+      });
+  };
+
   postToZohoAPI = () => {
     if (this.state.emailInput === "") {
       this.setState({ response: "FAILURE" });
@@ -74,7 +86,7 @@ export class Inquiry extends React.Component<Props, State> {
                 console.log(resp);
                 const zohoStatus = resp.data.formname[1].operation[1].status;
                 if (zohoStatus === "Success") {
-                  this.setState({ response: "OK", pending: false });
+                  this.autoResponseMail();
                 } else {
                   this.setState({ response: "FAILURE" });
                 }
