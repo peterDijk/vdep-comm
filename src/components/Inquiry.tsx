@@ -121,14 +121,15 @@ export class Inquiry extends React.Component<Props, State> {
         <Button onClick={this.postToZohoAPI}>{t("MAKEINQ", language)}</Button>
         {this.state.response === "OK" && (
           <InquirySuccess visible={true}>
-            <p>{`Bedankt! wij nemen contact op via ${
-              this.state.emailInput
-            }`}</p>
+            <p>
+              {t("INQ_RESP_OK", language)}
+              {this.state.emailInput}. {t("INQ_RESP_OK_JUNK", language)}
+            </p>
           </InquirySuccess>
         )}
         {this.state.response === "FAILURE" && (
           <InquiryFailure visible={true}>
-            <p>{`Sorry, er is iets niet goed gegaan. Probeer opnieuw, of stuur een email naar info@communicatieovergrenzen.nl`}</p>
+            <p>{t("INQ_RESP_ERR", language)}</p>
             <CloseIcon onClick={this.resetFailure} />
           </InquiryFailure>
         )}
