@@ -88,6 +88,20 @@ const translations = {
     "nl-nl": "West-Afrika",
     "en-gb": "West-Africa",
   },
+  INQ_RESP_ERR: {
+    "nl-nl":
+      "Sorry, er is iets niet goed gegaan. Probeer opnieuw, of stuur een email naar info@communicatieovergrenzen.nl",
+    "en-gb":
+      "Something went wrong. Please try again or send an email to info@communicatieovergrenzen.nl",
+  },
+  INQ_RESP_OK: {
+    "nl-nl": "Bedankt! Wij nemen contact op via ",
+    "en-gb": "Thank you! We'll contact you at ",
+  },
+  INQ_RESP_OK_JUNK: {
+    "nl-nl": "De bevestiging kan in uw spam-box terecht komen.",
+    "en-gb": "The confirmation can land in your spam box",
+  },
 };
 
 export const translate = (string, language) => {
