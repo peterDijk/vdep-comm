@@ -5,6 +5,9 @@ import { Button } from "./buttons";
 export const MenuItem = styled.div`
   font-weight: 500;
   margin: 0 3rem;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const NavBar = styled.div<{ switchBg: boolean; textBlue?: boolean }>`

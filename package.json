@@ -33,6 +33,7 @@
     "react-dom": "^16.8.4",
     "react-helmet": "^5.2.0",
     "react-html-parser": "^2.0.2",
+    "react-outside-click-handler": "^1.2.3",
     "react-recaptcha-v3": "^1.1.0",
     "request": "^2.88.0",
     "sharp": "^0.22.0",

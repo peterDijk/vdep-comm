@@ -76,6 +76,18 @@ const translations = {
       "Laat hier vrijblijvend uw e-mailadres achter en wij nemen zo snel mogelijk contact met u op.",
     "en-gb": "Insert your email here and we'll contact you as soon as possible",
   },
+  SEM_ARABISCH: {
+    "nl-nl": "Arabisch schiereiland",
+    "en-gb": "Middle East",
+  },
+  SEM_RUSS: {
+    "nl-nl": "Russische regio",
+    "en-gb": "Russian region",
+  },
+  SEM_WESTAFRICA: {
+    "nl-nl": "West-Afrika",
+    "en-gb": "West-Africa",
+  },
 };
 
 export const translate = (string, language) => {
