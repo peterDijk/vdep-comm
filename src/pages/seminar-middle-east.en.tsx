@@ -49,6 +49,7 @@ const SeminarInDepth = ({ data }) => {
         description="Met onze Seminars helpen we organisaties en individuelen met effectief communiceren met andere culturen in hun zakelijke relaties"
         lang={language}
       />
+
       <SeminarHeader imgUrl={data.seminar.data.background_image.url}>
         <SeminarTitleBar>
           <LogoContainer>

@@ -15,13 +15,15 @@ export const NavBar = styled.div<{ switchBg: boolean; textBlue?: boolean }>`
   width: 100%;
   display: flex;
   position: fixed;
-  ${props =>
-    props.switchBg
-      ? `background: ${COLOR.VDEP_DARK_BLUE};`
-      : `background: ${COLOR.WHITE_15};`};
+
   ${MenuItem} {
         color: ${props => (props.textBlue ? COLOR.VDEP_BLUE : COLOR.WHITE)};
   }
+  ${props =>
+    props.switchBg
+      ? `background: ${COLOR.VDEP_DARK_BLUE};
+      color: ${COLOR.VDEP_BLUE}`
+      : `background: ${COLOR.WHITE_15};`};
   transition: all 0.4s;
   // border-bottom: 0.1rem solid ${COLOR.VDEP_SECONDARY_BLUE};
   z-index: 1000;

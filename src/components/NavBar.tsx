@@ -31,7 +31,7 @@ type Props = {
 export const NavBar = ({ language, switchBg, textBlue }: Props) => {
   const bigEnough = useMediaQuery("(min-width: 700px)");
   return (
-    <StyledNavBar switchBg={switchBg} textBlue={textBlue}>
+    <StyledNavBar switchBg={switchBg}>
       <LogoBox>
         <Link to="/">
           <Logo>
