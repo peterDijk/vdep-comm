@@ -17,7 +17,7 @@ export const NavBar = styled.div<{ switchBg: boolean; textBlue?: boolean }>`
   position: fixed;
 
   ${MenuItem} {
-        color: ${props => (props.textBlue ? COLOR.VDEP_BLUE : COLOR.WHITE)};
+    color: ${props => (props.textBlue ? COLOR.VDEP_BLUE : COLOR.WHITE)};
   }
   ${props =>
     props.switchBg
@@ -25,7 +25,6 @@ export const NavBar = styled.div<{ switchBg: boolean; textBlue?: boolean }>`
       color: ${COLOR.VDEP_BLUE}`
       : `background: ${COLOR.WHITE_15};`};
   transition: all 0.4s;
-  // border-bottom: 0.1rem solid ${COLOR.VDEP_SECONDARY_BLUE};
   z-index: 1000;
   justify-content: space-between;
   align-items: center;
