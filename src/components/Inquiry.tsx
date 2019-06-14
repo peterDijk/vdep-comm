@@ -50,7 +50,7 @@ export class Inquiry extends React.Component<Props, State> {
   autoResponseMail = () => {
     axios
       .post("/.netlify/functions/sendgrid", {
-        email: this.state.emailInput,
+        email: this.state.emailInput.trim(),
         secret: process.env.GATSBY_SENDGRID,
       })
       .then(resp => {
@@ -79,7 +79,7 @@ export class Inquiry extends React.Component<Props, State> {
                   "https://creator.zoho.com/api/petervandijk/json/communicatie-over-grenzen-administratie/form/Add_prospect/record/add",
                 authtoken: process.env.GATSBY_ZOHO_AUTH,
                 scope: "creatorapi",
-                email: this.state.emailInput,
+                email: this.state.emailInput.trim(),
                 interest: this.props.interest,
               })
               .then(resp => {
