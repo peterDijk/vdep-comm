@@ -118,7 +118,7 @@ export class Inquiry extends React.Component<Props, State> {
             <CircularProgress color="inherit" size={32} />
           </ProgressContainer>
         )}
-        <Button onClick={this.postToZohoAPI}>{t("MAKEINQ", language)}</Button>
+        <Button onClick={this.postToZohoAPI}>{t("SEND", language)}</Button>
         {this.state.response === "OK" && (
           <InquirySuccess visible={true}>
             <p>

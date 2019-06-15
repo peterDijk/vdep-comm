@@ -124,6 +124,10 @@ const translations = {
     "nl-nl": "Vragen",
     "en-gb": "Questions",
   },
+  SEND: {
+    "nl-nl": "Verzend",
+    "en-gb": "Send",
+  },
 };
 
 export const translate = (string, language) => {
