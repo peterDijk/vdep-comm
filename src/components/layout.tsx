@@ -7,6 +7,7 @@ import { Global } from "../styles";
 import { StyledContainer } from "../styles/Main";
 
 import { loadReCaptcha } from "react-recaptcha-v3";
+import { Footer } from "./Footer";
 
 type Props = {
   lang: string;
@@ -53,6 +54,7 @@ class Layout extends React.Component<Props, State> {
               </Grid>
               <Grid item xs={12}>
                 <main>{this.props.children}</main>
+                <Footer language={lang} />
               </Grid>
             </StyledContainer>
           </Grid>

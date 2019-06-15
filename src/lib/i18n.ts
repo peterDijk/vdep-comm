@@ -102,6 +102,28 @@ const translations = {
     "nl-nl": "De bevestiging kan in uw spam-box terecht komen.",
     "en-gb": "The confirmation can land in your spam box",
   },
+  FOOTER_COG: {
+    "nl-nl":
+      "Communicatie over Grenzen is een onderdeel van Van Dijk E-Projects BV, KvK xxxxxx",
+    "en-gb":
+      "Communication across Borders is part of Van Dijk E-Projects BV, KvK xxxxxx",
+  },
+  ABOUT: {
+    "nl-nl": "Over",
+    "en-gb": "About",
+  },
+  US: {
+    "nl-nl": "Ons",
+    "en-gb": "Us",
+  },
+  FREQ: {
+    "nl-nl": "Veel gestelde",
+    "en-gb": "Frequently asked",
+  },
+  QUESTIONS: {
+    "nl-nl": "Vragen",
+    "en-gb": "Questions",
+  },
 };
 
 export const translate = (string, language) => {

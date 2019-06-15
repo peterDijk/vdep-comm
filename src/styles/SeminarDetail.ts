@@ -3,8 +3,6 @@ import { COLOR } from "./constants";
 
 import {
   UpcomingEventsContainer,
-  EventTile,
-  EventImage,
   LocationDateContainer,
 } from "../styles/Events";
 import { ChoiceItem } from "./PricingTable";

@@ -32,7 +32,7 @@ body {
 a,
 a:visited {
   text-decoration: none;
-  color: ${COLOR.VDEP_SECONDARY_BLUE};
+  color: inherit;
 }
 
 input:-internal-autofill-selected {

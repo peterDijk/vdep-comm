@@ -41,7 +41,11 @@ export const NavBar = ({ language, switchBg, textBlue }: Props) => {
       </LogoBox>
       {bigEnough && (
         <Menu>
-          <MenuItem>{t("ABOUTUS", language)}</MenuItem>
+          <MenuItem>
+            <Link to={`${language === "en-gb" ? "/en" : ""}/about-us`}>
+              {t("ABOUTUS", language)}
+            </Link>
+          </MenuItem>
           <Dropdown
             autoClose={true}
             handler={(onToggle, isOpen) => (
@@ -73,7 +77,11 @@ export const NavBar = ({ language, switchBg, textBlue }: Props) => {
               </StyledDropdownList>
             </StyledDropdownContainer>
           </Dropdown>
-          <MenuItem>{t("FAQs", language)}</MenuItem>
+          <MenuItem>
+            <Link to={`${language === "en-gb" ? "/en" : ""}/faq`}>
+              {t("FAQs", language)}
+            </Link>
+          </MenuItem>
         </Menu>
       )}
       <NavBarRight>

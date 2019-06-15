@@ -110,3 +110,13 @@ export const Expertise = styled.div`
     }
   }
 `;
+
+export const Footer = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 5rem;
+  width: 100%;
+  z-index: 100;
+  text-align: center;
+`;
