@@ -33,7 +33,7 @@ const IndexPage = ({ data }) => {
         <Header language={language} header={data.header} />
         <React.Fragment>
           <SEO
-            title="Bij Communicatie over Grenzen geloven wij in de kracht van duidelijke communicatie"
+            title="At Communication across Borders, we believe in The Power of Clear Communication"
             keywords={[
               `communicatie`,
               `grenzen`,
@@ -42,7 +42,7 @@ const IndexPage = ({ data }) => {
               `bert`,
               `dijk`,
             ]}
-            description="Met onze Seminars helpen we organisaties en individuelen met effectief communiceren met andere culturen in hun zakelijke relaties"
+            description="Through our Seminars, we help organisations and individuals to communicate effectively with that other culture in their business relationship"
             lang={language}
           />
         </React.Fragment>
