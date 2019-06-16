@@ -12,6 +12,7 @@ import { Footer } from "./Footer";
 type Props = {
   lang: string;
   navBlue?: boolean;
+  slug?: string;
 };
 type State = {
   navWhite: boolean;
@@ -38,7 +39,7 @@ class Layout extends React.Component<Props, State> {
     });
   }
   render() {
-    const { lang, navBlue } = this.props;
+    const { lang, navBlue, slug } = this.props;
     return (
       <Provider>
         <React.Fragment>
@@ -50,6 +51,7 @@ class Layout extends React.Component<Props, State> {
                   language={lang}
                   switchBg={this.state.navWhite}
                   textBlue={navBlue}
+                  slug={slug}
                 />
               </Grid>
               <Grid item xs={12}>

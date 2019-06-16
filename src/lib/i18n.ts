@@ -73,7 +73,7 @@ const translations = {
   },
   INSERT_YOUR_EMAIL: {
     "nl-nl":
-      "Laat hier vrijblijvend uw e-mailadres achter en wij nemen zo snel mogelijk contact met u op.",
+      "Vul uw e-mailadres hier in en wij nemen zo snel mogelijk contact met u op.",
     "en-gb": "Insert your email here and we'll contact you as soon as possible",
   },
   SEM_ARABISCH: {
