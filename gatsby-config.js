@@ -68,7 +68,7 @@ module.exports = {
       options: {
         trackingId: "UA-142101897-1",
         // Defines where to place the tracking script - `true` in the head and `false` in the body
-        head: true,
+        head: false,
         // Setting this parameter is optional
         anonymize: false,
         // Setting this parameter is also optional
@@ -87,8 +87,21 @@ module.exports = {
         cookieDomain: "communicatieovergrenzen.nl",
       },
     },
-    // !!!!!!!!!!
-    // google tag manager
+    {
+      resolve: `gatsby-plugin-google-tagmanager`,
+      options: {
+        id: "GTM-5P8ZB4R",
+
+        // Include GTM in development.
+        // Defaults to false meaning GTM will only be loaded in production.
+        includeInDevelopment: false,
+
+        // Specify optional GTM environment details.
+        // gtmAuth: "YOUR_GOOGLE_TAGMANAGER_ENVIROMENT_AUTH_STRING",
+        // gtmPreview: "YOUR_GOOGLE_TAGMANAGER_ENVIROMENT_PREVIEW_NAME",
+        // dataLayerName: "YOUR_DATA_LAYER_NAME",
+      },
+    }
   ],
   developMiddleware: app => {
     app.use(
