@@ -11,7 +11,12 @@ import { translate as t } from "../lib/i18n";
 import { FaqItem, Question, Answer } from "../styles/Faq";
 
 export const Faq = ({ data, language }) => (
-  <Layout lang={language} navBlue={false} seminars={data.seminars.nodes}>
+  <Layout
+    lang={language}
+    navBlue={false}
+    seminars={data.seminars.nodes}
+    slug={"faq"}
+  >
     <SEO
       title="Bij Communicatie over Grenzen geloven wij in de kracht van duidelijke communicatie"
       keywords={[
