@@ -87,11 +87,11 @@ export const NavBar = ({ language, switchBg, textBlue, slug }: Props) => {
       )}
       <NavBarRight>
         <LangBox switchBg={switchBg}>
-          <Link to={`/en/${slug && slug}`}>
+          <Link to={`/en/${slug ? slug : ""}`}>
             <LangOption isActive={language === "en-gb"}>EN</LangOption>
           </Link>
           /
-          <Link to={`/${slug && slug}`}>
+          <Link to={`/${slug ? slug : ""}`}>
             <LangOption isActive={language === "nl-nl"}>NL</LangOption>
           </Link>
         </LangBox>

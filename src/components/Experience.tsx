@@ -23,7 +23,6 @@ export const Experience = ({ experience, seminarOverview }) => {
       <Grid container spacing={0}>
         {seminarOverview.map(item => {
           const { muiicon } = item.data;
-          console.log(muiicon);
           return (
             <Grid item key={item.id} xs={12} sm={6} md={3} lg={3}>
               <SeminarDayTile>

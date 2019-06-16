@@ -119,4 +119,8 @@ export const Footer = styled.div`
   width: 100%;
   z-index: 100;
   text-align: center;
+
+  a {
+    text-decoration: underline;
+  }
 `;

@@ -40,9 +40,7 @@ export const SeminarDetail = ({ data, language }) => {
       ? filteredEvents.eventsMiddleEast
       : data.seminar.uid === "russia"
       ? filteredEvents.eventsRussia
-      : data.seminar.uid === "west-africa"
-      ? filteredEvents.eventsWestAfrica
-      : {};
+      : data.seminar.uid === "west-africa" && filteredEvents.eventsWestAfrica;
   return (
     <Layout lang={language} navBlue={true} slug={data.seminar.data.slug}>
       <SEO
