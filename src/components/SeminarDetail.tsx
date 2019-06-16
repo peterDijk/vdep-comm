@@ -42,7 +42,12 @@ export const SeminarDetail = ({ data, language }) => {
       ? filteredEvents.eventsRussia
       : data.seminar.uid === "west-africa" && filteredEvents.eventsWestAfrica;
   return (
-    <Layout lang={language} navBlue={true} slug={data.seminar.data.slug}>
+    <Layout
+      lang={language}
+      navBlue={true}
+      slug={data.seminar.data.slug}
+      seminars={data.seminars.nodes}
+    >
       <SEO
         title="Bij Communicatie over Grenzen geloven wij in de kracht van duidelijke communicatie"
         keywords={[

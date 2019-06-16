@@ -9,7 +9,12 @@ import { graphql } from "gatsby";
 import { SimplePageBody, HtmlText } from "../styles/PrivacyStatement";
 
 export const PrivacyStatement = ({ data, language }) => (
-  <Layout lang={language} navBlue={false} slug={"privacy-statement"}>
+  <Layout
+    lang={language}
+    navBlue={false}
+    slug={"privacy-statement"}
+    seminars={data.seminars.nodes}
+  >
     <SEO
       title="Bij Communicatie over Grenzen geloven wij in de kracht van duidelijke communicatie"
       keywords={[

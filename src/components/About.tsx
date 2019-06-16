@@ -10,7 +10,12 @@ import { SimplePageBody, HtmlText } from "../styles/PrivacyStatement";
 import { translate as t } from "../lib/i18n";
 
 export const About = ({ data, language }) => (
-  <Layout lang={language} navBlue={false} slug={"about-us"}>
+  <Layout
+    lang={language}
+    navBlue={false}
+    slug={"about-us"}
+    seminars={data.seminars.nodes}
+  >
     <SEO
       title="Bij Communicatie over Grenzen geloven wij in de kracht van duidelijke communicatie"
       keywords={[

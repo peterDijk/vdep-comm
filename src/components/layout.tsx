@@ -1,7 +1,7 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 import { Provider } from "../lib/Providers";
-import { NavBar } from "./NavBar";
+import { NavBar, SeminarMenu } from "./NavBar";
 import { Global } from "../styles";
 
 import { StyledContainer } from "../styles/Main";
@@ -13,6 +13,7 @@ type Props = {
   lang: string;
   navBlue?: boolean;
   slug?: string;
+  seminars: SeminarMenu[];
 };
 type State = {
   navWhite: boolean;
@@ -39,7 +40,7 @@ class Layout extends React.Component<Props, State> {
     });
   }
   render() {
-    const { lang, navBlue, slug } = this.props;
+    const { lang, navBlue, slug, seminars } = this.props;
     return (
       <Provider>
         <React.Fragment>
@@ -52,6 +53,7 @@ class Layout extends React.Component<Props, State> {
                   switchBg={this.state.navWhite}
                   textBlue={navBlue}
                   slug={slug}
+                  seminars={seminars}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -65,4 +67,5 @@ class Layout extends React.Component<Props, State> {
     );
   }
 }
+
 export default Layout;

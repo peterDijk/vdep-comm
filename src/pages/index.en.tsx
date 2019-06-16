@@ -28,7 +28,7 @@ const IndexPage = ({ data }) => {
   });
 
   return (
-    <Layout lang={language}>
+    <Layout lang={language} seminars={data.seminars.nodes}>
       <AboveTheFold>
         <Header language={language} header={data.header} />
         <React.Fragment>

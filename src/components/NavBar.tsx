@@ -22,14 +22,28 @@ import {
   DropdownListItem,
 } from "../styles/Dropdown";
 
+export type SeminarMenu = {
+  data: {
+    subject: { text: string };
+    slug: string;
+  };
+};
+
 type Props = {
   language: string;
   switchBg: boolean;
   textBlue?: boolean;
   slug?: string;
+  seminars: SeminarMenu[];
 };
 
-export const NavBar = ({ language, switchBg, textBlue, slug }: Props) => {
+export const NavBar = ({
+  language,
+  switchBg,
+  textBlue,
+  slug,
+  seminars,
+}: Props) => {
   const bigEnough = useMediaQuery("(min-width: 700px)");
   return (
     <StyledNavBar switchBg={switchBg}>
@@ -57,22 +71,16 @@ export const NavBar = ({ language, switchBg, textBlue, slug }: Props) => {
           >
             <StyledDropdownContainer>
               <StyledDropdownList>
-                {[
-                  {
-                    title: t("SEM_ARABISCH", language),
-                    link: "seminar-middle-east",
-                  },
-                  { title: t("SEM_RUSS", language), link: "seminar-russia" },
-                  {
-                    title: t("SEM_WESTAFRICA", language),
-                    link: "seminar-west-africa",
-                  },
-                ].map(item => (
+                {seminars.map(item => (
                   <Link
-                    key={item.title}
-                    to={`${language === "en-gb" ? "/en/" : "/"}${item.link}`}
+                    key={item.data.slug}
+                    to={`${language === "en-gb" ? "/en/" : "/"}${
+                      item.data.slug
+                    }`}
                   >
-                    <DropdownListItem>{item.title}</DropdownListItem>
+                    <DropdownListItem>
+                      {item.data.subject.text}
+                    </DropdownListItem>
                   </Link>
                 ))}
               </StyledDropdownList>

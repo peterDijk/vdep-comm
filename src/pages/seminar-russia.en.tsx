@@ -128,5 +128,15 @@ export const query = graphql`
         }
       }
     }
+    seminars: allPrismicSeminar(filter: { lang: { eq: "en-gb" } }) {
+      nodes {
+        data {
+          subject {
+            text
+          }
+          slug
+        }
+      }
+    }
   }
 `;
