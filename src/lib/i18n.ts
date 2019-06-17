@@ -44,8 +44,8 @@ const translations = {
     "en-gb": "Seminar Attendance",
   },
   FREQUENCY: {
-    "nl-nl": "Frequentie",
-    "en-gb": "Frequency",
+    "nl-nl": "Omvang",
+    "en-gb": "Extend",
   },
   SEM_SUBJECT: {
     "nl-nl": "Onderwerp",
@@ -104,9 +104,9 @@ const translations = {
   },
   FOOTER_COG: {
     "nl-nl":
-      "Communicatie over Grenzen is een onderdeel van Van Dijk E-Projects BV, KvK xxxxxx",
+      "Communicatie over Grenzen is een onderdeel van Van Dijk E-Projects BV, KvK 67317820",
     "en-gb":
-      "Communication across Borders is part of Van Dijk E-Projects BV, KvK xxxxxx",
+      "Communication across Borders is part of Van Dijk E-Projects BV, KvK 67317820",
   },
   ABOUT: {
     "nl-nl": "Over",

@@ -9,14 +9,15 @@ import {
   NavBar as StyledNavBar,
   Logo,
   LogoBox,
-  Menu,
+  Menu as StyledMenu,
   MenuItem,
   NavBarRight,
   LangBox,
   LangOption,
+  MobileMenu,
 } from "../styles/NavBar";
 import { Button } from "../styles/buttons";
-import Dropdown from "./Dropdown";
+import Dropdown, { DropdownPosition } from "./Dropdown";
 import {
   DropdownContainer as StyledDropdownContainer,
   DropdownList as StyledDropdownList,
@@ -32,11 +33,83 @@ export type SeminarMenu = {
 
 type Props = {
   language: string;
-  switchBg: boolean;
+  switchBg?: boolean;
   textBlue?: boolean;
   slug?: string;
   seminars: SeminarMenu[];
+  mobile?: boolean;
 };
+
+const Menu: React.SFC<Props> = ({ language, seminars }) => (
+  <StyledMenu>
+    <MenuItem>
+      <Link to={`${language === "en-gb" ? "/en" : ""}/about-us`}>
+        {t("ABOUTUS", language)}
+      </Link>
+    </MenuItem>
+    <Dropdown
+      autoClose={true}
+      position={DropdownPosition.CENTER}
+      handler={(onToggle, isOpen) => (
+        <MenuItem onMouseEnter={onToggle}>
+          {t("OURSEMINARS", language)}
+        </MenuItem>
+      )}
+    >
+      <StyledDropdownContainer>
+        <StyledDropdownList>
+          {seminars.map(item => (
+            <Link
+              key={item.data.slug}
+              to={`${language === "en-gb" ? "/en/" : "/"}${item.data.slug}`}
+            >
+              <DropdownListItem>{item.data.subject.text}</DropdownListItem>
+            </Link>
+          ))}
+        </StyledDropdownList>
+      </StyledDropdownContainer>
+    </Dropdown>
+    <MenuItem>
+      <Link to={`${language === "en-gb" ? "/en" : ""}/faq`}>
+        {t("FAQs", language)}
+      </Link>
+    </MenuItem>
+  </StyledMenu>
+);
+
+const Mobile: React.SFC<Props> = ({ language, seminars }) => (
+  <Dropdown
+    autoClose={true}
+    position={DropdownPosition.LEFT}
+    handler={(onToggle, isOpen) => <HamburgerMenuIcon onMouseDown={onToggle} />}
+  >
+    <StyledDropdownContainer>
+      <StyledDropdownList>
+        <DropdownListItem>
+          <Link to={`${language === "en-gb" ? "/en" : ""}/about-us`}>
+            {t("ABOUTUS", language)}
+          </Link>
+        </DropdownListItem>
+        <DropdownListItem>{t("OURSEMINARS", language)}</DropdownListItem>
+        {seminars.map(item => (
+          <Link
+            key={item.data.slug}
+            to={`${language === "en-gb" ? "/en/" : "/"}${item.data.slug}`}
+          >
+            <DropdownListItem indent={true}>
+              {item.data.subject.text}
+            </DropdownListItem>
+          </Link>
+        ))}
+        <DropdownListItem>
+          <Link to={`${language === "en-gb" ? "/en" : ""}/faq`}>
+            {t("FAQs", language)}
+          </Link>
+        </DropdownListItem>
+      </StyledDropdownList>
+    </StyledDropdownContainer>
+  </Dropdown>
+);
 
 export const NavBar = ({
   language,
@@ -55,45 +128,7 @@ export const NavBar = ({
           </Logo>
         </Link>
       </LogoBox>
-      {bigEnough && (
-        <Menu>
-          <MenuItem>
-            <Link to={`${language === "en-gb" ? "/en" : ""}/about-us`}>
-              {t("ABOUTUS", language)}
-            </Link>
-          </MenuItem>
-          <Dropdown
-            autoClose={true}
-            handler={(onToggle, isOpen) => (
-              <MenuItem onMouseEnter={onToggle}>
-                {t("OURSEMINARS", language)}
-              </MenuItem>
-            )}
-          >
-            <StyledDropdownContainer>
-              <StyledDropdownList>
-                {seminars.map(item => (
-                  <Link
-                    key={item.data.slug}
-                    to={`${language === "en-gb" ? "/en/" : "/"}${
-                      item.data.slug
-                    }`}
-                  >
-                    <DropdownListItem>
-                      {item.data.subject.text}
-                    </DropdownListItem>
-                  </Link>
-                ))}
-              </StyledDropdownList>
-            </StyledDropdownContainer>
-          </Dropdown>
-          <MenuItem>
-            <Link to={`${language === "en-gb" ? "/en" : ""}/faq`}>
-              {t("FAQs", language)}
-            </Link>
-          </MenuItem>
-        </Menu>
-      )}
+      {bigEnough && <Menu language={language} seminars={seminars} />}
       <NavBarRight>
         <LangBox switchBg={switchBg}>
           <Link to={`/en/${slug ? slug : ""}`}>
@@ -107,7 +142,11 @@ export const NavBar = ({
         <a href="#inquiry">
           <Button>{t("MAKEINQ", language)}</Button>
         </a>
-        {!bigEnough && <HamburgerMenuIcon />}
+        {!bigEnough && (
+          <MobileMenu>
+            <Mobile language={language} seminars={seminars} />
+          </MobileMenu>
+        )}
       </NavBarRight>
     </StyledNavBar>
   );

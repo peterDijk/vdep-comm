@@ -42,7 +42,7 @@ export const Menu = styled.div`
 export const NavBarRight = styled.div`
   margin-left: 4rem;
   ${Button} {
-    margin-right: 3rem;
+    margin-right: 1rem;
   }
   display: flex;
 `;
@@ -57,7 +57,8 @@ export const LangBox = styled.div<{ switchBg: boolean }>`
           COLOR.VDEP_BLUE
         }}`};
   font-weight: normal;
-  min-width: 10rem;
+  // min-width: 10rem;
+  margin-right: 2rem;
   display: flex;
   align-items: center;
 `;
@@ -74,4 +75,15 @@ export const LogoBox = styled.div`
 
 export const Logo = styled.div`
   width: 4.5rem;
+`;
+
+export const MobileMenu = styled.div`
+  svg {
+    color: ${COLOR.VDEP_BLUE};
+    margin: 1rem 2rem 0 2rem;
+  }
+
+  ${Menu} {
+    flex-direction: column;
+  }
 `;

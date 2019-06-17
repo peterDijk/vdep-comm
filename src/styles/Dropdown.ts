@@ -18,14 +18,14 @@ const getDropdownPositionStyling = (position: DropdownPosition = "left") => {
       `;
     case "center":
       return css`
-        left: 50%;
-        transform: translateX(-50%);
+        top: 140%;
+        left: 3rem;
       `;
     case "left":
     default:
       return css`
         top: 140%;
-        left: 3rem;
+        right: 1rem;
       `;
   }
 };
@@ -57,7 +57,10 @@ export const DropdownContentLarge = styled(DropdownContent)`
   min-width: 232px;
 `;
 
-export const DropdownListItem = styled.li<{ enabled?: boolean }>`
+export const DropdownListItem = styled.li<{
+  enabled?: boolean;
+  indent?: boolean;
+}>`
   padding: 0 16px;
   margin: 0;
   height: 38px;
@@ -74,6 +77,7 @@ export const DropdownListItem = styled.li<{ enabled?: boolean }>`
     color: ${COLOR.RICHBLACK_80};
   }
   list-style: none;
+  ${props => props.indent && `margin-left: 1rem;`}
 `;
 
 export const DropdownList = styled.ul`
