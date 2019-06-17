@@ -7,12 +7,39 @@ const proxy = require("http-proxy-middleware");
 module.exports = {
   siteMetadata: {
     title: `Communicatie over Grenzen`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    description: `Is uw zakelijke project vastgelopen omdat u elkaar niet begreep? Met onze seminars helpen wij organisaties en individuen om effectiever te communiceren over de cultuurgrenzen heen.`,
+    author: `Van Dijk E-Projects BV / Developed by Peter van Dijk`,
+    siteUrl: `https://www.communicatieovergrenzen.nl`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-typescript`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        output: `/sitemap.xml`,
+        // Exclude specific pages or groups of pages using glob parameters
+        // See: https://github.com/isaacs/minimatch
+        // The example below will exclude the single `path/to/page` and all routes beginning with `category`
+        exclude: [`/thank-you`, `/en/thank-you`],
+        query: `
+          {
+            site {
+              siteMetadata {
+                siteUrl
+              }
+            }
+  
+            allSitePage {
+              edges {
+                node {
+                  path
+                }
+              }
+            }
+        }`
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -78,6 +105,7 @@ module.exports = {
         // dataLayerName: "YOUR_DATA_LAYER_NAME",
       },
     },
+
   ],
   developMiddleware: app => {
     app.use(
