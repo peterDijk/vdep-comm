@@ -33,7 +33,7 @@ const IndexPage = ({ data }) => {
         <Header language={language} header={data.header} />
         <React.Fragment>
           <SEO
-            title="Leer effectief communiceren met andere culturen"
+            title="Communicatie over Grenzen - Leer effectief communiceren met andere culturen"
             keywords={[
               `communicatie`,
               `grenzen`,

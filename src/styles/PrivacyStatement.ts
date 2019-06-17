@@ -18,4 +18,8 @@ export const HtmlText = styled.div`
   font-size: 1.5rem;
   color: ${COLOR.RICHBLACK};
   padding: 10rem;
+
+  p {
+    margin: 2rem;
+  }
 `;

@@ -3,9 +3,9 @@ const translations = {
     "nl-nl": "Communicatie",
     "en-gb": "Communication",
   },
-  ACCROSS: {
+  ACROSS: {
     "nl-nl": "over",
-    "en-gb": "accross",
+    "en-gb": "across",
   },
   BORDERS: {
     "nl-nl": "grenzen",

@@ -1,6 +1,7 @@
 import * as React from "react";
 import { unstable_useMediaQuery as useMediaQuery } from "@material-ui/core/useMediaQuery";
-import { Link, graphql } from "gatsby";
+import { Link } from "gatsby";
+import HamburgerMenuIcon from "@material-ui/icons/Dehaze";
 import Image from "./image";
 import { translate as t } from "../lib/i18n";
 
@@ -106,6 +107,7 @@ export const NavBar = ({
         <a href="#inquiry">
           <Button>{t("MAKEINQ", language)}</Button>
         </a>
+        {!bigEnough && <HamburgerMenuIcon />}
       </NavBarRight>
     </StyledNavBar>
   );
