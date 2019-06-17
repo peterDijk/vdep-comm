@@ -67,6 +67,7 @@ class Layout extends React.Component<Props, State> {
                   }}
                   ButtonComponent={Button}
                   expires={14}
+                  acceptOnScroll={false}
                 >
                   <span style={{ fontSize: "1.4rem", textAlign: "center" }}>
                     This site uses cookies and other tracking technologies to
