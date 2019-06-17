@@ -56,8 +56,8 @@ const translations = {
     "en-gb": "Content",
   },
   SEM_VENUE: {
-    "nl-nl": "Seminar Lokatie",
-    "en-gb": "Seminar Venue",
+    "nl-nl": "Lokatie",
+    "en-gb": "Location",
   },
   ACCOMODATION: {
     "nl-nl": "Accomodatie",

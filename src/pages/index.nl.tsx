@@ -163,7 +163,10 @@ export const query = graphql`
         }
       }
     }
-    seminars: allPrismicSeminar(filter: { lang: { eq: "nl-nl" } }) {
+    seminars: allPrismicSeminar(
+      filter: { lang: { eq: "nl-nl" } }
+      sort: { fields: data___order, order: ASC }
+    ) {
       nodes {
         id
         lang
