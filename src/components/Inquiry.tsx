@@ -56,6 +56,7 @@ export class Inquiry extends React.Component<Props, State> {
       .then(resp => {
         console.log(resp);
         this.setState({ response: "OK", pending: false });
+        window.location.pathname = "/thank-you";
       });
   };
 

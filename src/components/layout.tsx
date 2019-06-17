@@ -4,6 +4,7 @@ import { Provider } from "../lib/Providers";
 import { NavBar, SeminarMenu } from "./NavBar";
 import { Global } from "../styles";
 import CookieConsent from "react-cookie-consent";
+import { translate as t } from "../lib/i18n";
 
 import { StyledContainer } from "../styles/Main";
 
@@ -54,18 +55,19 @@ class Layout extends React.Component<Props, State> {
                 <CookieConsent
                   debug={true}
                   location="bottom"
-                  buttonText="OK"
+                  buttonText={t("COOKIE_CONSENT", lang)}
                   cookieName="Communicatieovergrenzen.nl_consent"
                   cookieValue={true}
                   style={{ background: COLOR.VDEP_BLUE }}
                   buttonStyle={{
                     color: COLOR.VDEP_DARK_BLUE,
-                    fontSize: "2rem",
+                    fontSize: "1.6rem",
                     background: COLOR.VDEP_GREEN,
                     borderRadius: ".5rem",
-                    width: "10rem",
+                    fontFamily: '"Roboto Slab", "sans-serif"',
+                    height: "4.5rem",
+                    fontWeight: 600,
                   }}
-                  ButtonComponent={Button}
                   expires={14}
                   acceptOnScroll={false}
                 >

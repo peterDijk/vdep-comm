@@ -95,8 +95,8 @@ const translations = {
       "Something went wrong. Please try again or send an email to info@communicatieovergrenzen.nl",
   },
   INQ_RESP_OK: {
-    "nl-nl": "Bedankt! Wij nemen contact op via ",
-    "en-gb": "Thank you! We'll contact you at ",
+    "nl-nl": "Bedankt! Wij nemen zo snel mogelijk contact op",
+    "en-gb": "Thank you! We'll contact you as soon as possible ",
   },
   INQ_RESP_OK_JUNK: {
     "nl-nl": "De bevestiging kan in uw spam-box terecht komen.",
@@ -127,6 +127,17 @@ const translations = {
   SEND: {
     "nl-nl": "Verzend",
     "en-gb": "Send",
+  },
+  COOKIE_CONSENT: {
+    "nl-nl": "Ik begrijp het",
+    "en-gb": "I Understand",
+  },
+  THANK_YOU: {
+    "nl-nl": "Bedankt!",
+    "en-gb": "Thank you!",
+  },
+  THANK_YOU_TEXT: {
+    "nl-nl": "",
   },
 };
 
