@@ -25,7 +25,7 @@ const Header = ({ header, language }) => (
           </CoG>
           <h1>
             <LogoTextOne>{t("COMMUNICATION", language)}</LogoTextOne>
-            <LogoTextTwo>{t("ACCROSS", language)}</LogoTextTwo>
+            <LogoTextTwo>{t("ACROSS", language)}</LogoTextTwo>
             <LogoTextThree>{t("BORDERS", language)}</LogoTextThree>
           </h1>
         </LogoContainer>

@@ -17,7 +17,7 @@ export const About = ({ data, language }) => (
     seminars={data.seminars.nodes}
   >
     <SEO
-      title="Bij Communicatie over Grenzen geloven wij in de kracht van duidelijke communicatie"
+      title="Communicatie over Grenzen - Leer effectief communiceren met andere culturen"
       keywords={[
         `communicatie`,
         `grenzen`,
