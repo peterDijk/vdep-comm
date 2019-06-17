@@ -12,6 +12,7 @@ import { loadReCaptcha } from "react-recaptcha-v3";
 import { Footer } from "./Footer";
 import { COLOR } from "../styles/constants";
 import { Button } from "../styles/buttons";
+import { Link } from "gatsby";
 
 type Props = {
   lang: string;
@@ -76,7 +77,12 @@ class Layout extends React.Component<Props, State> {
                     assist with navigation and your ability to provide feedback,
                     analyse your use of our products and services, assist with
                     our promotional and marketing efforts, and provide content
-                    from third parties. <a href="#">Cookie Policy </a>
+                    from third parties.{" "}
+                    <Link
+                      to={`${lang === "en-gb" ? "/en" : ""}/privacy-statement`}
+                    >
+                      Cookie policy
+                    </Link>
                   </span>
                 </CookieConsent>
                 <NavBar
