@@ -5,8 +5,8 @@ import SEO from "../components/seo";
 import { SeminarTitleBar } from "../styles/SeminarDetail";
 import { LogoContainer, CoG, TitleThin, TitleThick } from "../styles/Header";
 import Image from "../components/image";
-import { graphql } from "gatsby";
 import { SimplePageBody, HtmlText } from "../styles/PrivacyStatement";
+import { InquiryContainer } from "./InquiryContainer";
 
 export const PrivacyStatement = ({ data, language }) => (
   <Layout
@@ -42,5 +42,6 @@ export const PrivacyStatement = ({ data, language }) => (
       </SeminarTitleBar>
       <HtmlText>{ReactHtmlParser(data.privacy.data.body.html)}</HtmlText>
     </SimplePageBody>
+    <InquiryContainer language={language} otherInterest={"Privacy statement"} />
   </Layout>
 );

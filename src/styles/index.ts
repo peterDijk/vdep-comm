@@ -45,6 +45,12 @@ input:-internal-autofill-selected {
   z-index: 100;
 }
 
+.cookieConsent {
+  a {
+    text-decoration: underline;
+  }
+}
+
 @media screen and (max-width: 450px){
   ${LogoContainer} {
       font-size: 0.031rem;

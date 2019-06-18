@@ -5,10 +5,10 @@ import SEO from "../components/seo";
 import { SeminarTitleBar } from "../styles/SeminarDetail";
 import { LogoContainer, CoG, TitleThin, TitleThick } from "../styles/Header";
 import Image from "../components/image";
-import { graphql } from "gatsby";
 import { SimplePageBody, HtmlText } from "../styles/PrivacyStatement";
 import { translate as t } from "../lib/i18n";
 import { FaqItem, Question, Answer } from "../styles/Faq";
+import { InquiryContainer } from "./InquiryContainer";
 
 export const Faq = ({ data, language }) => (
   <Layout
@@ -49,5 +49,6 @@ export const Faq = ({ data, language }) => (
         </FaqItem>
       ))}
     </SimplePageBody>
+    <InquiryContainer language={language} otherInterest={"FAQ"} />
   </Layout>
 );

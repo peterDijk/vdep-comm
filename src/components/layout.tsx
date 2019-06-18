@@ -11,7 +11,6 @@ import { StyledContainer } from "../styles/Main";
 import { loadReCaptcha } from "react-recaptcha-v3";
 import { Footer } from "./Footer";
 import { COLOR } from "../styles/constants";
-import { Button } from "../styles/buttons";
 import { Link } from "gatsby";
 
 type Props = {
@@ -54,7 +53,7 @@ class Layout extends React.Component<Props, State> {
             <StyledContainer id="StyledContainer">
               <Grid item xs={12}>
                 <CookieConsent
-                  debug={true}
+                  debug={false}
                   location="bottom"
                   buttonText={t("COOKIE_CONSENT", lang)}
                   cookieName="Communicatieovergrenzen.nl_consent"

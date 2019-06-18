@@ -33,7 +33,6 @@ import { InquiryContainer } from "../components/InquiryContainer";
 export const SeminarDetail = ({ data, language }) => {
   const eventEntities = data.events.nodes;
   const filteredEvents = filterEvents(eventEntities);
-  console.log(data);
   const [activeTabIndex, setActive] = React.useState(0);
   const semEvents =
     data.seminar.uid === "middle-east"
