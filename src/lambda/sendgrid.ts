@@ -195,9 +195,9 @@ const templateHtml = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "
                                   <td style="font-size:6px;line-height:10px;padding:0px 0px 0px 0px;" valign="top"
                                     align="center">
                                     <a href="http://www.communicatieovergrenzen.nl"><img class="max-width" border="0"
-                                        style="display:block;color:#000000;text-decoration:none;font-family:Helvetica, arial, sans-serif;font-size:16px;max-width:40% !important;width:40%;height:auto !important;"
-                                        src="https://marketing-image-production.s3.amazonaws.com/uploads/82833652f05fedd5b865e429efbdee207f0213f12d6fd88315e859538c49dce1823da81b5340a2b0149f13b9947fdbcd88fe5f66f9d7d6a65cd584d9452c3a10.png"
-                                        alt="" width="240"></a>
+                                        style="display:block;color:#000000;text-decoration:none;font-family:Helvetica, arial, sans-serif;font-size:16px;max-width:80% !important;width:80%;height:auto !important;"
+                                        src="https://marketing-image-production.s3.amazonaws.com/uploads/f17fe65adb53a63230e52faeda95cf36db8aa8a25dcc5295b1985e90e6fc7e703edc642f8a19ae0feeddea103dd12e44cf5b049dfccc648f8c00bf9817d660a7.png"
+                                        alt="" width="480"></a>
                                   </td>
                                 </tr>
                               </table>
