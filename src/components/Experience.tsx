@@ -6,11 +6,13 @@ import {
   SeminarDayTile,
   DayImage,
   DayText,
+  ArrowContainer,
 } from "../styles/SeminarOverview";
 import Grid from "@material-ui/core/Grid";
 import SupervisedUserCircle from "@material-ui/icons/SupervisedUserCircle";
 import Fingerprint from "@material-ui/icons/Fingerprint";
 import QuestionAnswer from "@material-ui/icons/QuestionAnswer";
+import ArrowDown from "@material-ui/icons/KeyboardArrowDown";
 import SwapHoriz from "@material-ui/icons/SwapHoriz";
 
 export const Experience = ({ experience, seminarOverview }) => {
@@ -41,6 +43,9 @@ export const Experience = ({ experience, seminarOverview }) => {
           );
         })}
       </Grid>
+      <ArrowContainer>
+        <ArrowDown />
+      </ArrowContainer>
     </StyledExperience>
   );
 };

@@ -37,6 +37,18 @@ export const Experience = styled.div`
   }
 `;
 
+export const ArrowContainer = styled.div`
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  svg {
+    color: ${COLOR.VDEP_GREEN};
+    width: 8rem;
+    height: 8rem;
+  }
+`;
+
 export const ExperienceText = styled.div`
   margin: auto;
   text-align: justify;
