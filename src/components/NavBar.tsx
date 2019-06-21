@@ -43,6 +43,11 @@ type Props = {
 const Menu: React.SFC<Props> = ({ language, seminars }) => (
   <StyledMenu>
     <MenuItem>
+      <Link to={`${language === "en-gb" ? "/en" : ""}/`}>
+        {t("HOME", language)}
+      </Link>
+    </MenuItem>
+    <MenuItem>
       <Link to={`${language === "en-gb" ? "/en" : ""}/about-us`}>
         {t("ABOUTUS", language)}
       </Link>
@@ -85,6 +90,11 @@ const Mobile: React.SFC<Props> = ({ language, seminars }) => (
   >
     <StyledDropdownContainer>
       <StyledDropdownList>
+        <DropdownListItem>
+          <Link to={`${language === "en-gb" ? "/en" : ""}/`}>
+            {t("HOME", language)}
+          </Link>
+        </DropdownListItem>
         <DropdownListItem>
           <Link to={`${language === "en-gb" ? "/en" : ""}/about-us`}>
             {t("ABOUTUS", language)}
