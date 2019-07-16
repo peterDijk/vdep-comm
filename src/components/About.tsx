@@ -1,19 +1,19 @@
-import * as React from "react";
-import Layout from "../components/layout";
-import ReactHtmlParser from "react-html-parser";
-import SEO from "../components/seo";
-import { SeminarTitleBar } from "../styles/SeminarDetail";
-import { LogoContainer, CoG, TitleThin, TitleThick } from "../styles/Header";
-import Image from "../components/image";
-import { SimplePageBody, HtmlText } from "../styles/PrivacyStatement";
-import { translate as t } from "../lib/i18n";
-import { InquiryContainer } from "./InquiryContainer";
+import * as React from 'react';
+import ReactHtmlParser from 'react-html-parser';
+import Image from '../components/image';
+import Layout from '../components/layout';
+import SEO from '../components/seo';
+import { translate as t } from '../lib/i18n';
+import { CoG, LogoContainer, TitleThin } from '../styles/Header';
+import { HtmlText, SimplePageBody } from '../styles/PrivacyStatement';
+import { SeminarTitleBar } from '../styles/SeminarDetail';
+import { InquiryContainer } from './InquiryContainer';
 
 export const About = ({ data, language }) => (
   <Layout
     lang={language}
     navBlue={false}
-    slug={"about-us"}
+    slug={'about-us'}
     seminars={data.seminars.nodes}
   >
     <SEO
@@ -33,16 +33,16 @@ export const About = ({ data, language }) => (
       <SeminarTitleBar>
         <LogoContainer>
           <CoG>
-            <Image fileName={"190425_CoG_Logo_WO-title-Black.png"} />
+            <Image fileName={'190425_CoG_Logo_WO-title-Black.png'} />
           </CoG>
           <h1>
-            <TitleThin>{t("ABOUT", language)}</TitleThin>
-            <TitleThin>{t("US", language)}</TitleThin>
+            <TitleThin>{t('ABOUT', language)}</TitleThin>
+            <TitleThin>{t('US', language)}</TitleThin>
           </h1>
         </LogoContainer>
       </SeminarTitleBar>
       <HtmlText>{ReactHtmlParser(data.about.data.body.html)}</HtmlText>
     </SimplePageBody>
-    <InquiryContainer language={language} otherInterest={"About"} />
+    <InquiryContainer language={language} otherInterest={'About'} />
   </Layout>
 );

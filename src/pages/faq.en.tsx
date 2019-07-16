@@ -1,9 +1,9 @@
-import * as React from "react";
-import { graphql } from "gatsby";
-import { Faq } from "../components/Faq";
+import { graphql } from 'gatsby';
+import * as React from 'react';
+import { Faq } from '../components/Faq';
 
 const FaqPage = ({ data }) => {
-  const language = "en-gb";
+  const language = 'en-gb';
 
   return <Faq data={data} language={language} />;
 };

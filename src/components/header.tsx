@@ -1,19 +1,19 @@
-import React from "react";
+import React from 'react';
 
-import { translate as t } from "../lib/i18n";
+import { translate as t } from '../lib/i18n';
 
-import Image from "./image";
 import {
+  CoG,
   Header as StyledHeader,
   Hero,
-  SiteTitleContainer,
   LogoContainer,
-  CoG,
   LogoTextOne,
-  LogoTextTwo,
   LogoTextThree,
+  LogoTextTwo,
   SitePayoff,
-} from "../styles/Header";
+  SiteTitleContainer,
+} from '../styles/Header';
+import Image from './image';
 
 const Header = ({ header, language }) => (
   <StyledHeader>
@@ -21,12 +21,12 @@ const Header = ({ header, language }) => (
       <SiteTitleContainer>
         <LogoContainer>
           <CoG>
-            <Image fileName={"190425_CoG_Logo_WO-title.png"} />
+            <Image fileName={'190425_CoG_Logo_WO-title.png'} />
           </CoG>
           <h1>
-            <LogoTextOne>{t("COMMUNICATION", language)}</LogoTextOne>
-            <LogoTextTwo>{t("ACROSS", language)}</LogoTextTwo>
-            <LogoTextThree>{t("BORDERS", language)}</LogoTextThree>
+            <LogoTextOne>{t('COMMUNICATION', language)}</LogoTextOne>
+            <LogoTextTwo>{t('ACROSS', language)}</LogoTextTwo>
+            <LogoTextThree>{t('BORDERS', language)}</LogoTextThree>
           </h1>
         </LogoContainer>
         <SitePayoff>

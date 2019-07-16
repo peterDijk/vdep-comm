@@ -1,6 +1,6 @@
-import styled from "./styled-components";
-import { COLOR } from "./constants";
-import { Button } from "./buttons";
+import { Button } from './buttons';
+import { COLOR } from './constants';
+import styled from './styled-components';
 
 export const SeminarTile = styled.div<{ imgUrl: string }>`
   position: relative;

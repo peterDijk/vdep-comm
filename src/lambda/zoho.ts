@@ -1,4 +1,4 @@
-var request = require("request");
+let request = require('request');
 
 function serverSideRequest(formData, callback) {
   request.post(
@@ -8,13 +8,13 @@ function serverSideRequest(formData, callback) {
     },
     (err, httpResponse, body) => {
       if (err) {
-        console.log("Error", { err, httpResponse, body });
+        console.log('Error', { err, httpResponse, body });
         callback({ err, httpResponse, body });
         return;
       }
-      console.log("Success", { err, httpResponse, body });
+      console.log('Success', { err, httpResponse, body });
       callback({ err, httpResponse, body });
-    }
+    },
   );
 }
 

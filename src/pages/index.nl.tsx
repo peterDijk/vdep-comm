@@ -1,20 +1,20 @@
-import React from "react";
-import { Link, useStaticQuery, graphql } from "gatsby";
-import Layout from "../components/layout";
-import Header from "../components/header";
-import { UpcomingEvents, PageType } from "../components/UpcomingEvents";
-import SEO from "../components/seo";
-import { filterEvents } from "../lib/filterEvents";
-import { AboveTheFold, BrowserWindow } from "../styles/Main";
-import { Story } from "../components/Story";
-import { Expertise } from "../components/Expertise";
-import { OrganisationCTA } from "../components/OrganisationCTA";
-import { Seminars } from "../components/Seminars";
-import { Experience } from "../components/Experience";
-import PricingTable from "../components/PricingTable";
+import { graphql } from 'gatsby';
+import React from 'react';
+import { Experience } from '../components/Experience';
+import { Expertise } from '../components/Expertise';
+import Header from '../components/header';
+import Layout from '../components/layout';
+import { OrganisationCTA } from '../components/OrganisationCTA';
+import PricingTable from '../components/PricingTable';
+import { Seminars } from '../components/Seminars';
+import SEO from '../components/seo';
+import { Story } from '../components/Story';
+import { PageType, UpcomingEvents } from '../components/UpcomingEvents';
+import { filterEvents } from '../lib/filterEvents';
+import { AboveTheFold } from '../styles/Main';
 
 const IndexPage = ({ data }) => {
-  const language = "nl-nl";
+  const language = 'nl-nl';
   const eventEntities = data.events.nodes;
   const filteredEvents = filterEvents(eventEntities);
   const upcomingPerSeminar = [

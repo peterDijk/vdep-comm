@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 
 type ProviderProps = {
   language: string;
@@ -20,8 +20,8 @@ export class LanguageStateProvider extends React.Component<{}, State> {
   constructor(props) {
     super(props);
     this.state = {
-      language: "nl",
-      availableLanguages: ["nl", "en"],
+      language: 'nl',
+      availableLanguages: ['nl', 'en'],
     };
   }
 

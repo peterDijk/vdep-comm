@@ -1,5 +1,5 @@
-import styled from "./styled-components";
-import { COLOR } from "./constants";
+import { COLOR } from './constants';
+import styled from './styled-components';
 
 export const Experience = styled.div`
   position: relative;

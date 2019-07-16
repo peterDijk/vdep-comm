@@ -1,6 +1,6 @@
-import * as React from "react";
-import ReactHtmlParser from "react-html-parser";
-import { StoryTelling as StyledStory } from "../styles/Main";
+import * as React from 'react';
+import ReactHtmlParser from 'react-html-parser';
+import { StoryTelling as StyledStory } from '../styles/Main';
 
 export const Story = ({ story, language }) => {
   return (

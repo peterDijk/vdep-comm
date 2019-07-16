@@ -1,9 +1,9 @@
-import * as React from "react";
-import { graphql } from "gatsby";
-import { About } from "../components/About";
+import { graphql } from 'gatsby';
+import * as React from 'react';
+import { About } from '../components/About';
 
 const AboutPage = ({ data }) => {
-  const language = "nl-nl";
+  const language = 'nl-nl';
 
   return <About data={data} language={language} />;
 };

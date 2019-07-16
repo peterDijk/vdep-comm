@@ -1,19 +1,17 @@
-import * as React from "react";
-import Layout from "../components/layout";
-import ReactHtmlParser from "react-html-parser";
-import SEO from "../components/seo";
-import { SeminarTitleBar } from "../styles/SeminarDetail";
-import { LogoContainer, CoG, TitleThin, TitleThick } from "../styles/Header";
-import Image from "../components/image";
-import { graphql } from "gatsby";
-import { SimplePageBody, HtmlText } from "../styles/PrivacyStatement";
-import { translate as t } from "../lib/i18n";
+import * as React from 'react';
+import Image from '../components/image';
+import Layout from '../components/layout';
+import SEO from '../components/seo';
+import { translate as t } from '../lib/i18n';
+import { CoG, LogoContainer, TitleThin } from '../styles/Header';
+import { HtmlText, SimplePageBody } from '../styles/PrivacyStatement';
+import { SeminarTitleBar } from '../styles/SeminarDetail';
 
 export const ThankYou = ({ data, language }) => (
   <Layout
     lang={language}
     navBlue={false}
-    slug={"thank-you"}
+    slug={'thank-you'}
     seminars={data.seminars.nodes}
   >
     <SEO
@@ -33,16 +31,16 @@ export const ThankYou = ({ data, language }) => (
       <SeminarTitleBar>
         <LogoContainer>
           <CoG>
-            <Image fileName={"190425_CoG_Logo_WO-title-Black.png"} />
+            <Image fileName={'190425_CoG_Logo_WO-title-Black.png'} />
           </CoG>
           <h1>
-            <TitleThin>{t("THANK_YOU", language)}</TitleThin>
+            <TitleThin>{t('THANK_YOU', language)}</TitleThin>
           </h1>
         </LogoContainer>
       </SeminarTitleBar>
       <HtmlText>
-        <p>{t("INQ_RESP_OK", language)}</p>
-        <p>{t("INQ_RESP_OK_JUNK", language)}</p>
+        <p>{t('INQ_RESP_OK', language)}</p>
+        <p>{t('INQ_RESP_OK_JUNK', language)}</p>
       </HtmlText>
     </SimplePageBody>
   </Layout>

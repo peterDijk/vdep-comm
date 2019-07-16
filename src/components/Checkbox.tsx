@@ -1,6 +1,6 @@
-import * as React from "react";
+import * as React from 'react';
 
-import { Checkbox as StyledCheckbox } from "../styles/Checkbox";
+import { Checkbox as StyledCheckbox } from '../styles/Checkbox';
 
 type Props = {
   checked: boolean;
@@ -32,7 +32,7 @@ export class Checkbox extends React.Component<Props, State> {
       {
         checked,
       },
-      () => this.props.callbackFn(checked)
+      () => this.props.callbackFn(checked),
     );
   };
 

@@ -1,15 +1,15 @@
-const BLACK = "#000";
-const WHITE = "#fff";
-const WHITE_RGB = "255,255,255";
-const RICHBLACK = "#002233";
-const RICHBLACK_RBG = "0,34,51";
-const VDEP_BLUE_RGB = "0,173,241";
-const VDEP_SECONDARY_BLUE_RGB = "1,91,128";
-const VDEP_TERTIARY_BLUE_RGB = "212,243,250";
-const VDEP_TERTIARY_BLUE_DARK = "#BCEBF5";
-const VDEP_QUARTIARY_BLUE = "#96d8e9";
-const VDEP_DARK_BLUE_RGB = "0,53,74";
-const VDEP_GREEN = "#BDED9D";
+const BLACK = '#000';
+const WHITE = '#fff';
+const WHITE_RGB = '255,255,255';
+const RICHBLACK = '#002233';
+const RICHBLACK_RBG = '0,34,51';
+const VDEP_BLUE_RGB = '0,173,241';
+const VDEP_SECONDARY_BLUE_RGB = '1,91,128';
+const VDEP_TERTIARY_BLUE_RGB = '212,243,250';
+const VDEP_TERTIARY_BLUE_DARK = '#BCEBF5';
+const VDEP_QUARTIARY_BLUE = '#96d8e9';
+const VDEP_DARK_BLUE_RGB = '0,53,74';
+const VDEP_GREEN = '#BDED9D';
 
 export const COLOR = {
   BLACK,

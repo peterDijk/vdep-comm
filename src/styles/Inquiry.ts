@@ -1,6 +1,6 @@
-import styled from "./styled-components";
-import { COLOR } from "./constants";
-import { Button } from "./buttons";
+import { Button } from './buttons';
+import { COLOR } from './constants';
+import styled from './styled-components';
 
 export const InputClean = styled.input`
   border: .1rem solid transparent;

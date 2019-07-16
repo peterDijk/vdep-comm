@@ -1,0 +1,40 @@
+{
+  "max-line-length": [true, 80],
+  "indent": [true, "spaces", 2],
+  "max-classes-per-file": false,
+  "no-boolean-literal-compare": true,
+  "resolveJsonModule": true,
+  "semicolon": [
+    true,
+    "always",
+    "ignore-interfaces",
+    "ignore-bound-class-methods"
+  ],
+  "function-name": [
+    true,
+    {
+      "method-regex": "^\\*?\\[?[a-zA-Z][\\w\\d\\.]*\\]?$",
+      "private-method-regex": "^\\*?\\[?[a-zA-Z][\\w\\d\\.]*\\]?$",
+      "protected-method-regex": "^\\*?\\[?[a-zA-Z][\\w\\d\\.]*\\]?$",
+      "static-method-regex": "^\\*?\\[?[a-zA-Z][\\w\\d\\.]*\\]?$",
+      "function-regex": "^\\*?\\[?[a-zA-Z][\\w\\d\\.]*\\]?$"
+    }
+  ],
+  "include": ["./src/**/*", "./__tests__/**/*"],
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "module": "es6",
+    "target": "es6",
+    "noImplicitAny": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "jsx": "react",
+    "moduleResolution": "node",
+    "outDir": "./dist/",
+    "lib": ["es6", "dom", "es2017"]
+  },
+  "exclude": ["./**/node_modules/**/*"]
+}

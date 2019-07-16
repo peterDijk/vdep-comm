@@ -1,5 +1,5 @@
-import styled from "./styled-components";
-import { COLOR } from "./constants";
+import { COLOR } from './constants';
+import styled from './styled-components';
 
 export const FaqItem = styled.div`
   padding: 2rem 10rem;

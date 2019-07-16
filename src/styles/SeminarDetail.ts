@@ -1,12 +1,12 @@
-import styled from "./styled-components";
-import { COLOR } from "./constants";
+import { COLOR } from './constants';
+import styled from './styled-components';
 
 import {
-  UpcomingEventsContainer,
   LocationDateContainer,
-} from "../styles/Events";
-import { ChoiceItem } from "./PricingTable";
-import { InquiryContainer } from "./Inquiry";
+  UpcomingEventsContainer,
+} from '../styles/Events';
+import { InquiryContainer } from './Inquiry';
+import { ChoiceItem } from './PricingTable';
 
 export const SeminarHeader = styled.div<{ imgUrl?: string }>`
   background-image: linear-gradient(

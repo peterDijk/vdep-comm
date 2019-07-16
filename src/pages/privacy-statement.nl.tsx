@@ -1,9 +1,9 @@
-import * as React from "react";
-import { graphql } from "gatsby";
-import { PrivacyStatement } from "../components/PrivacyStatement";
+import { graphql } from 'gatsby';
+import * as React from 'react';
+import { PrivacyStatement } from '../components/PrivacyStatement';
 
 const PrivacyPage = ({ data }) => {
-  const language = "nl-nl";
+  const language = 'nl-nl';
 
   return <PrivacyStatement data={data} language={language} />;
 };

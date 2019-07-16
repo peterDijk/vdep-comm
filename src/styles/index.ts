@@ -1,6 +1,6 @@
-import { createGlobalStyle } from "./styled-components";
-import { COLOR } from "./constants";
-import { LogoContainer, CoG } from "./Header";
+import { COLOR } from './constants';
+import { CoG, LogoContainer } from './Header';
+import { createGlobalStyle } from './styled-components';
 
 export const Global = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab:200,400,500,600,700,900');

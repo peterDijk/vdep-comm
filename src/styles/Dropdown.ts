@@ -1,27 +1,27 @@
-import styled, { css } from "./styled-components";
-import { COLOR } from "./constants";
+import { COLOR } from './constants';
+import styled, { css } from './styled-components';
 
 export const Dropdown = styled.div`
   position: relative;
   margin-left: 0;
 `;
 
-type DropdownPosition = "left" | "right" | "center";
+type DropdownPosition = 'left' | 'right' | 'center';
 
-const getDropdownPositionStyling = (position: DropdownPosition = "left") => {
+const getDropdownPositionStyling = (position: DropdownPosition = 'left') => {
   switch (position) {
-    case "right":
+    case 'right':
       return css`
         top: 110%;
         left: auto;
         right: 0;
       `;
-    case "center":
+    case 'center':
       return css`
         top: 140%;
         left: 3rem;
       `;
-    case "left":
+    case 'left':
     default:
       return css`
         top: 140%;

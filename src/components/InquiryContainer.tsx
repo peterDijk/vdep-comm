@@ -1,9 +1,9 @@
-import * as React from "react";
-import { translate as t } from "../lib/i18n";
-import { InquiryWrapper, ChoicesWrapper } from "../styles/SeminarDetail";
-import { Inquiry } from "./Inquiry";
-import { ChoiceItem } from "../styles/PricingTable";
-import { Checkbox } from "./Checkbox";
+import * as React from 'react';
+import { translate as t } from '../lib/i18n';
+import { ChoiceItem } from '../styles/PricingTable';
+import { ChoicesWrapper, InquiryWrapper } from '../styles/SeminarDetail';
+import { Checkbox } from './Checkbox';
+import { Inquiry } from './Inquiry';
 
 export const InquiryContainer = ({
   options,
@@ -19,12 +19,12 @@ export const InquiryContainer = ({
       ? `${options[0].data.seminar.document[0].data.subject.text} - ${
           options[0].data.dates_text
         } - ${options[0].data.location_city}`
-      : otherInterest
+      : otherInterest,
   );
 
   return (
     <InquiryWrapper>
-      <h1>{t("INTERESTED_IN_ATTENDING", language)}</h1>
+      <h1>{t('INTERESTED_IN_ATTENDING', language)}</h1>
       {options && (
         <ChoicesWrapper>
           {options.map(option => {

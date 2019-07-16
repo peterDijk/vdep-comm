@@ -1,5 +1,5 @@
-import styled from "./styled-components";
-import { COLOR } from "./constants";
+import { COLOR } from './constants';
+import styled from './styled-components';
 
 export const Button = styled.div`
   margin-right: 1rem;

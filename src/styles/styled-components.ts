@@ -1,6 +1,5 @@
-import * as styledComponents from "styled-components";
+import * as styledComponents from 'styled-components';
 
-import ThemeInterface from "./theme";
 
 const {
   default: styled,

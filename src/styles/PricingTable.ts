@@ -1,6 +1,5 @@
-import styled from "./styled-components";
-import { COLOR } from "./constants";
-import { Checkbox } from "./Checkbox";
+import { COLOR } from './constants';
+import styled from './styled-components';
 
 export const CenteredParagraph = styled.div`
   margin: auto;

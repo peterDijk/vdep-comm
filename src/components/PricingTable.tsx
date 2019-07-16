@@ -1,34 +1,34 @@
-import * as React from "react";
-import ReactHtmlParser from "react-html-parser";
-import Grid from "@material-ui/core/Grid";
-import Check from "@material-ui/icons/Check";
-import withWidth from "@material-ui/core/withWidth";
-import { translate as t } from "../lib/i18n";
+import Grid from '@material-ui/core/Grid';
+import withWidth from '@material-ui/core/withWidth';
+import Check from '@material-ui/icons/Check';
+import * as React from 'react';
+import ReactHtmlParser from 'react-html-parser';
+import { translate as t } from '../lib/i18n';
 import {
   Benefits as StyledBenefits,
-  CenteredParagraph,
   BenefitsOptions,
-  TableContainer,
-  ColumnContainer,
-  LegendItem,
-  LegendItemMediumLeft,
-  LegendItemMarginBottom,
-  LegendItemLargeLeft,
-  ColumnItemLargeRight,
-  ColumnItem,
-  ColumnItemMedium,
-  ColumnItemLarge,
-  ColumnItemMarginBottom,
+  CenteredParagraph,
   CheckItem,
+  ChoiceItem,
+  ColumnContainer,
+  ColumnItem,
+  ColumnItemLarge,
+  ColumnItemLargeRight,
+  ColumnItemMarginBottom,
+  ColumnItemMedium,
   ColumnTitleLeft,
   ColumnTitleRight,
-  ItemEmpty,
-  ChoiceItem,
-  NoteItem,
   InterestedItem,
-} from "../styles/PricingTable";
-import { Checkbox } from "./Checkbox";
-import { Inquiry } from "./Inquiry";
+  ItemEmpty,
+  LegendItem,
+  LegendItemLargeLeft,
+  LegendItemMarginBottom,
+  LegendItemMediumLeft,
+  NoteItem,
+  TableContainer,
+} from '../styles/PricingTable';
+import { Checkbox } from './Checkbox';
+import { Inquiry } from './Inquiry';
 
 class PricingTable extends React.Component<
   {
@@ -40,7 +40,7 @@ class PricingTable extends React.Component<
   { selected: string }
 > {
   state = {
-    selected: "organisation",
+    selected: 'organisation',
   };
 
   select = (type: string) => {
@@ -50,10 +50,10 @@ class PricingTable extends React.Component<
   render() {
     const { benefits, benefitsOptions, width, language } = this.props;
     const optionOrg = benefitsOptions.nodes.find(
-      option => option.uid === "organisation"
+      option => option.uid === 'organisation',
     );
     const optionInd = benefitsOptions.nodes.find(
-      option => option.uid === "individual"
+      option => option.uid === 'individual',
     );
     return (
       <StyledBenefits>
@@ -64,45 +64,45 @@ class PricingTable extends React.Component<
         <BenefitsOptions>
           <TableContainer>
             <Grid container spacing={0}>
-              {!["sm", "xs"].includes(width) && (
+              {!['sm', 'xs'].includes(width) && (
                 <Grid item xs={12} md={4}>
                   <ColumnContainer selected={false}>
                     <ItemEmpty>&nbsp;</ItemEmpty>
                     <LegendItemMediumLeft>
-                      <p>{t("NUM_ATTENDEES", language)}</p>
+                      <p>{t('NUM_ATTENDEES', language)}</p>
                     </LegendItemMediumLeft>
                     <LegendItem>
-                      <p>{t("SEM_ATTENDANCE", language)}</p>
+                      <p>{t('SEM_ATTENDANCE', language)}</p>
                     </LegendItem>
                     <LegendItem>
-                      <p>{t("FREQUENCY", language)}</p>
+                      <p>{t('FREQUENCY', language)}</p>
                     </LegendItem>
                     <LegendItem>
-                      <p>{t("SEM_SUBJECT", language)}</p>
+                      <p>{t('SEM_SUBJECT', language)}</p>
                     </LegendItem>
                     <LegendItemMarginBottom>
-                      <p>{t("SEM_CONTENT", language)}</p>
+                      <p>{t('SEM_CONTENT', language)}</p>
                     </LegendItemMarginBottom>
                     <LegendItem>
-                      <p>{t("SEM_VENUE", language)}</p>
+                      <p>{t('SEM_VENUE', language)}</p>
                     </LegendItem>
                     <LegendItemMarginBottom>
-                      <p>{t("ACCOMODATION", language)}</p>
+                      <p>{t('ACCOMODATION', language)}</p>
                     </LegendItemMarginBottom>
                     <LegendItemLargeLeft>
-                      <p>{t("ATTENDANCE_FEE", language)}</p>
+                      <p>{t('ATTENDANCE_FEE', language)}</p>
                     </LegendItemLargeLeft>
                     <NoteItem />
                     <InterestedItem>
-                      <p>{t("INTERESTED_IN_ATTENDING", language)}</p>
+                      <p>{t('INTERESTED_IN_ATTENDING', language)}</p>
                     </InterestedItem>
                   </ColumnContainer>
                 </Grid>
               )}
               <Grid item xs={12} md={4}>
                 <ColumnContainer
-                  selected={this.state.selected === "organisation"}
-                  onClick={() => this.select("organisation")}
+                  selected={this.state.selected === 'organisation'}
+                  onClick={() => this.select('organisation')}
                 >
                   <ColumnTitleLeft>{optionOrg.data.title.text}</ColumnTitleLeft>
                   <ColumnItemMedium>
@@ -137,8 +137,8 @@ class PricingTable extends React.Component<
                   <NoteItem />
                   <ChoiceItem>
                     <Checkbox
-                      checked={this.state.selected === "organisation"}
-                      callbackFn={() => this.select("organisation")}
+                      checked={this.state.selected === 'organisation'}
+                      callbackFn={() => this.select('organisation')}
                     />
                     <p>{optionOrg.data.interested_text}</p>
                   </ChoiceItem>
@@ -146,8 +146,8 @@ class PricingTable extends React.Component<
               </Grid>
               <Grid item xs={12} md={4}>
                 <ColumnContainer
-                  selected={this.state.selected === "individual"}
-                  onClick={() => this.select("individual")}
+                  selected={this.state.selected === 'individual'}
+                  onClick={() => this.select('individual')}
                 >
                   <ColumnTitleRight>
                     {optionInd.data.title.text}
@@ -186,8 +186,8 @@ class PricingTable extends React.Component<
                   </NoteItem>
                   <ChoiceItem>
                     <Checkbox
-                      checked={this.state.selected === "individual"}
-                      callbackFn={() => this.select("individual")}
+                      checked={this.state.selected === 'individual'}
+                      callbackFn={() => this.select('individual')}
                     />
                     <p>{optionInd.data.interested_text}</p>
                   </ChoiceItem>

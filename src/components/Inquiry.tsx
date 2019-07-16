@@ -1,21 +1,21 @@
-import * as React from "react";
-import axios from "axios";
+import CircularProgress from '@material-ui/core/CircularProgress';
+import CloseIcon from '@material-ui/icons/Close';
+import axios from 'axios';
+import * as React from 'react';
+import { ReCaptcha } from 'react-recaptcha-v3';
+import { translate as t } from '../lib/i18n';
+import { Button } from '../styles/buttons';
 import {
-  InquiryContainer,
   InputClean,
-  InquirySuccess,
+  InquiryContainer,
   InquiryFailure,
+  InquirySuccess,
   ProgressContainer,
-} from "../styles/Inquiry";
-import { Button } from "../styles/buttons";
-import { translate as t } from "../lib/i18n";
-import CloseIcon from "@material-ui/icons/Close";
-import CircularProgress from "@material-ui/core/CircularProgress";
-import { ReCaptcha } from "react-recaptcha-v3";
+} from '../styles/Inquiry';
 
 type State = {
   emailInput: string;
-  response: "OK" | "FAILURE" | "BOT";
+  response: 'OK' | 'FAILURE' | 'BOT';
   pending: boolean;
   rcToken: string;
 };
@@ -27,7 +27,7 @@ type Props = {
 
 export class Inquiry extends React.Component<Props, State> {
   state = {
-    emailInput: "",
+    emailInput: '',
     response: null,
     pending: false,
     rcToken: null,
@@ -49,25 +49,25 @@ export class Inquiry extends React.Component<Props, State> {
 
   autoResponseMail = () => {
     axios
-      .post("/.netlify/functions/sendgrid", {
+      .post('/.netlify/functions/sendgrid', {
         email: this.state.emailInput.trim(),
         secret: process.env.GATSBY_SENDGRID,
       })
       .then(resp => {
         console.log(resp);
-        this.setState({ response: "OK", pending: false });
-        window.location.pathname = "/thank-you";
+        this.setState({ response: 'OK', pending: false });
+        window.location.pathname = '/thank-you';
       });
   };
 
   postToZohoAPI = () => {
-    if (this.state.emailInput === "") {
-      this.setState({ response: "FAILURE" });
+    if (this.state.emailInput === '') {
+      this.setState({ response: 'FAILURE' });
     } else {
       this.setState({ pending: true });
       axios
-        .post("/.netlify/functions/zoho", {
-          url: "https://www.google.com/recaptcha/api/siteverify",
+        .post('/.netlify/functions/zoho', {
+          url: 'https://www.google.com/recaptcha/api/siteverify',
           secret: process.env.GATSBY_CAPTCHA_SERVER,
           response: this.state.rcToken,
         })
@@ -75,25 +75,25 @@ export class Inquiry extends React.Component<Props, State> {
           console.log(response);
           if (response.data.score > 0.6) {
             axios
-              .post("/.netlify/functions/zoho", {
+              .post('/.netlify/functions/zoho', {
                 url:
-                  "https://creator.zoho.com/api/petervandijk/json/communicatie-over-grenzen-administratie/form/Add_prospect/record/add",
+                  'https://creator.zoho.com/api/petervandijk/json/communicatie-over-grenzen-administratie/form/Add_prospect/record/add',
                 authtoken: process.env.GATSBY_ZOHO_AUTH,
-                scope: "creatorapi",
+                scope: 'creatorapi',
                 email: this.state.emailInput.trim(),
                 interest: this.props.interest,
               })
               .then(resp => {
                 console.log(resp);
                 const zohoStatus = resp.data.formname[1].operation[1].status;
-                if (zohoStatus === "Success") {
+                if (zohoStatus === 'Success') {
                   this.autoResponseMail();
                 } else {
-                  this.setState({ response: "FAILURE" });
+                  this.setState({ response: 'FAILURE' });
                 }
               });
           } else {
-            this.setState({ response: "BOT" });
+            this.setState({ response: 'BOT' });
           }
         });
     }
@@ -112,29 +112,29 @@ export class Inquiry extends React.Component<Props, State> {
           name="email"
           value={this.state.emailInput}
           onChange={this.handleInputChange}
-          placeholder={t("INSERT_YOUR_EMAIL", language)}
+          placeholder={t('INSERT_YOUR_EMAIL', language)}
         />
         {this.state.pending && (
           <ProgressContainer>
             <CircularProgress color="inherit" size={32} />
           </ProgressContainer>
         )}
-        <Button onClick={this.postToZohoAPI}>{t("SEND", language)}</Button>
-        {this.state.response === "OK" && (
+        <Button onClick={this.postToZohoAPI}>{t('SEND', language)}</Button>
+        {this.state.response === 'OK' && (
           <InquirySuccess visible={true}>
             <p>
-              {t("INQ_RESP_OK", language)}
-              {this.state.emailInput}. {t("INQ_RESP_OK_JUNK", language)}
+              {t('INQ_RESP_OK', language)}
+              {this.state.emailInput}. {t('INQ_RESP_OK_JUNK', language)}
             </p>
           </InquirySuccess>
         )}
-        {this.state.response === "FAILURE" && (
+        {this.state.response === 'FAILURE' && (
           <InquiryFailure visible={true}>
-            <p>{t("INQ_RESP_ERR", language)}</p>
+            <p>{t('INQ_RESP_ERR', language)}</p>
             <CloseIcon onClick={this.resetFailure} />
           </InquiryFailure>
         )}
-        {this.state.response === "BOT" && (
+        {this.state.response === 'BOT' && (
           <InquiryFailure visible={true}>
             <p>{`reCAPTCHA score tells us you might be a bot. If you are a human reading this, email us at info@communicatieovergrenzen.nl`}</p>
             <CloseIcon onClick={this.resetFailure} />

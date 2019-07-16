@@ -1,17 +1,17 @@
-import React from "react";
-import Grid from "@material-ui/core/Grid";
-import { Provider } from "../lib/Providers";
-import { NavBar, SeminarMenu } from "./NavBar";
-import { Global } from "../styles";
-import CookieConsent from "react-cookie-consent";
-import { translate as t } from "../lib/i18n";
+import Grid from '@material-ui/core/Grid';
+import React from 'react';
+import CookieConsent from 'react-cookie-consent';
+import { translate as t } from '../lib/i18n';
+import { Provider } from '../lib/Providers';
+import { Global } from '../styles';
+import { NavBar, SeminarMenu } from './NavBar';
 
-import { StyledContainer } from "../styles/Main";
+import { StyledContainer } from '../styles/Main';
 
-import { loadReCaptcha } from "react-recaptcha-v3";
-import { Footer } from "./Footer";
-import { COLOR } from "../styles/constants";
-import { Link } from "gatsby";
+import { Link } from 'gatsby';
+import { loadReCaptcha } from 'react-recaptcha-v3';
+import { COLOR } from '../styles/constants';
+import { Footer } from './Footer';
 
 type Props = {
   lang: string;
@@ -34,7 +34,7 @@ class Layout extends React.Component<Props, State> {
 
   componentDidMount() {
     loadReCaptcha(process.env.GATSBY_CAPTCHA_CLIENT);
-    window.addEventListener("scroll", () => {
+    window.addEventListener('scroll', () => {
       if (
         this.changeNavColor(window.scrollY, window.innerHeight) !==
         this.state.navWhite
@@ -55,30 +55,30 @@ class Layout extends React.Component<Props, State> {
                 <CookieConsent
                   debug={false}
                   location="bottom"
-                  buttonText={t("COOKIE_CONSENT", lang)}
+                  buttonText={t('COOKIE_CONSENT', lang)}
                   cookieName="Communicatieovergrenzen.nl_consent"
                   cookieValue={true}
                   style={{ background: COLOR.VDEP_BLUE }}
                   buttonStyle={{
                     color: COLOR.VDEP_DARK_BLUE,
-                    fontSize: "1.6rem",
+                    fontSize: '1.6rem',
                     background: COLOR.VDEP_GREEN,
-                    borderRadius: ".5rem",
+                    borderRadius: '.5rem',
                     fontFamily: '"Roboto Slab", "sans-serif"',
-                    height: "4.5rem",
+                    height: '4.5rem',
                     fontWeight: 600,
                   }}
                   expires={14}
                   acceptOnScroll={false}
                 >
-                  <span style={{ fontSize: "1.4rem", textAlign: "center" }}>
+                  <span style={{ fontSize: '1.4rem', textAlign: 'center' }}>
                     This site uses cookies and other tracking technologies to
                     assist with navigation and your ability to provide feedback,
                     analyse your use of our products and services, assist with
                     our promotional and marketing efforts, and provide content
-                    from third parties.{" "}
+                    from third parties.{' '}
                     <Link
-                      to={`${lang === "en-gb" ? "/en" : ""}/privacy-statement`}
+                      to={`${lang === 'en-gb' ? '/en' : ''}/privacy-statement`}
                     >
                       Cookie policy
                     </Link>

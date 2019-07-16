@@ -1,6 +1,5 @@
-import * as React from "react";
-import { useStaticQuery, graphql } from "gatsby";
-import { OrganisationCTA as StyledOrganisationCTA } from "../styles/Main";
+import * as React from 'react';
+import { OrganisationCTA as StyledOrganisationCTA } from '../styles/Main';
 
 export const OrganisationCTA = ({ organisationCta, language }) => {
   return (

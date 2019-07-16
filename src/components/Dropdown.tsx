@@ -1,17 +1,17 @@
-import * as React from "react";
-import OutsideClickHandler from "react-outside-click-handler";
+import * as React from 'react';
+import OutsideClickHandler from 'react-outside-click-handler';
 
-import MenuToggle from "./MenuToggle";
+import MenuToggle from './MenuToggle';
 
 import {
   Dropdown as StyledDropdown,
   DropdownContent,
-} from "../styles/Dropdown";
+} from '../styles/Dropdown';
 
 export enum DropdownPosition {
-  LEFT = "left",
-  RIGHT = "right",
-  CENTER = "center",
+  LEFT = 'left',
+  RIGHT = 'right',
+  CENTER = 'center',
 }
 
 interface Props {

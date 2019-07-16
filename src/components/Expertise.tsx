@@ -1,6 +1,6 @@
-import * as React from "react";
-import ReactHtmlParser from "react-html-parser";
-import { Expertise as StyledExpertise } from "../styles/Main";
+import * as React from 'react';
+import ReactHtmlParser from 'react-html-parser';
+import { Expertise as StyledExpertise } from '../styles/Main';
 
 export const Expertise = ({ expertise }) => {
   return (

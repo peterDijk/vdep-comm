@@ -1,6 +1,6 @@
-import styled from "./styled-components";
-import { COLOR } from "./constants";
-import { Button } from "./buttons";
+import { Button } from './buttons';
+import { COLOR } from './constants';
+import styled from './styled-components';
 
 export const MenuItem = styled.div`
   font-weight: 500;
@@ -64,7 +64,7 @@ export const LangBox = styled.div<{ switchBg: boolean }>`
 `;
 
 export const LangOption = styled.div<{ isActive?: boolean }>`
-  font-weight: ${props => (props.isActive ? "900" : "100")};
+  font-weight: ${props => (props.isActive ? '900' : '100')};
   cursor: pointer;
 `;
 

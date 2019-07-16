@@ -1,45 +1,44 @@
-import * as React from "react";
-import { graphql } from "gatsby";
-import ReactHtmlParser from "react-html-parser";
-import Layout from "../components/layout";
-import SEO from "../components/seo";
-import { translate as t } from "../lib/i18n";
+import * as React from 'react';
+import ReactHtmlParser from 'react-html-parser';
+import Layout from '../components/layout';
+import SEO from '../components/seo';
+import { translate as t } from '../lib/i18n';
 
+import Image from '../components/image';
+import { Button } from '../styles/buttons';
 import {
-  SeminarHeader,
-  SeminarTitleBar,
-  MainQuote,
-  QuoteBox,
-  QuoteProfilePicture,
-  ProgrammeContainer,
-  ProgrammeTabs,
   DayHeading,
-  ProgrammeEntries,
+  Entry,
   EntryTime,
   EntryTitle,
-  Entry,
-} from "../styles/SeminarDetail";
-import Image from "../components/image";
-import { Button } from "../styles/buttons";
+  MainQuote,
+  ProgrammeContainer,
+  ProgrammeEntries,
+  ProgrammeTabs,
+  QuoteBox,
+  QuoteProfilePicture,
+  SeminarHeader,
+  SeminarTitleBar,
+} from '../styles/SeminarDetail';
 
-import { UpcomingEvents, PageType } from "../components/UpcomingEvents";
-import { filterEvents } from "../lib/filterEvents";
-import { LogoContainer, CoG, TitleThin, TitleThick } from "../styles/Header";
-import { Grid } from "@material-ui/core";
-import ScheduleIcon from "@material-ui/icons/Schedule";
-import { COLOR } from "../styles/constants";
-import { InquiryContainer } from "../components/InquiryContainer";
+import { Grid } from '@material-ui/core';
+import ScheduleIcon from '@material-ui/icons/Schedule';
+import { InquiryContainer } from '../components/InquiryContainer';
+import { PageType, UpcomingEvents } from '../components/UpcomingEvents';
+import { filterEvents } from '../lib/filterEvents';
+import { COLOR } from '../styles/constants';
+import { CoG, LogoContainer, TitleThick, TitleThin } from '../styles/Header';
 
 export const SeminarDetail = ({ data, language }) => {
   const eventEntities = data.events.nodes;
   const filteredEvents = filterEvents(eventEntities);
   const [activeTabIndex, setActive] = React.useState(0);
   const semEvents =
-    data.seminar.uid === "middle-east"
+    data.seminar.uid === 'middle-east'
       ? filteredEvents.eventsMiddleEast
-      : data.seminar.uid === "russia"
+      : data.seminar.uid === 'russia'
       ? filteredEvents.eventsRussia
-      : data.seminar.uid === "west-africa" && filteredEvents.eventsWestAfrica;
+      : data.seminar.uid === 'west-africa' && filteredEvents.eventsWestAfrica;
   return (
     <Layout
       lang={language}
@@ -64,7 +63,7 @@ export const SeminarDetail = ({ data, language }) => {
         <SeminarTitleBar>
           <LogoContainer>
             <CoG>
-              <Image fileName={"190425_CoG_Logo_WO-title-Black.png"} />
+              <Image fileName={'190425_CoG_Logo_WO-title-Black.png'} />
             </CoG>
             <h1>
               <TitleThin>SEMINAR</TitleThin>
@@ -106,9 +105,9 @@ export const SeminarDetail = ({ data, language }) => {
         {/*  */}
         <DayHeading id="0" />
         <DayHeading>
-          {data.seminarOverview.nodes[0].data.title.text}{" "}
+          {data.seminarOverview.nodes[0].data.title.text}{' '}
           <a href="#inquiry">
-            <Button>{t("MAKEINQ", language)}</Button>
+            <Button>{t('MAKEINQ', language)}</Button>
           </a>
         </DayHeading>
         <MainQuote bgColor={COLOR.WHITE}>
@@ -121,7 +120,7 @@ export const SeminarDetail = ({ data, language }) => {
         </MainQuote>
         <ProgrammeEntries>
           {data.seminar.data.programme_day_1.map(entry => {
-            return entry.kind !== "break" ? (
+            return entry.kind !== 'break' ? (
               <Entry key={entry.title}>
                 <EntryTime>
                   <ScheduleIcon />
@@ -146,9 +145,9 @@ export const SeminarDetail = ({ data, language }) => {
         {/*  */}
         <DayHeading id="1" />
         <DayHeading>
-          {data.seminarOverview.nodes[1].data.title.text}{" "}
+          {data.seminarOverview.nodes[1].data.title.text}{' '}
           <a href="#inquiry">
-            <Button>{t("MAKEINQ", language)}</Button>
+            <Button>{t('MAKEINQ', language)}</Button>
           </a>
         </DayHeading>
         <MainQuote bgColor={COLOR.WHITE}>
@@ -162,7 +161,7 @@ export const SeminarDetail = ({ data, language }) => {
         <ProgrammeEntries>
           {data.seminar.data.programme_day_2.map(entry => (
             <Entry key={entry.title}>
-              <EntryTime break={entry.kind === "break"}>
+              <EntryTime break={entry.kind === 'break'}>
                 <ScheduleIcon />
                 {entry.time}
               </EntryTime>
@@ -176,9 +175,9 @@ export const SeminarDetail = ({ data, language }) => {
         {/*  */}
         <DayHeading id="2" />
         <DayHeading>
-          {data.seminarOverview.nodes[2].data.title.text}{" "}
+          {data.seminarOverview.nodes[2].data.title.text}{' '}
           <a href="#inquiry">
-            <Button>{t("MAKEINQ", language)}</Button>
+            <Button>{t('MAKEINQ', language)}</Button>
           </a>
         </DayHeading>
         <MainQuote bgColor={COLOR.WHITE}>

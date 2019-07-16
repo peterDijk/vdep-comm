@@ -44,13 +44,13 @@ const dateInFuture = (date: Date) => {
 
 export const filterEvents = (eventEntities: EventNode[]): FilteredEvents => {
   const allEventsMiddleEast = eventEntities.filter(
-    node => node.data.seminar.uid === "middle-east"
+    node => node.data.seminar.uid === 'middle-east',
   );
   const allEventsWestAfrica = eventEntities.filter(
-    node => node.data.seminar.uid === "west-africa"
+    node => node.data.seminar.uid === 'west-africa',
   );
   const allEventsRussia = eventEntities.filter(
-    node => node.data.seminar.uid === "russia"
+    node => node.data.seminar.uid === 'russia',
   );
 
   const eventsMiddleEast = allEventsMiddleEast
