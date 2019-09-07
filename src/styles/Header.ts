@@ -34,7 +34,7 @@ export const SiteTitleContainer = styled.div`
 
 export const SitePayoff = styled.div`
   position: relative;
-  top: 3rem;
+  top: 1rem;
   font-family: "Roboto", "sans-serif";
   color: ${COLOR.WHITE};
   width: 100%;
