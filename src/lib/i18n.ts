@@ -139,6 +139,10 @@ const translations = {
   THANK_YOU_TEXT: {
     "nl-nl": "",
   },
+  HOME: {
+    "nl-nl": "Home",
+    "en-gb": "Home",
+  },
 };
 
 export const translate = (string, language) => {
