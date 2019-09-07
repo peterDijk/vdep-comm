@@ -96,6 +96,15 @@ export const Expertise = styled.div`
     font-weight: bold;
     margin: 0 0 3rem 0;
   }
+
+  h4 {
+    text-align: center;
+    color: ${COLOR.VDEP_SECONDARY_BLUE};
+    font-family: "Roboto", "sans-serif";
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 0 0 3rem 0;
+  }
   p {
     text-align: justify;
     color: ${COLOR.RICHBLACK};
