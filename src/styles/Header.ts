@@ -3,6 +3,7 @@ import { COLOR } from "./constants";
 
 export const Header = styled.div`
   height: 60vh;
+  position: relative;
 `;
 
 type HeroProps = {
@@ -28,6 +29,7 @@ export const SiteTitleContainer = styled.div`
   align-items: center;
   font-family: "Roboto Slab", "sans-serif";
   color: ${COLOR.WHITE};
+  width: 80%;
 `;
 
 export const SitePayoff = styled.div`
