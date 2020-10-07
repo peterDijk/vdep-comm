@@ -46,11 +46,13 @@ const IndexPage = ({ data }) => {
             lang={language}
           />
         </React.Fragment>
-        <UpcomingEvents
-          events={upcomingPerSeminar}
-          language={language}
-          page={PageType.LANDING}
-        />
+        {upcomingPerSeminar[0] && (
+          <UpcomingEvents
+            events={upcomingPerSeminar}
+            language={language}
+            page={PageType.LANDING}
+          />
+        )}
       </AboveTheFold>
       <Story story={data.story} language={language} />
       <AboveTheFold>
