@@ -42,7 +42,7 @@
     "react-outside-click-handler": "^1.2.3",
     "react-recaptcha-v3": "^1.1.0",
     "request": "^2.88.0",
-    "sharp": "^0.22.0",
+    "sharp": "^0.30.5",
     "typescript": "^3.5.1",
     "webfontloader": "^1.6.28"
   },
